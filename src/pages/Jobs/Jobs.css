@@ -1,0 +1,40 @@
+.jobs{
+    width: 90%;
+    max-width: 1240px;
+    margin: 2em auto;
+    display: flex;
+    gap: 0 1em;
+    animation: appear 300ms ease-in-out;
+}
+
+.job-categories-container{
+    flex: 1.5;
+}
+.jobs-container{
+    flex: 3;
+}
+
+@media (max-width: 840px) {
+    .jobs{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+    .job-bottom{
+        flex-direction: column-reverse;
+        gap: 0.5em 0;
+    }
+    .job-details{
+        font-size: 0.8rem;
+    }
+    .event-title{
+        font-size: 0.95rem;
+    }
+    .job{
+        font-size: 0.9rem;
+    }
+    .jobs{
+        width: 95%;
+    }
+}

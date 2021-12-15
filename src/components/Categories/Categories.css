@@ -1,0 +1,26 @@
+.categories{
+    
+}
+.categories a{
+    text-decoration: none;
+    color: #000;
+}
+.categories img{
+    width: 100%;
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+    background: #eee;
+    margin: 1em auto;
+    padding: 0.8em;
+}
+.category-active{
+    border-left: 6px solid #3db166;
+}
+
+@media (max-width: 600px) {
+    .category{
+        font-size: 0.9rem;
+    }
+}

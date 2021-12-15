@@ -1,0 +1,5 @@
+.event-details{
+    border: 2px solid red;
+    min-height: 70vh;
+    animation: appear 300ms ease-in-out;
+}

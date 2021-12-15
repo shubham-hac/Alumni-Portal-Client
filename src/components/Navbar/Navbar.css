@@ -1,0 +1,105 @@
+.navbar{
+    width: 100%;
+    height: 8vh;
+    box-shadow: 0 4px 2px -2px rgba(0,0,0,.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1em;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background: #fff;
+}
+.navbar a{
+    text-decoration: none;
+    color: #192f59;
+}
+.navbar a:hover{
+    color: #3db166;
+}
+.navbarLeft,.navbarRight,.navbarCenter{
+    /* border: 2px solid red; */
+}
+.navbarLeft{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.hamburgurBtn{
+    margin-right: 1em;
+    display: none;
+    transition: background 200ms ease;
+}
+.hamburgurBtn:hover{
+    background: #eee;
+}
+.navbarCenter{
+    flex: 2;
+    margin: 0 0.6em;
+}
+.navbar-links{
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    max-width: 350px;
+    /* border: 2px solid red; */
+    margin-left: auto;
+}
+.navbar-link{
+    margin-right: 2em;
+}
+.active{
+    color: #3db166 !important;
+    border-bottom: 4px solid #3db166;
+    padding-bottom: 0.4em;
+    font-weight: 700;
+    pointer-events: none;
+}
+.navbarRight{
+    flex: 0.1;
+}
+.navbar-profile-img{
+    width: 45px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+
+@media (max-width: 600px) {
+    .navbar-links{
+        display: none;
+    }
+    .hamburgurBtn{
+        display: flex;
+    }
+    #hidden{
+        position: absolute;
+        top: 8vh;
+        left: 0;
+        background: #fff;
+        display: flex;
+        width: 100%;
+        max-width: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        animation: slide-down 150ms ease-in-out;
+        /* box-shadow: 0 4px 2px -2px rgba(0,0,0,.2); */
+        border-bottom: 2px solid #cdcdcd;
+        border-top: 1px solid #ddd;
+        z-index: 998;
+    }
+    .navbar-link{
+        margin: 0.4em 0;
+    }
+    .active{
+        padding-bottom: 0;
+    }
+}
+
+@keyframes slide-down {
+    0% {transform: translateY(-100%); opacity: 0;}
+    100% {transform: translate(0); opacity: 1;}
+}
