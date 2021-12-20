@@ -1,7 +1,7 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import './Navbar.css';
 import MenuIcon from '@mui/icons-material/Menu';
-import {Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
@@ -10,7 +10,8 @@ const Navbar = () => {
         <div className='navbar'>
             <div className="navbarLeft">
                 <button className='btn hamburgurBtn' onClick={() => setShowLinks(!showLinks)} >
-                    <MenuIcon sx={{ fontSize: 30 }} className='hamburgerIcon' /></button>
+                    <MenuIcon sx={{ fontSize: 30 }} className='hamburgerIcon' />
+                </button>
                 <h2 className="logo">
                     SJCEM
                 </h2>

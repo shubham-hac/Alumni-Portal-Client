@@ -2,6 +2,8 @@ import React from 'react'
 import './Event.css';
 import { Link } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 const Event = ({ title, desc, eventImg, postDate, scheduleDate }) => {
     return (
         <div className="event">
@@ -30,6 +32,10 @@ const Event = ({ title, desc, eventImg, postDate, scheduleDate }) => {
                     <span className='event-date'>
                         <EventIcon className='icon' />
                         <span>{scheduleDate}</span>
+                    </span>
+                    <span className="event-location">
+                        <LocationOnIcon className='icon' />
+                        <span>Indian Institute of Technology Indore, Khandwa Road, Simrol.-453552. , Indore</span>
                     </span>
                     {/* <button className='btn register-btn'>Register</button> */}
                 </div>

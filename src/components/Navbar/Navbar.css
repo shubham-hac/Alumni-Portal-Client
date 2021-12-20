@@ -31,6 +31,7 @@
     margin-right: 1em;
     display: none;
     transition: background 200ms ease;
+    padding: 0.3em;
 }
 .hamburgurBtn:hover{
     background: #eee;
@@ -55,7 +56,6 @@
     border-bottom: 4px solid #3db166;
     padding-bottom: 0.4em;
     font-weight: 700;
-    pointer-events: none;
 }
 .navbarRight{
     flex: 0.1;

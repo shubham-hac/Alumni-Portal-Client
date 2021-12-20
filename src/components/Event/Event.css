@@ -54,6 +54,8 @@
     display: block;
     width: 100%;
     object-fit: contain;
+    max-height: 35vh;
+    background: #eee;
     /* border: 2px  solid red; */
 }
 .event-info{
@@ -67,7 +69,7 @@
     font-weight: 600;
     font-size: 1.05rem;
     margin-bottom: 0.5em;
-    color: #0059ff !important;
+    color: var(--primary-clr) !important;
 }
 .event-title:hover{
     text-decoration: underline 1.5px;
@@ -80,7 +82,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
-.event-date{
+.event-date,.event-location{
     display: flex;
     align-items: center;
     margin-top: 0.8em;

@@ -1,0 +1,48 @@
+.alumni-directory{
+    width: 90%;
+    max-width: 1240px;
+    margin: 2em auto;
+    display: flex;
+    gap: 0 1em;
+    animation: appear 300ms ease-in-out;
+    /* border: 2px solid red; */
+}
+.alumni-categories {
+    flex: 1.5;
+}
+.alumni-list{
+    flex: 3;
+    /* border: 2px solid black; */
+    margin: 1em auto;
+}
+.member-count{
+    background-color: #192f59;
+    color: #fff;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.alumni-profiles{
+    /* border: 2px solid black; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    align-items: center;
+}
+
+@media (max-width: 675px) {
+    .alumni-directory{
+        flex-direction: column;
+    }
+    /* .alumni-profiles{
+        flex-direction: column;
+    } */
+}
+
+@media (max-width: 370px) {
+    .alumni-profiles{
+        flex-direction: column;
+        width: 90%;
+        margin: 1em auto;
+    }
+}

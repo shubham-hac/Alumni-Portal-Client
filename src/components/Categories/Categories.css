@@ -1,5 +1,5 @@
 .categories{
-    
+    list-style: none;
 }
 .categories a{
     text-decoration: none;
@@ -11,12 +11,13 @@
 .category{
     display: flex;
     justify-content: space-between;
-    background: #eee;
+    background: #dedede;
     margin: 1em auto;
     padding: 0.8em;
 }
 .category-active{
     border-left: 6px solid #3db166;
+    color: var(--primary-blue);
 }
 
 @media (max-width: 600px) {

@@ -22,14 +22,13 @@
 
 @media (max-width: 600px) {
     .job-bottom{
-        flex-direction: column-reverse;
         gap: 0.5em 0;
     }
     .job-details{
         font-size: 0.8rem;
     }
     .event-title{
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     .job{
         font-size: 0.9rem;

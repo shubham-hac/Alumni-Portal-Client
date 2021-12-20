@@ -10,6 +10,7 @@ import Profile from './pages/Profile/Profile';
 import Events from './pages/Events/Events';
 import EventDetails from './pages/EventDetails/EventDetails';
 import Jobs from './pages/Jobs/Jobs';
+import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/events" element={<Events />} />
             <Route path="/eventdetails" element={<EventDetails />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="/alumnis" element={<AlumniDirectory />} />
         </Routes>
       </div>
     </Router>
