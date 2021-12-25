@@ -29,6 +29,9 @@
     gap: 1em;
     align-items: center;
 }
+@media (max-width:810px) {
+    
+}
 
 @media (max-width: 675px) {
     .alumni-directory{

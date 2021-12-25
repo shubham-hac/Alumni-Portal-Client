@@ -21,18 +21,6 @@
 }
 
 @media (max-width: 600px) {
-    .job-bottom{
-        gap: 0.5em 0;
-    }
-    .job-details{
-        font-size: 0.8rem;
-    }
-    .event-title{
-        font-size: 0.9rem;
-    }
-    .job{
-        font-size: 0.9rem;
-    }
     .jobs{
         width: 95%;
     }

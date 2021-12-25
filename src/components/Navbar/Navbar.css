@@ -57,6 +57,12 @@
     padding-bottom: 0.4em;
     font-weight: 700;
 }
+.pactive{
+    border: 2px solid var(--primary-green);
+    padding: 0;
+    border-radius: 50%;
+    background: red;
+}
 .navbarRight{
     flex: 0.1;
 }

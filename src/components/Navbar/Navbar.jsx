@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Navbar.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
+import { Tooltip } from '@mui/material';
 
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
@@ -47,7 +48,9 @@ const Navbar = () => {
             </div>
             <div className="navbarRight">
                 <Link to='/profile'>
+                    <Tooltip title="My Profile">
                     <img src="assets/images/no-avatar.png" alt="" className='navbar-profile-img' />
+                    </Tooltip>
                 </Link>
             </div>
         </div>

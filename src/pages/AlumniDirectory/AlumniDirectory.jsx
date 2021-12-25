@@ -29,9 +29,17 @@ const AlumniDirectory = () => {
                             <span>(18)</span>
                         </li>
                     </Link>
+                </ul>
+                <h3>Filter</h3>
+                <ul>
                     <li>
                         <select name="" id="">
                             <option value="">Select Course</option>
+                        </select>
+                    </li>
+                    <li>
+                        <select name="" id="">
+                            <option value="">Select Batch</option>
                         </select>
                     </li>
                 </ul>
@@ -41,7 +49,7 @@ const AlumniDirectory = () => {
                     <span>1728 Members in Community</span>
                 </div>
                 <div className="alumni-profiles">
-                    {Users.filter( (user) => {
+                    {Users.filter((user) => {
                         return user.alumni;
                     }).map(alumni => (
                         <AlumniProfileCard

@@ -4,21 +4,24 @@
     --primary-blue: #192f59;
     --primary-green: #3db166;
     --primary-grey: #F5F5F5;
-
     --primary-btn-bg: #2b4d8a;
     --primary-btn-bg-hover: #192f59;
     --secondary-btn-bg: #8d8d8d;
     --secondary-btn-bg-hover: #5c5c5c;
+    --green-btn-bg: #3db166;
+    --green-btn-bg-hover: #268146;
+
 }
 .App {
     background: var(--primary-grey);
+    width: 100%;
 }
 button{
     cursor: pointer;
-}
-.btn{
     background: 0;
     border: 0;
+}
+.btn{
     cursor: pointer;
     transition: transform 50ms ease-in-out, background 200ms ease-in-out;
     font-size: 0.8em;
@@ -54,8 +57,21 @@ button{
 .btn-secondary:hover {
     background: var(--secondary-btn-bg-hover);
 }
+
+.btn-green{
+    background: var(--green-btn-bg);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-green:hover {
+    background: var(--green-btn-bg-hover);
+}
+
+
 .icon{
     margin-right: 0.3em;
+    /* width: 10px !important; */
+    font-size: 20px !important;
 }
 .pipe{
     margin: 0 0.3em;
