@@ -4,10 +4,13 @@
     --primary-blue: #192f59;
     --primary-green: #3db166;
     --primary-grey: #F5F5F5;
+    --primary-red: #dc3545;
     --primary-btn-bg: #2b4d8a;
     --primary-btn-bg-hover: #192f59;
     --secondary-btn-bg: #8d8d8d;
     --secondary-btn-bg-hover: #5c5c5c;
+    --danger-btn-bg:#d9534f;
+    --danger-btn-bg-hover:#c9302c;
     --green-btn-bg: #3db166;
     --green-btn-bg-hover: #268146;
 
@@ -57,7 +60,14 @@ button{
 .btn-secondary:hover {
     background: var(--secondary-btn-bg-hover);
 }
-
+.btn-danger{
+    background: var(--danger-btn-bg);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-danger:hover {
+    background: var(--danger-btn-bg-hover);
+}
 .btn-green{
     background: var(--green-btn-bg);
     color: #fff;

@@ -158,4 +158,86 @@ export const Users = [
         profilePicture: 'person8.jpg',
         alumni: false,
     },
+    {
+        id: 7,
+        name: 'Nitesh Kumar',
+        desc: 'I am mod,fear me.',
+        profilePicture: 'no-avatar.png',
+        admin: true,
+        alumni: false
+    },
+    {
+        id: 8,
+        name: 'Anil Kumar',
+        desc: 'I am mod,fear me.',
+        profilePicture: 'no-avatar.png',
+        admin: true,
+        alumni: false
+    }
+]
+
+export const ModerationActions=[
+    {
+        id:1,
+        type:'addUser',
+        desc:'Added User'
+    },
+    {
+        id:2,
+        type:'editUser',
+        desc:'Edited User Profile'
+    },
+    {
+        id:3,
+        type:'delUser',
+        desc:'Deleted User'
+    },
+    {
+        id:4,
+        type:'approveApplication',
+        desc:'Approved Application'
+    },
+    {
+        id:5,
+        type:'rejectApplication',
+        desc:'Rejected Application'
+    }
+    //TODO: ADD OTHER ACTIONS[DEL POST/COMMENT;MAKE PRIORITY ANNOUNCEMENT,ETC.] and ADD SPECIAL ICONS FOR ACTIONS
+]
+export const ModerationHistory=[
+    {
+        id:1,
+        action_type:ModerationActions[2].type,
+        admin_name:Users[6].name,
+        action_desc:ModerationActions[2].desc,
+        action_timestamp:'1 wk(s) ago',
+    },
+    {
+        id:2,
+        action_type:ModerationActions[4].type,
+        admin_name:Users[7].name,
+        action_desc:ModerationActions[4].desc,
+        action_timestamp:'2 mnth(s) ago',
+    },
+    {
+        id:3,
+        action_type:ModerationActions[0].type,
+        admin_name:Users[6].name,
+        action_desc:ModerationActions[0].desc,
+        action_timestamp:'2 yr(s) ago',
+    },
+    {
+        id:4,
+        action_type:ModerationActions[3].type,
+        admin_name:Users[7].name,
+        action_desc:ModerationActions[3].desc,
+        action_timestamp:'2 yr(s) ago',
+    },
+    {
+        id:5,
+        action_type:ModerationActions[1].type,
+        admin_name:Users[6].name,
+        action_desc:ModerationActions[1].desc,
+        action_timestamp:'2 yr(s) ago',
+    }
 ]

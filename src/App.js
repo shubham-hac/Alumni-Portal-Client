@@ -11,6 +11,7 @@ import Events from './pages/Events/Events';
 import EventDetails from './pages/EventDetails/EventDetails';
 import Jobs from './pages/Jobs/Jobs';
 import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
+import AdminDash from './pages/AdminDash/AdminDash';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <Route path="/eventdetails" element={<EventDetails />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/alumnis" element={<AlumniDirectory />} />
+            <Route path="/admin-dash" element={<AdminDash />}  />
         </Routes>
       </div>
     </Router>
