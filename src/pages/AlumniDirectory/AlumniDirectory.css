@@ -22,12 +22,9 @@
     margin-bottom: 1em;
 }
 .alumni-profiles{
-    /* border: 2px solid black; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
-    align-items: center;
 }
 @media (max-width:810px) {
     
@@ -37,15 +34,13 @@
     .alumni-directory{
         flex-direction: column;
     }
-    /* .alumni-profiles{
-        flex-direction: column;
-    } */
+    .alumni-profiles{
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 @media (max-width: 370px) {
     .alumni-profiles{
-        flex-direction: column;
-        width: 90%;
-        margin: 1em auto;
+        grid-template-columns: 1fr 1fr;
     }
 }

@@ -11,6 +11,7 @@ import Events from './pages/Events/Events';
 import EventDetails from './pages/EventDetails/EventDetails';
 import Jobs from './pages/Jobs/Jobs';
 import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
+import JobDetails from './pages/JobDetails/JobDetails';
 import AdminDash from './pages/AdminDash/AdminDash';
 
 function App() {
@@ -22,10 +23,11 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/events" element={<Events />} />
-            <Route path="/eventdetails" element={<EventDetails />} />
+            <Route path="/events/:eventId" element={<EventDetails />} />
             <Route path="/jobs" element={<Jobs />} />
+            <Route path="jobs/:jobId" element={<JobDetails />} />
             <Route path="/alumnis" element={<AlumniDirectory />} />
-            <Route path="/admin-dash" element={<AdminDash />}  />
+	          <Route path="/admin-dash" element={<AdminDash />}  />
         </Routes>
       </div>
     </Router>

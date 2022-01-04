@@ -14,10 +14,10 @@ const Jobs = () => {
                 {jobs.map(job => (
                     <Job 
                     key={job.id}
+                    id={job.id}
                     jobProfile={job.jobProfile} 
                     company={job.company} 
                     userId={job.userId}
-                    profilePicture={job.profilePicture}
                     location={job.location}
                     deadline={job.deadline}
                     salary={job.salary}

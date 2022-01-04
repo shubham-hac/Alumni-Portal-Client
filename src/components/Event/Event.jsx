@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-const Event = ({ title, desc, eventImg, postDate, scheduleDate }) => {
+const Event = ({ id, title, desc, eventImg, postDate, scheduleDate }) => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <div className="event">
             <div className="event-top">
@@ -19,11 +20,11 @@ const Event = ({ title, desc, eventImg, postDate, scheduleDate }) => {
             <div className="event-bottom">
                 {eventImg
                     ? <div className="event-image-container">
-                        <img src={`assets/images/posts/${eventImg}`} alt="" className="event-image" />
+                        <img src={`${PF}images/posts/${eventImg}`} alt="" className="event-image" />
                     </div>
                     : ''}
                 <div className="event-info">
-                    <Link to='/eventdetails' className="event-title">
+                    <Link to={`/events/${id}`} className="event-title">
                         {title}
                     </Link>
                     <p className='event-description'>

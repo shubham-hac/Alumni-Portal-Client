@@ -1,7 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Job.css';
+import {Link} from 'react-router-dom';
+import { Users } from '../../dummyData';
 
-const Job = ({jobProfile, company,userId, profilePicture, location, deadline, salary, linkClicks}) => {
+const Job = ({id,jobProfile, company,userId, location, deadline, salary, linkClicks}) => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [user, setUser] = useState(Users[userId]);
+
     return (
         <div className="job">
             <div className="job-top">
@@ -36,13 +41,15 @@ const Job = ({jobProfile, company,userId, profilePicture, location, deadline, sa
             </div>
             <div className="job-bottom">
                 <div className="job-bottom-left">
-                    <img src={`assets/images/people/${profilePicture}`} alt="" className='job-profile-image' />
-                    <span>{userId}</span>
+                    <img src={`${PF}images/people/${user.profilePicture}`} alt="" className='job-profile-image' />
+                    <span>{Users[userId].name}</span>
                 </div>
                 <div className="job-bottom-right">
-                    <button className="btn btn-primary">
-                        View
-                    </button>
+                    <Link to={`/jobs/${id}`}>
+                        <button className="btn btn-primary">
+                            View
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div>

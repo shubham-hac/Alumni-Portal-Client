@@ -87,8 +87,7 @@ export const jobs = [
         deadline: 'July 21, 2022',
         salary: '12 LPA',
         linkClicks: 28,
-        userId: 'Jeet Patil',
-        profilePicture: 'person3.jpg'
+        userId: 1,
     },
     {
         id: 2,
@@ -98,8 +97,7 @@ export const jobs = [
         deadline: 'Apr 13, 2022',
         salary: '7 LPA',
         linkClicks: 76,
-        userId: 'Yash Patil',
-        profilePicture: 'person5.jpg'
+        userId: 2,
     },
     {
         id: 3,
@@ -109,8 +107,7 @@ export const jobs = [
         deadline: 'Mar 8, 2022',
         salary: '15 LPA',
         linkClicks: 41,
-        userId: 'Dishant Tare',
-        profilePicture: 'person1.jpg'
+        userId: 3,
     },
     
 ]

@@ -14,6 +14,7 @@ const Events = () => {
                 {events.map(event => (
                     <Event
                         key={event.id}
+                        id={event.id}
                         title={event.title}
                         desc={event.desc}
                         eventImg={event.eventImg}

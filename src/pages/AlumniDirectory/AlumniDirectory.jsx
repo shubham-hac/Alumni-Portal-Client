@@ -1,6 +1,5 @@
 import React from 'react'
 import AlumniProfileCard from '../../components/AlumniProfileCard/AlumniProfileCard';
-// import Categories from '../../components/Categories/Categories';
 import './AlumniDirectory.css';
 import { Users } from '../../dummyData';
 import { Link } from 'react-router-dom';
@@ -30,7 +29,7 @@ const AlumniDirectory = () => {
                         </li>
                     </Link>
                 </ul>
-                <h3>Filter</h3>
+                <h3>Search</h3>
                 <ul>
                     <li>
                         <select name="" id="">
@@ -43,6 +42,7 @@ const AlumniDirectory = () => {
                         </select>
                     </li>
                 </ul>
+                <button className='btn btn-secondary'>Search</button>
             </div>
             <div className="alumni-list">
                 <div className="member-count">

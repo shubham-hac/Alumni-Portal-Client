@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './EventDetails.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -7,8 +7,14 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EventIcon from '@mui/icons-material/Event';
 import PersonIcon from '@mui/icons-material/Person';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { events } from '../../dummyData';
+import { useParams } from 'react-router';
 
 const EventDetails = () => {
+    const {eventId} = useParams();
+    const [event, setEvent] = useState(events[eventId-1]);
+    console.log(event);
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     return (
         <div className="event-details">
             <div className="event-detail-top">
@@ -36,7 +42,7 @@ const EventDetails = () => {
             <div className="event-detail-bottom">
                 <div className="event-detail-bottom-left">
                     <div className="event-detail-image-container">
-                        <img src="assets/images/events/event1.jpg" alt="" className='event-detail-image' />
+                        <img src={`${PF}images/posts/${event.eventImg}`} alt="" className='event-detail-image' />
                     </div>
                     <div className="event-detail-text-container">
                         <div className="scheduled-date">
