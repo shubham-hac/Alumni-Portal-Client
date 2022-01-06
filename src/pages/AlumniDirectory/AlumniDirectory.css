@@ -10,6 +10,37 @@
 .alumni-categories {
     flex: 1.5;
 }
+.search-alumnis {
+    display: flex;
+    align-items: center;
+    gap:  1em;
+    flex-direction: column;
+    margin-top: 2em;
+}
+.search-heading{
+    align-self: flex-start;
+}
+.search-options{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+.search-option{
+    padding: 0.5em 1em;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.search-option option{
+    padding:3em;
+    height: 8vh;
+    display: block;
+}
+/* .search-option :{
+    outline: none;
+} */
 .alumni-list{
     flex: 3;
     /* border: 2px solid black; */
@@ -22,10 +53,13 @@
     margin-bottom: 1em;
 }
 .alumni-profiles{
-    display: grid;
+    display: grid !important; 
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
+    
 }
+
+
 @media (max-width:810px) {
     
 }
