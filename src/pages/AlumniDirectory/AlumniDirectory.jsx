@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AlumniProfileCard from '../../components/AlumniProfileCard/AlumniProfileCard';
 import './AlumniDirectory.css';
 import { Users } from '../../dummyData';
 import { Link } from 'react-router-dom';
+import { courses } from '../../dummyData';
 
 const AlumniDirectory = () => {
+    const [selectedCourse, setSelectedCourse] = useState(courses[0].courseId);
+    const [branches, setBranches] = useState(courses[0].branches);
+
+    const updateCourse =  (e) => {
+        setSelectedCourse(courses[e.target.value-1]);
+        setBranches(courses[e.target.value-1].branches);
+        // console.log(selectedCourse);
+    }
+    const checkCourse = (e) => {
+        e.preventDefault();
+        console.log(selectedCourse);
+    }
     return (
         <div className='alumni-directory'>
             <div className="alumni-categories">
@@ -29,19 +42,24 @@ const AlumniDirectory = () => {
                         </li>
                     </Link>
                 </ul>
-                <form action="" className='filter-alumnis'>
+                <form action="" className='filter-alumnis' onSubmit={checkCourse}>
                     <h3 className='filter-heading'>Filter</h3>
                     <div className='filter-options'>
-                        <select className="filter-option">
-                            <option value="">Select Course</option>
-                            <option value="">B.Tech</option>
+
+                        <select className="filter-option" value={selectedCourse.courseId} onChange={updateCourse} >
+                            {/* <option value="">Select Course</option> */}
+                            {courses.map(course => (
+                                <option key={course.courseId} value={course.courseId}>{course.courseName}</option>
+                            ))}
                         </select>
+
                         <select className="filter-option">
-                            <option value="">Select Batch</option>
-                            <option value="">2019</option>
+                            {branches.map(branch => (
+                                <option key={branch} value={branch}>{branch}</option>
+                            ))}
                         </select>
                     </div>
-                    <button className='btn btn-secondary' type='submit'>filter</button>
+                    <button className='btn btn-secondary' type='submit'>Filter</button>
                 </form>
 
             </div>

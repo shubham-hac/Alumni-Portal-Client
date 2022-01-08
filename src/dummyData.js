@@ -238,3 +238,27 @@ export const ModerationHistory=[
         action_timestamp:'2 yr(s) ago',
     }
 ]
+
+export const courses = [
+    {
+        courseId: 1,
+        courseName: "B.E",
+        startDate: 2008,
+        totalStudents: 4000,
+        branches: ["Computer", "Mechanical", "IT", "EXTC"]
+    },
+    {
+        courseId: 2,
+        courseName: "BBA",
+        startDate: 2013,
+        totalStudents: 2000,
+        branches: ["a", "b"]
+    },
+    {
+        courseId: 3,
+        courseName: "Hotel Management",
+        startDate: 2017,
+        totalStudents: 1000,
+        branches: ["c", "d"]
+    },
+]
