@@ -10,7 +10,9 @@ const Event = ({ id, title, desc, eventImg, postDate, scheduleDate }) => {
         <div className="event">
             <div className="event-top">
                 <div className="event-top-left">
-                    <img src="assets/images/no-avatar.png" alt="" className='event-profile-image' />
+                    <Link to='/profile/xyz'>
+                        <img src="assets/images/no-avatar.png" alt="" className='event-profile-image' />
+                    </Link>
                     <span className='event-username'>Yash Patil <span className='user-type'>| Alumni</span></span>
                 </div>
                 <div className="event-top-right">

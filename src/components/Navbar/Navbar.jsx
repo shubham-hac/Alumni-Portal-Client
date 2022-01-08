@@ -6,9 +6,16 @@ import { Tooltip } from '@mui/material';
 
 const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
+    const [navActive, setNavActive] = useState(false);
+    window.onscroll = () => {
+        if(window.scrollY > 120)
+            setNavActive(true);
+        else
+            setNavActive(false);
+    }
 
     return (
-        <div className='navbar'>
+        <div className={`navbar ${navActive ? 'navbar-active' : ''}`}>
             <div className="navbarLeft">
                 <button className='btn hamburgurBtn' onClick={() => setShowLinks(!showLinks)} >
                     <MenuIcon sx={{ fontSize: 30 }} className='hamburgerIcon' />
@@ -20,34 +27,34 @@ const Navbar = () => {
             <div className="navbarCenter" >
                 <ul className="navbar-links" id={showLinks ? '' : 'hidden'}>
                     <li className='navbar-link'>
-                        <NavLink to='/' activeclassname='active'>
+                        <NavLink to='/' activeclassname='active' onClick={() => setShowLinks(!showLinks)} >
                             Home
                         </NavLink>
                     </li>
                     <li className='navbar-link'>
-                        <NavLink to='/events' activeclassname='active'>
+                        <NavLink to='/events' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Events
                         </NavLink>
                     </li>
                     <li className='navbar-link'>
-                        <NavLink to='/stories' activeclassname='active'>
+                        <NavLink to='/stories' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Stories
                         </NavLink>
                     </li>
                     <li className='navbar-link'>
-                        <NavLink to='/jobs' activeclassname='active'>
+                        <NavLink to='/jobs' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Jobs
                         </NavLink>
                     </li>
                     <li className='navbar-link'>
-                        <NavLink to='/alumnis' activeclassname='active'>
+                        <NavLink to='/alumnis' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Alumnis
                         </NavLink>
                     </li>
                 </ul>
             </div>
             <div className="navbarRight">
-                <Link to='/profile'>
+                <Link to='/profile/xyz' onClick={() => setShowLinks(!showLinks)}>
                     <Tooltip title="My Profile">
                     <img src="assets/images/no-avatar.png" alt="" className='navbar-profile-img' />
                     </Tooltip>

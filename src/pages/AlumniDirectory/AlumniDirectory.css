@@ -10,35 +10,38 @@
 .alumni-categories {
     flex: 1.5;
 }
-.search-alumnis {
+.alumni-directory .category{
+    /* border-radius: 5px; */
+}
+.filter-alumnis {
     display: flex;
     align-items: center;
     gap:  1em;
     flex-direction: column;
     margin-top: 2em;
 }
-.search-heading{
+.filter-heading{
     align-self: flex-start;
 }
-.search-options{
+.filter-options{
     display: flex;
     flex-direction: column;
     gap: 1em;
     width: 100%;
 }
-.search-option{
+.filter-option{
     padding: 0.5em 1em;
     border: 1px solid #bbb;
     font-size: 1rem;
     border-radius: 5px;
 }
 
-.search-option option{
+.filter-option option{
     padding:3em;
     height: 8vh;
     display: block;
 }
-/* .search-option :{
+/* .filter-option :{
     outline: none;
 } */
 .alumni-list{

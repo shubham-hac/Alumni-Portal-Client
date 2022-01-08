@@ -5,6 +5,8 @@
     --primary-green: #3db166;
     --primary-grey: #F5F5F5;
     --primary-red: #dc3545;
+
+    --primary-blue-light: #337fc7;
     
     --primary-btn-bg: #2b4d8a;
     --primary-btn-bg-hover: #192f59;
@@ -17,7 +19,7 @@
 
 }
 .App {
-    background: var(--primary-grey);
+    /* background: var(--primary-grey); */
     width: 100%;
 }
 button{

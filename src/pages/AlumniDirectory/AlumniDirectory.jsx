@@ -29,19 +29,19 @@ const AlumniDirectory = () => {
                         </li>
                     </Link>
                 </ul>
-                <form action="" className='search-alumnis'>
-                    <h3 className='search-heading'> Search</h3>
-                    <div className='search-options'>
-                        <select className="search-option">
+                <form action="" className='filter-alumnis'>
+                    <h3 className='filter-heading'>Filter</h3>
+                    <div className='filter-options'>
+                        <select className="filter-option">
                             <option value="">Select Course</option>
                             <option value="">B.Tech</option>
                         </select>
-                        <select className="search-option">
+                        <select className="filter-option">
                             <option value="">Select Batch</option>
                             <option value="">2019</option>
                         </select>
                     </div>
-                    <button className='btn btn-secondary' type='submit'>Search</button>
+                    <button className='btn btn-secondary' type='submit'>filter</button>
                 </form>
 
             </div>
