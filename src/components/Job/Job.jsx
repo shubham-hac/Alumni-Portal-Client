@@ -46,7 +46,7 @@ const Job = ({id,jobProfile, company,userId, location, deadline, salary, linkCli
                 </div>
                 <div className="job-bottom-right">
                     <Link to={`/jobs/${id}`}>
-                        <button className="btn btn-primary">
+                        <button className="btn btn-primary-light">
                             View
                         </button>
                     </Link>

@@ -5,6 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { Tooltip } from '@mui/material';
 
 const Navbar = () => {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
     window.onscroll = () => {
@@ -25,7 +26,7 @@ const Navbar = () => {
                 </h2>
             </div>
             <div className="navbarCenter" >
-                <ul className="navbar-links" id={showLinks ? '' : 'hidden'}>
+                <ul className="navbar-links" id={showLinks ? 'hidden' : ''}>
                     <li className='navbar-link'>
                         <NavLink to='/' activeclassname='active' onClick={() => setShowLinks(!showLinks)} >
                             Home
@@ -54,9 +55,9 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbarRight">
-                <Link to='/profile/xyz' onClick={() => setShowLinks(!showLinks)}>
+                <Link to='/profile/xyz' onClick={() => setShowLinks(false)}>
                     <Tooltip title="My Profile">
-                    <img src="assets/images/no-avatar.png" alt="" className='navbar-profile-img' />
+                    <img src={`${PF}images/people/person2.jpg`} alt="" className='navbar-profile-img' />
                     </Tooltip>
                 </Link>
             </div>

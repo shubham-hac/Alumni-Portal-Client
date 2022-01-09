@@ -3,13 +3,16 @@
     /* border: 2px solid red; */
     /* flex: 0 1 16em; */
     position: relative;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
+    border: 1px solid #bfc7cc;
+    border-radius: 5px;
     font-size: 1rem;
     background: #fff;
 }
    
 .alumni-profile-image{
     margin-bottom: 0.5em;
+    aspect-ratio: 1.5;
 }
 .alumni-profile-image img{
     width: 100%;
@@ -35,11 +38,11 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
     padding:0.3em;
-    border: 2px solid var(--primary-bg);
+    border: 2px solid var(--primary-green) !important;
     aspect-ratio: 1;
     transform: translateY(-80%);
-    background: var(--primary-green);
-    color: #fff;
+    background: var(--primary-green-100) !important;
+    color: var(--primary-green) !important;
 }
 .msg-button i{
     font-size: 10px;
@@ -47,7 +50,8 @@
 .add-button{
     width: 95%;
     margin: 0.5em auto;
-    display: block;
+    /* display: block; */
+    justify-content: center;
 }
 
 @media (max-width:820px) {

@@ -8,7 +8,7 @@
 }
 .events a{
     text-decoration: none;
-    color: #000;
+    color: var(--primary-clr);
 }
 .events img{
     width: 100%;
@@ -22,6 +22,11 @@
 }
 .events-container{
     flex: 3;
+}
+.post-event{
+    height: 20vh;
+    border: 1px solid #ddd;
+    width: 100%;
 }
 
 @media (max-width: 840px) {

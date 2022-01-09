@@ -1,7 +1,7 @@
 export const events = [
     {
         id: 1,
-        userid: 1,
+        userId: 1,
         title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
         desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
         eventImg: 'post8.jpg',
@@ -12,7 +12,7 @@ export const events = [
     },
     {
         id: 2,
-        userid: 2,
+        userId: 2,
         title: 'Some national universities and organizations where IIT Indore Alumni are pursuing Masters’ or Ph.D. degrees',
         desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
         eventImg: 'post2.jpg',
@@ -23,7 +23,7 @@ export const events = [
     },
     {
         id: 3,
-        userid: 3,
+        userId: 3,
         title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
         desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
         eventImg: '',
@@ -34,7 +34,7 @@ export const events = [
     },
     {
         id: 4,
-        userid: 2,
+        userId: 2,
         title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
         desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
         eventImg: 'post3.jpg',

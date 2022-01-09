@@ -7,10 +7,14 @@ import Categories from '../../components/Categories/Categories';
 const Events = () => {
     return (
         <div className='events'>
+
             <div className="event-categories-container">
                 <Categories />
             </div>
             <div className="events-container">
+                {/* <div className="post-event">
+                    Post an Event
+                </div> */}
                 {events.map(event => (
                     <Event
                         key={event.id}
@@ -19,7 +23,8 @@ const Events = () => {
                         desc={event.desc}
                         eventImg={event.eventImg}
                         postDate={event.postDate}
-                        scheduleDate={event.scheduleDate} />
+                        scheduleDate={event.scheduleDate}
+                        userId={event.userId} />
                 ))}
             </div>
         </div>

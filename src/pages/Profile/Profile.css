@@ -5,9 +5,13 @@
     animation: appear 300ms ease-in-out;
     font-size: 1.03rem;
 }
+.profile .btn{
+    font-weight: 600;
+}
 .card-title{
     display: flex;
     align-items: center;
+    font-weight: bold;
     /* border: 2px solid red; */
 }
 .card-info{
@@ -41,6 +45,10 @@
 .profile-info-left{
     flex: 1;
 }
+
+/* .contact-info-top{
+    background: var(--primary-blue-light) ;
+} */
 .basic-info{
     background: #fff;
     display: flex;

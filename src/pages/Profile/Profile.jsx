@@ -39,13 +39,14 @@ const Profile = () => {
                                 <InfoIcon className='icon' />
                                 <span>Contact Information</span>
                             </span>
-                            <button className='btn btn-green'>
+                            <button className='btn btn-green-light'>
+                                <EditIcon className='icon' />
                                 Edit
                             </button>
                         </div>
                         <div className="contact-info-bottom">
                             <div className='card-info'>
-                                <MailIcon  className="icon" />
+                                <MailIcon className="icon" />
                                 <span className="email value">yashpatil04@gmail.com</span>
                             </div>
                             <div className='card-info'>
@@ -70,7 +71,8 @@ const Profile = () => {
                                 <InfoIcon className='icon' />
                                 <span>Other Information</span>
                             </span>
-                            <button className='btn btn-green'>
+                            <button className='btn btn-green-light'>
+                                <EditIcon className='icon' />
                                 Edit
                             </button>
                         </div>
@@ -83,7 +85,7 @@ const Profile = () => {
                                 <FemaleIcon className='icon' />
                                 <span className="gender value">Female</span>
                             </div>
-                            
+
                         </div>
                     </div>
 
@@ -96,7 +98,7 @@ const Profile = () => {
                                 <SummarizeIcon className='icon' />
                                 <span>Summary</span>
                             </span>
-                            <button className='btn btn-green'>+ Add</button>
+                            <button className='btn btn-green-light'>+ Add</button>
                         </div>
                         <div className="summary-bottom">
                             <span>+Use summary to share what you do, your achievements or the opportunities you're looking for</span>
@@ -108,7 +110,7 @@ const Profile = () => {
                                 <SchoolIcon className='icon' />
                                 <span>Education</span>
                             </span>
-                            <button className='btn btn-green'>+ Add Education</button>
+                            <button className='btn btn-green-light'>+ Add Education</button>
                         </div>
                         <div className="edu-bottom">
                             <h4>St. John college of engineering and management</h4>
@@ -123,7 +125,7 @@ const Profile = () => {
                                 <WorkIcon className='icon' />
                                 <span>Work Experience</span>
                             </span>
-                            <span><button className='btn btn-green'>+ Add Experience</button></span>
+                            <span><button className='btn btn-green-light'>+ Add Experience</button></span>
                         </div>
                         <div className="work-exp-bottom">
                             <span> +Share your work history to enhance your networking potential</span>

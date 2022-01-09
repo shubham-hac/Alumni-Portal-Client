@@ -4,6 +4,8 @@ import './AlumniDirectory.css';
 import { Users } from '../../dummyData';
 import { Link } from 'react-router-dom';
 import { courses } from '../../dummyData';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
+import PersonIcon from '@mui/icons-material/Person';
 
 const AlumniDirectory = () => {
     const [selectedCourse, setSelectedCourse] = useState(courses[0].courseId);
@@ -59,12 +61,16 @@ const AlumniDirectory = () => {
                             ))}
                         </select>
                     </div>
-                    <button className='btn btn-secondary' type='submit'>Filter</button>
+                    <button className='btn btn-secondary' type='submit'>
+                        <FilterAltIcon />
+                        Filter
+                    </button>
                 </form>
 
             </div>
             <div className="alumni-list">
                 <div className="member-count">
+                    <PersonIcon className='icon' />
                     <span>1728 Members in Community</span>
                 </div>
                 <div className="alumni-profiles">

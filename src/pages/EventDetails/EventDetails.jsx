@@ -19,7 +19,7 @@ const EventDetails = () => {
         <div className="event-details">
             <div className="event-detail-top">
                 <div className="event-detail-top-text">
-                    <h2>ALUMNI MEET 2020: MAGNUM OPUS</h2>
+                    <h2 className='event-title'>{event.title}</h2>
                     <div className="event-detail-top-values">
                         <div>
                             <EventIcon className='icon' />

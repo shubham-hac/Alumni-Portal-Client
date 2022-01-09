@@ -1,12 +1,19 @@
 :root{
     --primary-bg: #fff;
-    --primary-clr: #192f59;
+    --primary-clr: #293745;
+
     --primary-blue: #192f59;
     --primary-green: #3db166;
-    --primary-grey: #F5F5F5;
+    --primary-grey: #8f8f8f;
     --primary-red: #dc3545;
 
-    --primary-blue-light: #337fc7;
+    --primary-blue-200: #b0daff;
+    --primary-green-200: #b8ffd0;
+    --primary-grey-200: #e6e6e6;
+
+    --primary-blue-100: #d1e9ff;
+    --primary-green-100: #d2ffe1;
+    --primary-grey-100: #f0f0f0;
     
     --primary-btn-bg: #2b4d8a;
     --primary-btn-bg-hover: #192f59;
@@ -19,21 +26,34 @@
 
 }
 .App {
-    /* background: var(--primary-grey); */
+    background: var(--primary-bg);
     width: 100%;
+    color: var(--primary-clr);
+}
+h1,h2,h3,h4{
+    font-weight: bold;
 }
 button{
     cursor: pointer;
     background: 0;
     border: 0;
+    display: flex;
+    align-items: center;
+    /* border: 2px solid red; */
+}
+button > *{
+    /* border: 2px solid red; */
 }
 .btn{
     cursor: pointer;
-    transition: transform 50ms ease-in-out, background 200ms ease-in-out;
+    transition: transform 50ms ease-in-out, 
+                background 200ms ease-in-out,  
+                outline 120ms linear;
     font-size: 0.8em;
     padding: 0.4em 1em;
     font-weight: 500;
     border-radius: 4px;
+    font-family: 'Poppins', sans-serif;
 }
 .btn:active{
     transform: scale(0.97);
@@ -41,7 +61,6 @@ button{
 /* .btn-primary{
     background: #178fff !important;
     color: #fff;
-    font-family: 'Poppins', sans-serif;
 }
 .btn-primary:hover {
     background: #0066ff;
@@ -49,16 +68,20 @@ button{
 .btn-primary{
     background: var(--primary-btn-bg);
     color: #fff;
-    font-family: 'Poppins', sans-serif;
 }
 .btn-primary:hover {
     background: var(--primary-btn-bg-hover);
 }
-
+.btn-primary-light{
+    background: var(--primary-blue-200);
+    color: var(--primary-blue);
+}
+.btn-primary-light:hover{
+    outline: 1.5px solid var(--primary-blue);
+}
 .btn-secondary{
     background: var(--secondary-btn-bg);
     color: #fff;
-    font-family: 'Poppins', sans-serif;
 }
 .btn-secondary:hover {
     background: var(--secondary-btn-bg-hover);
@@ -66,7 +89,6 @@ button{
 .btn-danger{
     background: var(--danger-btn-bg);
     color: #fff;
-    font-family: 'Poppins', sans-serif;
 }
 .btn-danger:hover {
     background: var(--danger-btn-bg-hover);
@@ -74,12 +96,19 @@ button{
 .btn-green{
     background: var(--green-btn-bg);
     color: #fff;
-    font-family: 'Poppins', sans-serif;
 }
 .btn-green:hover {
     background: var(--green-btn-bg-hover);
 }
-
+.btn-green-light{
+    background: var(--primary-green-200);
+    color: var(--primary-green);
+    
+}
+.btn-green-light:hover {
+    /* filter: brightness(80%); */
+    outline: 1.5px solid var(--primary-green);
+}
 
 .icon{
     margin-right: 0.3em;
@@ -93,4 +122,9 @@ button{
 @keyframes appear {
     0% {opacity: 0; transform: translateY(-0.5%);}
     100% {opacity: 1; transform: translateY(0%);}
+}
+
+@keyframes border-expand {
+    0% {border: 0px solid var(--primary-blue);}
+    100% {border: 2px solid var(--primary-blue);}
 }

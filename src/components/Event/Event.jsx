@@ -1,19 +1,21 @@
-import React from 'react'
+import React,{useState} from 'react'
 import './Event.css';
 import { Link } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import { Users } from '../../dummyData';
 
-const Event = ({ id, title, desc, eventImg, postDate, scheduleDate }) => {
+const Event = ({ id, title, desc, eventImg, postDate, scheduleDate, userId }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [user, setUser] = useState(Users[userId]);
     return (
         <div className="event">
             <div className="event-top">
                 <div className="event-top-left">
                     <Link to='/profile/xyz'>
-                        <img src="assets/images/no-avatar.png" alt="" className='event-profile-image' />
+                        <img src={`assets/images/people/${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
-                    <span className='event-username'>Yash Patil <span className='user-type'>| Alumni</span></span>
+                    <span className='event-username'>{user.name}<span className='user-type'>| Alumni</span></span>
                 </div>
                 <div className="event-top-right">
                     <span className="post-date">{postDate}</span>

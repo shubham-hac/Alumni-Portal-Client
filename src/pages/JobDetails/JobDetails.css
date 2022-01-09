@@ -8,7 +8,7 @@
 .job-detail-top{
     height: 25vh;
     width: 100%;
-    background: var(--primary-green);
+    background: var(--primary-green-200);
 }
 .job-detail-bottom{
     width:90%;
