@@ -44,6 +44,49 @@ export const events = [
         upcoming: false,
     },
 ]
+export const stories = [
+    {
+        id: 1,
+        userId: 1,
+        title: 'Friends for Life: 2 Stories of True Friendship from IITI Campus!',
+        desc: 'Friendship Day Special: View all featured Friendship Stories from Alumni over the years. Wishing you all a Very Happy Friendships Day!',
+        storyImg: 'post8.jpg',
+        likes: 5,
+        postDate: '1 hour ago',
+        
+    },
+    {
+        id: 2,
+        userId: 2,
+        title: 'Some national universities and organizations where IIT Indore Alumni are pursuing Masters’ or Ph.D. degrees',
+        desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
+        storyImg: 'post2.jpg',
+        likes: 5,
+        postDate: '5 hours ago',
+        
+    },
+    {
+        id: 3,
+        userId: 3,
+        title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
+        desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
+        storyImg: '',
+        likes: 5,
+        postDate: '6 days ago',
+       
+    },
+    {
+        id: 4,
+        userId: 2,
+        title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
+        desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
+        storyImg: 'post3.jpg',
+        likes: 5,
+        postDate: '1 month ago',
+        
+    },
+]
+
 
 export const Alumnis = [
     {

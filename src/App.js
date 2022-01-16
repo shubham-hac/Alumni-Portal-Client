@@ -13,6 +13,8 @@ import Jobs from './pages/Jobs/Jobs';
 import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
 import JobDetails from './pages/JobDetails/JobDetails';
 import AdminDash from './pages/AdminDash/AdminDash';
+import Stories from './pages/Stories/Stories';
+import StoryDetails from './pages/StoryDetails/StoryDetails';
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Route path="/profile/:profileId" element={<Profile />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:eventId" element={<EventDetails />} />
+            <Route path="/stories" element={<Stories />} />
+            <Route path="/stories/:storyId" element={<StoryDetails />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="jobs/:jobId" element={<JobDetails />} />
             <Route path="/alumnis" element={<AlumniDirectory />} />
