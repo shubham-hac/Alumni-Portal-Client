@@ -16,6 +16,7 @@ import AdminDash from './pages/AdminDash/AdminDash';
 import PendingApplications from './pages/PendingApplications/PendingApplications'
 import Stories from './pages/Stories/Stories';
 import StoryDetails from './pages/StoryDetails/StoryDetails';
+import Register from './components/Register/Register';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/alumnis" element={<AlumniDirectory />} />
 	          <Route path="/admin-dash" element={<AdminDash />}  />
             <Route path="/admin-dash/pending" element={<PendingApplications />}  />
+            <Route path="/register" element={<Register />} />
         </Routes>
       </div>
     </Router>
