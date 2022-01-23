@@ -13,6 +13,7 @@ import Jobs from './pages/Jobs/Jobs';
 import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
 import JobDetails from './pages/JobDetails/JobDetails';
 import AdminDash from './pages/AdminDash/AdminDash';
+import PendingApplications from './pages/PendingApplications/PendingApplications'
 import Stories from './pages/Stories/Stories';
 import StoryDetails from './pages/StoryDetails/StoryDetails';
 
@@ -32,6 +33,7 @@ function App() {
             <Route path="jobs/:jobId" element={<JobDetails />} />
             <Route path="/alumnis" element={<AlumniDirectory />} />
 	          <Route path="/admin-dash" element={<AdminDash />}  />
+            <Route path="/admin-dash/pending" element={<PendingApplications />}  />
         </Routes>
       </div>
     </Router>

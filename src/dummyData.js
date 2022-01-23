@@ -305,3 +305,49 @@ export const courses = [
         branches: ["c", "d"]
     },
 ]
+export const userApplications=[
+    {
+        appnID:1,
+        appnDate:'Jan 17,2022',
+        name:'Dr. Xiao Dre',
+        courseName:'B.E',
+        passoutYear:'2015',
+        branch:'Computer',
+        email:'doc.xiaodre@ka.rate',
+        profile_img:'person4.jpg',
+        phone_no:'+915056615663'
+    },
+    {
+        appnID:2,
+        appnDate:'Jan 01,2022',
+        name:'Harish Singh',
+        courseName:'Hotel Management',
+        passoutYear:'2017',
+        branch:'C',
+        email:'singhHarish@entropy.fi',
+        profile_img:'person5.jpg',
+        phone_no:'+913522245112'
+    },
+    {
+        appnID:3,
+        appnDate:'Dec 25,2021',
+        name:'Johnny English',
+        courseName:'B.B.A',
+        passoutYear:'2014',
+        branch:'A',
+        email:'english.reborn@toshiba.com',
+        profile_img:'person2.jpg',
+        phone_no:'+916632215663'
+    },
+    {
+        appnID:4,
+        appnDate:'Dec 10,2021',
+        name:'Karmann Ghia',
+        courseName:'B.E',
+        passoutYear:'2011',
+        branch:'Mechanical',
+        email:'karman.ghia@jabond.com',
+        profile_img:'person6.jpg',
+        phone_no:'+91325569335'
+    }
+]
