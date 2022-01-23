@@ -47,6 +47,9 @@
     position:absolute;
     bottom:0;
 }
+.view-button svg{
+    vertical-align: middle;
+}
 
 @media (max-width:820px) {
     .applicant-card{

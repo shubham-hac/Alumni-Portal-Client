@@ -1,11 +1,10 @@
-import { FlightTakeoff } from '@mui/icons-material';
 import React from 'react';
 import './ApplicantCard.css';
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import SchoolIcon from '@mui/icons-material/School';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import ClassIcon from '@mui/icons-material/Class';
-import DoneIcon from '@mui/icons-material/Done';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 const ApplicantCard=({key,appnDate,name,courseName,branch,passoutYear,profile_img})=>{
     const PF=process.env.REACT_APP_PUBLIC_FOLDER;
     return(
@@ -27,7 +26,7 @@ const ApplicantCard=({key,appnDate,name,courseName,branch,passoutYear,profile_im
                 </p>
             </div>
             <button className="view-button btn btn-primary-light">
-                <DoneIcon className='icon' />
+                <RemoveRedEyeIcon className='icon' />
                 <span>View Application</span>
             </button>
         </div>

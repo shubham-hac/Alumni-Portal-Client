@@ -2,7 +2,6 @@ import React from 'react'
 import './AdminDash.css'
 import AdminHistoryCard from '../../components/AdminHistoryCard/AdminHistoryCard';
 import AdminDashNavbar from '../../components/AdminDashNavbar/AdminDashNavbar';
-import { Link } from 'react-router-dom';
 import { ModerationHistory } from '../../dummyData';
 const AdminDash = () => {
     return (
