@@ -58,6 +58,18 @@ button > *{
 .btn:active{
     transform: scale(0.97);
 }
+.btn-disabled{
+    cursor: default;
+    filter: brightness(140%);
+    background: var(--primary-grey-100);
+    color: var(--primary-grey-200);
+}
+.btn-disabled:hover{
+    cursor: no-drop;
+}
+.btn-disabled:active{
+    transform: scale(1);
+}
 /* .btn-primary{
     background: #178fff !important;
     color: #fff;

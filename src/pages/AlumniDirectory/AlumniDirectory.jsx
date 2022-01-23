@@ -8,12 +8,14 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import PersonIcon from '@mui/icons-material/Person';
 
 const AlumniDirectory = () => {
-    const [selectedCourse, setSelectedCourse] = useState(courses[0].courseId);
-    const [branches, setBranches] = useState(courses[0].branches);
+    const [selectedCourse, setSelectedCourse] = useState({});
+    const [branches, setBranches] = useState([]);
+    const [filterDisabled, setFilterDisabled] = useState(true);
 
-    const updateCourse =  (e) => {
-        setSelectedCourse(courses[e.target.value-1]);
-        setBranches(courses[e.target.value-1].branches);
+    const updateCourse = (e) => {
+        setSelectedCourse(courses[e.target.value - 1]);
+        setBranches(courses[e.target.value - 1].branches);
+        setFilterDisabled(false);
         // console.log(selectedCourse);
     }
     const checkCourse = (e) => {
@@ -49,19 +51,22 @@ const AlumniDirectory = () => {
                     <div className='filter-options'>
 
                         <select className="filter-option" value={selectedCourse.courseId} onChange={updateCourse} >
-                            {/* <option value="">Select Course</option> */}
+                            <option value="none" selected disabled hidden>Select Course</option>
                             {courses.map(course => (
                                 <option key={course.courseId} value={course.courseId}>{course.courseName}</option>
                             ))}
                         </select>
 
-                        <select className="filter-option">
+                        {branches 
+                        ? (
+                            <select className="filter-option">
                             {branches.map(branch => (
                                 <option key={branch} value={branch}>{branch}</option>
                             ))}
                         </select>
+                        ) : ''}
                     </div>
-                    <button className='btn btn-secondary' type='submit'>
+                    <button className={`btn btn-secondary ${filterDisabled ? 'btn-disabled': ''}`} type='submit' disabled={filterDisabled}>
                         <FilterAltIcon />
                         Filter
                     </button>

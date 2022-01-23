@@ -304,6 +304,12 @@ export const courses = [
         totalStudents: 1000,
         branches: ["c", "d"]
     },
+    {
+        courseId: 4,
+        courseName: "Pharmacy",
+        startDate: 2016,
+        totalStudents: 1500,
+    },
 ]
 export const userApplications=[
     {
