@@ -11,6 +11,7 @@ const Register = () => {
     const updateCourse = (e) => {
         setSelectedCourse(courses[e.target.value - 1]);
         setBranches(courses[e.target.value - 1].branches);
+        
         // console.log(selectedCourse);
     }
     const checkCourse = (e) => {
@@ -43,6 +44,14 @@ const Register = () => {
                             <label htmlFor="email">Email</label>
                             <input type="email" name="email" id="email" placeholder="eg. xyz@gmail.com" />
                         </div>
+                        <div className="Mobile-No">
+                            <label htmlFor="email">Mobile No.</label>
+                            <input type="number" name="Mobile-No" id="Mobile-No" placeholder="" />
+                        </div>
+                        <div className="PID">
+                            <label htmlFor="PID">PID</label>
+                            <input type="number" name="PID" id="PID" placeholder="eg. 1192066" />
+                        </div>
 
                         <div className="role">
                             <label htmlFor="role">Role</label>
@@ -73,7 +82,7 @@ const Register = () => {
                             )
                             : ' '}
                         <div className="batch">
-                            <label htmlFor="batch">Batch</label>
+                            <label htmlFor="batch">Admission Year</label>
                             <select name="batch" id="">
                                 <option value="">2016</option>
                                 <option value="">2017</option>
