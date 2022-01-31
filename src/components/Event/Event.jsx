@@ -1,13 +1,28 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import './Event.css';
 import { Link } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import { Users } from '../../dummyData';
+import axios from 'axios';
 
-const Event = ({ id, title, desc, eventImg, postDate, scheduleDate, userId }) => {
+const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-    const [user, setUser] = useState(Users[userId]);
+    const [user, setUser] = useState({});
+    useEffect(() => {
+      const fetchUser = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/users?userId=${userId}`);
+                const data = await response.data;
+                console.log(data);
+                setUser(data);
+                
+            } catch (error) {
+                console.log(error);
+            }
+      }
+      fetchUser();
+    }, []);
+    
     return (
         <div className="event">
             <div className="event-top">
@@ -15,16 +30,19 @@ const Event = ({ id, title, desc, eventImg, postDate, scheduleDate, userId }) =>
                     <Link to='/profile/xyz'>
                         <img src={`assets/images/people/${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
-                    <span className='event-username'>{user.name}<span className='user-type'>| Alumni</span></span>
+                    <Link to='/profile/xyz'>
+                        <span className='event-username'>{user.firstName} {user.lastName}</span>
+                        <span className='user-type'>| {user.userType === 2 ? "Alumni" : "Admin"}</span>
+                    </Link>
                 </div>
                 <div className="event-top-right">
                     <span className="post-date">{postDate}</span>
                 </div>
             </div>
             <div className="event-bottom">
-                {eventImg
+                {eventImage
                     ? <div className="event-image-container">
-                        <img src={`${PF}images/posts/${eventImg}`} alt="" className="event-image" />
+                        <img src={`${PF}images/posts/${eventImage}`} alt="" className="event-image" />
                     </div>
                     : ''}
                 <div className="event-info">

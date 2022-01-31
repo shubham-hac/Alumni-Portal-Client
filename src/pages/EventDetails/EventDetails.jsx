@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import './EventDetails.css';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import DescriptionIcon from '@mui/icons-material/Description';
@@ -7,14 +7,29 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import EventIcon from '@mui/icons-material/Event';
 import PersonIcon from '@mui/icons-material/Person';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { events } from '../../dummyData';
+// import { events } from '../../dummyData';
 import { useParams } from 'react-router';
+import axios from 'axios';
 
 const EventDetails = () => {
     const {eventId} = useParams();
-    const [event, setEvent] = useState(events[eventId-1]);
-    console.log(event);
+    const [event, setEvent] = useState({});
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+
+    useEffect(() => {
+      const fetchEvent = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/events?eventId=${eventId}`);
+                const data = await response.data;
+                console.log(data);
+                setEvent(data);
+            } catch (error) {
+                console.log(error)
+            }
+      }
+      fetchEvent();
+    }, []);
+    
     return (
         <div className="event-details">
             <div className="event-detail-top">
@@ -42,7 +57,7 @@ const EventDetails = () => {
             <div className="event-detail-bottom">
                 <div className="event-detail-bottom-left">
                     <div className="event-detail-image-container">
-                        <img src={`${PF}images/posts/${event.eventImg}`} alt="" className='event-detail-image' />
+                        <img src={`${PF}images/posts/${event.eventImage}`} alt="" className='event-detail-image' />
                     </div>
                     <div className="event-detail-text-container">
                         <div className="scheduled-date">

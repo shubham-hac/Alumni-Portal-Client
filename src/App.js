@@ -17,6 +17,7 @@ import PendingApplications from './pages/PendingApplications/PendingApplications
 import Stories from './pages/Stories/Stories';
 import StoryDetails from './pages/StoryDetails/StoryDetails';
 import Register from './components/Register/Register';
+import SkeletonLoading from './components/SkeletonLoading/SkeletonLoading';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
 	          <Route path="/admin-dash" element={<AdminDash />}  />
             <Route path="/admin-dash/pending" element={<PendingApplications />}  />
             <Route path="/register" element={<Register />} />
+            <Route path="/skeleton" element={<SkeletonLoading />} />
         </Routes>
       </div>
     </Router>

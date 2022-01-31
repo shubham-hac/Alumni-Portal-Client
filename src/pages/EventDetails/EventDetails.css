@@ -70,6 +70,8 @@
 .event-detail-image{
     width: 100%;
     display: inline-block;
+    min-height: 30vh;
+    background: var(--primary-grey-200);
 }
 
 .event-detail-text-container{
