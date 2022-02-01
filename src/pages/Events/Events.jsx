@@ -4,8 +4,7 @@ import './Events.css'
 import Event from '../../components/Event/Event';
 import Categories from '../../components/Categories/Categories';
 import axios from 'axios';
-import Spinner from '../../components/Spinner/Spinner';
-import { Skeleton } from '@mui/material';
+// import Spinner from '../../components/Spinner/Spinner';
 import SkeletonLoading from '../../components/SkeletonLoading/SkeletonLoading';
 
 const Events = () => {

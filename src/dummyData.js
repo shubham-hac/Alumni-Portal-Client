@@ -292,23 +292,72 @@ export const courses = [
     },
     {
         courseId: 2,
-        courseName: "BBA",
+        courseName: "Diploma",
         startDate: 2013,
         totalStudents: 2000,
-        branches: ["a", "b"]
+        branches: ["EXTC", "Civil", "Mechanical", "Computer"]
     },
     {
         courseId: 3,
         courseName: "Hotel Management",
         startDate: 2017,
         totalStudents: 1000,
-        branches: ["c", "d"]
     },
     {
         courseId: 4,
-        courseName: "Pharmacy",
+        courseName: "MBA",
+        startDate: 2017,
+        totalStudents: 1000,
+    },
+    {
+        courseId: 5,
+        courseName: "MMS",
+        startDate: 2017,
+        totalStudents: 1000,
+    },
+    {
+        courseId: 6,
+        courseName: "B Phram",
         startDate: 2016,
         totalStudents: 1500,
+    },
+    {
+        courseId: 7,
+        courseName: "M Phram",
+        startDate: 2016,
+        totalStudents: 1500,
+    },
+    {
+        courseId: 8,
+        courseName: "D Phram",
+        startDate: 2016,
+        totalStudents: 1500,
+    },
+    {
+        courseId: 9,
+        courseName: "BA",
+        startDate: 2013,
+        totalStudents: 2000,
+    },
+    {
+        courseId: 10,
+        courseName: "BCOM",
+        startDate: 2013,
+        totalStudents: 2000,
+        branches: ["Banking and Insurance", "Accounting and Finance", "Financial Markets"]
+    },
+    {
+        courseId: 11,
+        courseName: "BMS",
+        startDate: 2013,
+        totalStudents: 2000,
+    },
+    {
+        courseId: 12,
+        courseName: "BSc",
+        startDate: 2013,
+        totalStudents: 2000,
+        branches: ["IT", "Hospitality", "Physics", "Chemistry", "Maths", "CS"]
     },
 ]
 export const userApplications=[
