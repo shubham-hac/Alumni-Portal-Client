@@ -68,7 +68,7 @@ button > *{
     cursor: no-drop;
 }
 .btn-disabled:active{
-    transform: scale(1);
+    transform: scale(1) !important;
 }
 /* .btn-primary{
     background: #178fff !important;

@@ -7,6 +7,7 @@
     margin: 1.5em auto;
     background: var(--primary-bg);
     border-radius: 5px;
+    animation: appear 300ms ease;
 }
 /**Event top**/
 .event-top{
