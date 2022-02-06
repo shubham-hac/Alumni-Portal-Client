@@ -1,37 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import './Register.css';
-import { courses } from '../../dummyData';
-import FilterAltIcon from '@mui/icons-material/FilterAlt';
+// import { courses } from '../../dummyData';
+// import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useRef } from 'react';
+import axios from 'axios';
 
 const Register = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-    const [selectedCourse, setSelectedCourse] = useState(courses[0].courseId);
-    const [branches, setBranches] = useState(null);
+    const [courses, setCourses] = useState([]);
+    const [selectedCourse, setSelectedCourse] = useState({});
+    const [branches, setBranches] = useState([]);
     const [selectedBranch, setSelectedBranch] = useState(null);
     const [selectedRole, setSelectedRole] = useState(1);
+    const [admissionYear, setAdmissionYear] = useState(null);
+
+    useEffect(() => {
+      const fetchCourses = async () => {
+            const response = await axios.get('http://localhost:5000/courses/all');
+            // console.log(response.data);
+            setCourses(response.data);
+      }
+      fetchCourses();
+    }, []);
+    
+    const updateCourse = async (e) => {
+        try {
+            setBranches([]);
+            const response = await axios.get(`http://localhost:5000/courses/${e.target.value}`);
+            setSelectedCourse(response.data);
+            setBranches(response.data.branches);
+            setSelectedBranch(null);
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     const firstName = useRef();
     const lastName = useRef();
     const email  = useRef();
     const mobile = useRef();
     const pid = useRef();
-    const role = selectedRole;
     const course = selectedCourse.courseName;
-    const branch = selectedBranch;
-    const admissionYear = useRef();
     const username = useRef();
     const password = useRef();
 
-    const updateCourse = (e) => {
-        setSelectedCourse(courses[e.target.value - 1]);
-        setBranches(courses[e.target.value - 1].branches);
-        
-        // console.log(selectedCourse);
-    }
     const handleSubmit = (e) => {
         e.preventDefault();
-        // console.log(selectedCourse);
+        if(selectedCourse.branches == null)
+            setSelectedBranch(null);
         const newUser = {
             firstName: firstName.current.value,
             lastName: lastName.current.value,
@@ -40,7 +56,8 @@ const Register = () => {
             pid: pid.current.value,
             role: selectedRole,
             course: course,
-            branch: branch,
+            branch: selectedBranch,
+            admissionYear: admissionYear,
             username: username.current.value,
             password: password.current.value
         }
@@ -73,8 +90,8 @@ const Register = () => {
                             <input type="email" name="email" id="email" ref={email} placeholder="eg. xyz@gmail.com" />
                         </div>
                         <div className="Mobile-No">
-                            <label htmlFor="email">Mobile No.</label>
-                            <input type="number" name="Mobile-No" id="Mobile-No" ref={mobile} placeholder="" />
+                            <label htmlFor="Mobile-No">Mobile No.</label>
+                            <input type="tel" name="Mobile-No" id="Mobile-No" ref={mobile} placeholder="" />
                         </div>
                         <div className="PID">
                             <label htmlFor="PID">PID</label>
@@ -90,10 +107,10 @@ const Register = () => {
                         </div>
                         <div className='course'>
                             <label htmlFor="course">Course</label>
-                            <select name='course' value={selectedCourse.courseId} onChange={updateCourse} required >
+                            <select name='course' onChange={updateCourse} required >
                                 <option value="none" selected disabled hidden>Select Course</option>
                                 {courses.map(course => (
-                                    <option key={course.courseId} value={course.courseId}>{course.courseName}</option>
+                                    <option key={course._id} value={course._id}>{course.courseName}</option>
                                 ))}
                             </select>
                         </div>
@@ -102,6 +119,7 @@ const Register = () => {
                                 <div className='branch'>
                                     <label htmlFor="branch">Branch</label>
                                     <select name='branch' onChange={(e) => setSelectedBranch(e.target.value)} className="filter-option">
+                                        <option value="none" selected disabled hidden>Select Branch</option>
                                         {branches.map(branch => (
                                             <option key={branch} value={branch}>{branch}</option>
                                         ))}
@@ -111,12 +129,12 @@ const Register = () => {
                             : ' '}
                         <div className="batch">
                             <label htmlFor="batch">Admission Year</label>
-                            <select name="batch" id="">
-                                <option value="">2016</option>
-                                <option value="">2017</option>
-                                <option value="">2018</option>
-                                <option value="">2019</option>
-                                <option value="">2020</option>
+                            <select name="batch" id="" onChange={(e) => setAdmissionYear(e.target.value)}>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
                             </select>
                         </div>
                         <div className='username'>
