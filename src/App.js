@@ -13,7 +13,8 @@ import Jobs from './pages/Jobs/Jobs';
 import AlumniDirectory from './pages/AlumniDirectory/AlumniDirectory';
 import JobDetails from './pages/JobDetails/JobDetails';
 import AdminDash from './pages/AdminDash/AdminDash';
-import PendingApplications from './pages/PendingApplications/PendingApplications'
+import PendingApplications from './pages/PendingApplications/PendingApplications';
+import ApplicantDetails from './pages/ApplicantDetails/ApplicantDetails'
 import Stories from './pages/Stories/Stories';
 import StoryDetails from './pages/StoryDetails/StoryDetails';
 import Register from './components/Register/Register';
@@ -36,6 +37,7 @@ function App() {
             <Route path="/alumnis" element={<AlumniDirectory />} />
 	          <Route path="/admin-dash" element={<AdminDash />}  />
             <Route path="/admin-dash/pending" element={<PendingApplications />}  />
+            <Route path="/admin-dash/applications/:appnID" element={<ApplicantDetails/>}/>
             <Route path="/register" element={<Register />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
         </Routes>

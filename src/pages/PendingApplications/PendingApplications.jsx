@@ -5,17 +5,20 @@ import ApplicantCard from '../../components/ApplicantCard/ApplicantCard';
 import { userApplications } from '../../dummyData.js'
 const PendingApplications=()=>{
     return(
-        <div className="admin-dash">
+        <div className="pending-applications">
             <AdminDashNavbar />
             <div className="applicant-cards">
             {userApplications.map((application)=>(
                 <ApplicantCard 
                     key={application.appnID}
+                    appnID={application.appnID}
                     appnDate={application.appnDate}
                     name={application.name}
                     courseName={application.courseName}
                     branch={application.branch}
                     profile_img={application.profile_img}
+                    role={application.role}
+                    joinYear={application.joinYear}
                     passoutYear={application.passoutYear}
                 />
             ))}

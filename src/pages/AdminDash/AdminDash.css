@@ -4,6 +4,8 @@
     margin: 2em auto;
     display: flex;
     gap: 0 1em;
+    min-height: 100vh;
+    max-height: max-content;
     animation: appear 300ms ease-in-out;
 }
 .action-cards,.action-cards tbody{

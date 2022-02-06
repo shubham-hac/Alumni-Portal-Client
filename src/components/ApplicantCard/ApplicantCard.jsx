@@ -1,11 +1,13 @@
 import React from 'react';
 import './ApplicantCard.css';
-import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
+import { Link } from 'react-router-dom';
+import TimelineIcon from '@mui/icons-material/Timeline';
 import SchoolIcon from '@mui/icons-material/School';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import ClassIcon from '@mui/icons-material/Class';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-const ApplicantCard=({key,appnDate,name,courseName,branch,passoutYear,profile_img})=>{
+import BadgeIcon from '@mui/icons-material/Badge'
+const ApplicantCard=({appnID,appnDate,name,courseName,branch,role,joinYear,passoutYear,profile_img})=>{
     const PF=process.env.REACT_APP_PUBLIC_FOLDER;
     return(
         <div className="applicant-card">
@@ -20,15 +22,18 @@ const ApplicantCard=({key,appnDate,name,courseName,branch,passoutYear,profile_im
                     <ul>
                         <li><DateRangeIcon/> Applied on: {appnDate}</li>
                         <li><SchoolIcon /> Course: {courseName}</li>
-                        <li><ClassIcon/> Branch: {branch}</li>
-                        <li><FlightTakeoffIcon /> Passout Year: {passoutYear}</li>
+                        <li><ClassIcon /> Branch: {branch}</li>
+                        <li><BadgeIcon /> Role: {role==1?'Alumni':'Student'}</li>
+                        <li><TimelineIcon /> {passoutYear!=''?`Duration: ${joinYear}-${passoutYear}`:`Joined: ${joinYear}`}</li>
                     </ul>
                 </p>
             </div>
-            <button className="view-button btn btn-primary-light">
-                <RemoveRedEyeIcon className='icon' />
-                <span>View Application</span>
-            </button>
+            <Link to={`/admin-dash/applications/${appnID}`} className="appn-link">
+                <button className="view-button btn btn-primary-light">
+                    <RemoveRedEyeIcon className='icon' />
+                    View Application
+                </button>
+            </Link>
         </div>
     )
 }

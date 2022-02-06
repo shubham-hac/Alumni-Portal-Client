@@ -6,7 +6,7 @@
     font-size: 1rem;
     background: #fff;
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 3em;
 }
 .applicant-profile-image{
     margin-top:0.25em;
@@ -39,6 +39,9 @@
     justify-content: space-between;
     font-size: 0.9em;
 }
+.appn-link{
+    text-decoration: none;
+}
 .view-button{
     display:block;
     text-align: center;
@@ -57,13 +60,5 @@
         font-size: 0.98rem;
     }
 }
-
-@media (max-width: 675px) {
-    .applicant-card{
-        flex: 1 1 11em;
-        font-size: 0.98rem;
-    }
-}
-
 @media (max-width: 370px) {
 }
