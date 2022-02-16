@@ -19,6 +19,7 @@ import Stories from './pages/Stories/Stories';
 import StoryDetails from './pages/StoryDetails/StoryDetails';
 import Register from './components/Register/Register';
 import SkeletonLoading from './components/SkeletonLoading/SkeletonLoading';
+import Login from './components/Login/Login';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
             <Route path="/admin-dash/pending" element={<PendingApplications />}  />
             <Route path="/admin-dash/applications/:appnID" element={<ApplicantDetails/>}/>
             <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
         </Routes>
       </div>
