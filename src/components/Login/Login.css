@@ -114,9 +114,10 @@
 #error{
     color: red;
     width: 90%;
-    margin: auto;
+    /* margin: auto; */
     font-size: 0.7em;
-    padding: 0 1em;
+    padding: 0 0.1em ;
+    /* border: 2px solid red; */
 }
 
 #submit{

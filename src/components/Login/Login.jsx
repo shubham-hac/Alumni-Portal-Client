@@ -6,7 +6,7 @@ import axios from 'axios';
 const Login = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [selectedRole, setSelectedRole] = useState(1);
-
+    const [errorMsg,setErrorMsg] = useState(null);
     const email  = useRef();
     const username = useRef();
     const password = useRef();
@@ -20,8 +20,10 @@ const Login = () => {
         try {
             const response = await axios.post(`http://localhost:5000/auth/login`, user);
             console.log(response.data);
+            setErrorMsg(null);
         } catch (error) {
             console.log(error.response.data)
+            setErrorMsg(error.response.data);
         }
     }
 
@@ -42,7 +44,7 @@ const Login = () => {
                         <h2>Sign In</h2>
                         <div className="email">
                             <label htmlFor="email">Email</label>
-                            <input type="email" name="email" id="email" ref={email} placeholder="eg. xyz@gmail.com" />
+                            <input type="email" name="email" id="email" ref={email} placeholder="eg. xyz@gmail.com" required />
                         </div>
                         {/* <div className="role">
                             <label htmlFor="role">Role</label>
@@ -59,7 +61,9 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <input type="password" name="password" id="password" ref={password} required />
                         </div>
-                        <label htmlFor="form" id="error"></label>
+                        {errorMsg 
+                        ? <label htmlFor="form" id="error">{errorMsg}</label>
+                        : ""}
                         <div className="button-container">
                             <button type="submit" className="btn btn-primary" id="submit">Login</button>
                         </div>
