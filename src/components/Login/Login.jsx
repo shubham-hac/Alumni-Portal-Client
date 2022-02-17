@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom';
 import './Login.css'
 import axios from 'axios';
+import { loginCall } from '../../apiCalls';
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+import Spinner from '../Spinner/Spinner';
+import { CircularProgress } from '@mui/material';
 
 const Login = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -10,22 +15,27 @@ const Login = () => {
     const email  = useRef();
     const username = useRef();
     const password = useRef();
+    const {user, isFetching, error, dispatch} = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const user = {
-            email: email.current.value,
-            password: password.current.value
-        }
-        try {
-            const response = await axios.post(`http://localhost:5000/auth/login`, user);
-            console.log(response.data);
-            setErrorMsg(null);
-        } catch (error) {
-            console.log(error.response.data)
-            setErrorMsg(error.response.data);
-        }
+        await loginCall({email: email.current.value, password: password.current.value}, dispatch);
+        
+        // const user = {
+        //     email: email.current.value,
+        //     password: password.current.value
+        // }
+        // try {
+        //     const response = await axios.post(`http://localhost:5000/auth/login`, user);
+        //     console.log(response.data);
+            // setErrorMsg(user);
+        // } catch (error) {
+        //     console.log(error.response.data)
+        //     setErrorMsg(error.response.data);
+        // }
     }
+
+    console.log(user)
 
     return (
         <div className="login">
@@ -65,7 +75,9 @@ const Login = () => {
                         ? <label htmlFor="form" id="error">{errorMsg}</label>
                         : ""}
                         <div className="button-container">
-                            <button type="submit" className="btn btn-primary" id="submit">Login</button>
+                            <button className="btn btn-primary" disabled={isFetching} id="submit">
+                                {isFetching ? <CircularProgress /> : "Login"}
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -4,6 +4,7 @@ import './Register.css';
 // import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { useRef } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -68,7 +69,11 @@ const Register = () => {
             <div className="sign-up">
                 <div className="side-img">
                     <img src={`${PF}/images/register.svg`} alt="" className='image1' />
-                    <p>Already signed up? <a href="">Login</a> </p>
+                    <p>Already signed up?
+                        <Link to="/login">
+                            Login
+                        </Link>
+                    </p>
                 </div>
 
                 <div className="form-div">

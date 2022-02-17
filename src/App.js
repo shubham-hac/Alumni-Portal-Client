@@ -3,7 +3,8 @@ import Navbar from './components/Navbar/Navbar';
 import {
   BrowserRouter as Router,
   Routes,
-  Route
+  Route,
+  Navigate 
 } from "react-router-dom";
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
@@ -20,15 +21,18 @@ import StoryDetails from './pages/StoryDetails/StoryDetails';
 import Register from './components/Register/Register';
 import SkeletonLoading from './components/SkeletonLoading/SkeletonLoading';
 import Login from './components/Login/Login';
+import { useContext } from 'react';
+import { AuthContext } from './context/AuthContext';
 
 function App() {
+  const {user} = useContext(AuthContext);
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/profile/:profileId" element={<Profile />} />
+            <Route path="/" element={user ? <Home /> : <Login />} />
+            <Route path="/profile/:profileId" element={user ? <Profile /> : <Login />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:eventId" element={<EventDetails />} />
             <Route path="/stories" element={<Stories />} />
@@ -39,8 +43,8 @@ function App() {
 	          <Route path="/admin-dash" element={<AdminDash />}  />
             <Route path="/admin-dash/pending" element={<PendingApplications />}  />
             <Route path="/admin-dash/applications/:appnID" element={<ApplicantDetails/>}/>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
+            <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
         </Routes>
       </div>
