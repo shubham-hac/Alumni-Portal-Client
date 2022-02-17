@@ -11,8 +11,6 @@
 .applicant-profile-image{
     margin-top:0.25em;
     margin-bottom: 0.25em;
-    aspect-ratio: 1.5;
-    max-height: 20px;
     width: 100%;
 }
 .applicant-profile-image img{
@@ -60,5 +58,8 @@
         font-size: 0.98rem;
     }
 }
-@media (max-width: 370px) {
+@media (max-width: 500px) {
+    .applicant-card{
+        margin:0em 0.5em;
+    }
 }
