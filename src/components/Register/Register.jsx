@@ -5,9 +5,11 @@ import './Register.css';
 import { useRef } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router';
 
 const Register = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [errorMsg, setErrorMsg] = useState("");
     const [courses, setCourses] = useState([]);
     const [selectedCourse, setSelectedCourse] = useState({});
     const [branches, setBranches] = useState([]);
@@ -44,9 +46,11 @@ const Register = () => {
     const course = selectedCourse.courseName;
     const username = useRef();
     const password = useRef();
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setErrorMsg("");
         if(selectedCourse.branches == null)
             setSelectedBranch(null);
         const newUser = {
@@ -58,11 +62,18 @@ const Register = () => {
             role: selectedRole,
             course: course,
             branch: selectedBranch,
-            admissionYear: admissionYear,
+            courseJoinYear: admissionYear,
             username: username.current.value,
             password: password.current.value
         }
-        console.log(newUser)
+        try {
+            const response = await axios.post('http://localhost:5000/auth/register', newUser);
+            console.log(response);
+            navigate("/login");
+        } catch (error) {
+            console.log(error.response.data);
+            setErrorMsg("error");
+        }
     }
     return (
         <div className="register">
@@ -154,7 +165,7 @@ const Register = () => {
                             <label htmlFor="email">Confirm Password</label>
                             <input type="password" name="password2" id="password2" />
                         </div>
-                        <label htmlFor="form" id="error"></label>
+                        <label htmlFor="form" id="error">{errorMsg}</label>
                         <div className="button-container">
                             <button type="submit" className="btn btn-primary" id="submit">Sign Up</button>
                         </div>

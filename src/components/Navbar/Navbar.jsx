@@ -1,13 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './Navbar.css';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Link, NavLink } from 'react-router-dom';
 import { Tooltip } from '@mui/material';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
+
+    const {user} = useContext(AuthContext);
+
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
+
     window.onscroll = () => {
         if(window.scrollY > 120)
             setNavActive(true);
@@ -57,7 +62,7 @@ const Navbar = () => {
             <div className="navbarRight">
                 <Link to='/profile/xyz' onClick={() => setShowLinks(false)}>
                     <Tooltip title="My Profile">
-                    <img src={`${PF}images/people/person2.jpg`} alt="" className='navbar-profile-img' />
+                    <img src={user ? `${PF}images/people/${user.profilePicture}` : `${PF}images/people/no-avatar.png`} alt="" className='navbar-profile-img' />
                     </Tooltip>
                 </Link>
             </div>

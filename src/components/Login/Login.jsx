@@ -19,7 +19,11 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await loginCall({email: email.current.value, password: password.current.value}, dispatch);
+        try {
+            await loginCall({email: email.current.value, password: password.current.value}, dispatch);
+        } catch (err) {
+            console.log(error)
+        }
         
         // const user = {
         //     email: email.current.value,
@@ -71,8 +75,8 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <input type="password" name="password" id="password" ref={password} required />
                         </div>
-                        {errorMsg 
-                        ? <label htmlFor="form" id="error">{errorMsg}</label>
+                        {error 
+                        ? <label htmlFor="form" id="error">{error}</label>
                         : ""}
                         <div className="button-container">
                             <button className="btn btn-primary" disabled={isFetching} id="submit">
