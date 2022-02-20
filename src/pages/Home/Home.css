@@ -2,3 +2,53 @@
     height: 200vh;
     /* border: 2px solid red; */
 }
+
+.carousel{
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+.carousel > ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.slide{
+    /* position: absolute;
+    inset: 0; */
+    width: 100%;
+    /* opacity: 0; */
+    animation: fade-in 00ms;
+}
+.slide > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    background: var(--primary-grey-100);
+    animation: fade-in 200ms;
+}
+.slide-active{
+    opacity: 1;
+}
+
+.ArrowBack, .ArrowForward {
+    position: absolute;
+    background: none;
+    top: 50%;
+    z-index: 2;
+    transform: translateY(-50%);
+    background: #888;
+    border-radius: 10px;
+    color: var(--primary-bg);
+    cursor: pointer;
+    /* border: 2px solid red; */
+    font-size: 2rem !important;
+}
+.ArrowBack{
+    left: 2em;
+}
+.ArrowForward{
+    right: 2em;
+}

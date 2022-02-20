@@ -299,7 +299,7 @@ export const courses = [
     },
     {
         courseId: 3,
-        courseName: "Hotel Management",
+        courseName: "Hotel Management", 
         startDate: 2017,
         totalStudents: 1000,
     },
@@ -365,72 +365,67 @@ export const userApplications=[
         appnID:1,
         appnDate:'Jan 17,2022',
         name:'Dr. Xiao Dre',
-        pid:'EU1185032',
-        role: 1,
-        gender: 'Female',
-        birthdate: '5 Jan 2001',
-        address:'C-32 Numa complex, Hong Kong,China',
         courseName:'B.E',
-        username:'TheXiaoDre',
-        joinYear:'2011',
         passoutYear:'2015',
         branch:'Computer',
         email:'doc.xiaodre@ka.rate',
         profile_img:'person4.jpg',
-        phone_no:'+91 5056615663'
+        phone_no:'+915056615663'
     },
     {
         appnID:2,
         appnDate:'Jan 01,2022',
         name:'Harish Singh',
-        pid:'EU1192525',
-        role:1,
-        gender:'Male',
-        birthdate:'Jan 5, 1995',
-        address:'C-23, Belleville Park, Liberty City',
         courseName:'Hotel Management',
-        username:'rare_harish55',
-        joinYear:'2015',
         passoutYear:'2017',
         branch:'C',
         email:'singhHarish@entropy.fi',
         profile_img:'person5.jpg',
-        phone_no:'+91 3522245112'
+        phone_no:'+913522245112'
     },
     {
         appnID:3,
         appnDate:'Dec 25,2021',
         name:'Johnny English',
-        pid: 'EU1202563',
-        role:2,
-        gender: 'Male',
-        birthdate: '5 Dec,2002',
-        address: 'Le-Bastion, Switzerland',
         courseName:'B.B.A',
-        username: 'summerEnthusiastReborn',
-        joinYear: '2020',
-        passoutYear:'',
+        passoutYear:'2014',
         branch:'A',
         email:'english.reborn@toshiba.com',
         profile_img:'person2.jpg',
-        phone_no:'+91 6632215663'
+        phone_no:'+916632215663'
     },
     {
         appnID:4,
         appnDate:'Dec 10,2021',
         name:'Karmann Ghia',
-        pid: 'EU1201126',
-        role: 1,
-        gender: 'Male',
-        birthdate: '5 Jul,1989',
-        address: '55 W-GrandPri, Tokyo, Japan',
         courseName:'B.E',
-        username:'no_radiator',
-        joinYear: '2008',
         passoutYear:'2011',
         branch:'Mechanical',
         email:'karman.ghia@jabond.com',
         profile_img:'person6.jpg',
-        phone_no:'+91 325569335'
+        phone_no:'+91325569335'
     }
+]
+
+export const carouselData = [
+    {
+        id: 11,
+        title: "Zero to One",
+        image: "post9.png"
+    },
+    {
+        id: 12,
+        title: "Harry Potter and the cursed Child",
+        image: "post2.jpg"
+    },
+    {
+        id: 13,
+        title: "Will you still love me by Ravinder singh",
+        image: "post3.jpg"
+    },
+    {
+        id: 12,
+        title: "Harry Potter and the cursed Child",
+        image: "post2.jpg"
+    },
 ]
