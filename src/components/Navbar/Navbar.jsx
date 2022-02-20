@@ -12,7 +12,7 @@ const Navbar = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
-
+    const [showOptions, setShowOptions] = useState(false);
     window.onscroll = () => {
         if(window.scrollY > 120)
             setNavActive(true);
@@ -23,7 +23,10 @@ const Navbar = () => {
     return (
         <div className={`navbar ${navActive ? 'navbar-active' : ''}`}>
             <div className="navbarLeft">
-                <button className='btn hamburgurBtn' onClick={() => setShowLinks(!showLinks)} >
+                <button className='btn hamburgurBtn' onClick={() => {
+                    setShowLinks(!showLinks);
+                    setShowOptions(false);
+                    }} >
                     <MenuIcon sx={{ fontSize: 30 }} className='hamburgerIcon' />
                 </button>
                 <h2 className="logo">
@@ -60,11 +63,26 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbarRight">
-                <Link to='/profile/xyz' onClick={() => setShowLinks(false)}>
-                    <Tooltip title="My Profile">
+                <div className={`profile-options ${showOptions ? 'show-options' : ''}`}>
+                    <ul>
+                        <li>
+                            <Link to='/profile/xyz' onClick={() => setShowOptions(false)}>
+                                Profile
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/login' className=''>
+                                Logout
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div onClick={() => {
+                    setShowLinks(false)
+                    setShowOptions(!showOptions)
+                    }}>
                     <img src={user ? `${PF}images/people/${user.profilePicture}` : `${PF}images/people/no-avatar.png`} alt="" className='navbar-profile-img' />
-                    </Tooltip>
-                </Link>
+                </div>
             </div>
         </div>
     )

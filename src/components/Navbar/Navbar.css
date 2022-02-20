@@ -80,14 +80,39 @@
 }
 .navbarRight{
     flex: 0.1;
+    position: relative;
 }
 .navbar-profile-img{
     width: 45px;
     aspect-ratio: 1;
     border-radius: 50%;
     object-fit: cover;
+    position: relative;
+    cursor: pointer;
 }
-
+.profile-options{
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    background: var(--primary-grey-100);
+    height: 10vh;
+    width: 200%;
+    position: absolute;
+    right: 50%;
+    top: 100%;
+    display: none;
+    z-index: 100000;
+    animation: appear 200ms ease;
+}
+.profile-options > ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.profile-options > ul >  li  {
+    
+}
+.show-options{
+    display: block;
+}
 
 @media (max-width: 600px) {
     

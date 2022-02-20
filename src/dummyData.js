@@ -411,7 +411,7 @@ export const carouselData = [
     {
         id: 11,
         title: "Zero to One",
-        image: "post9.png"
+        image: "event1.jpg"
     },
     {
         id: 12,
