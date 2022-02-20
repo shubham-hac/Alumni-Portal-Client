@@ -26,7 +26,7 @@ export const events = [
         userId: 3,
         title: 'INSTITUTE INSIGHTS || THE TECHNOBER',
         desc: 'The Alumni Cell is proud to announce the Alumni Magazine IIT Indore 2019. Articles curated from our Alumni and students around different topics and categories. Enjoy reading the magazine and do let us know your feedback and views.',
-        eventImg: '',
+        eventImg: 'post4.jpg',
         likes: 5,
         postDate: '6 days ago',
         scheduleDate: '24 Dec 2021',
