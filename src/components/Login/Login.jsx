@@ -30,7 +30,7 @@ const Login = () => {
         //     password: password.current.value
         // }
         // try {
-        //     const response = await axios.post(`http://localhost:5000/auth/login`, user);
+        //     const response = await axios.post(`${process.env.BACKEND_SERVER}/auth/login`, user);
         //     console.log(response.data);
             // setErrorMsg(user);
         // } catch (error) {

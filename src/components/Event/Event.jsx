@@ -11,7 +11,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
     useEffect(() => {
       const fetchUser = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/users?userId=${userId}`);
+                const response = await axios.get(`${process.env.BACKEND_SERVER}/users?userId=${userId}`);
                 const data = await response.data;
                 console.log(data);
                 setUser(data);

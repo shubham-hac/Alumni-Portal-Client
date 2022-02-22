@@ -14,7 +14,7 @@ const Events = () => {
     useEffect(() => {
       const fetchEvents = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/events/all');
+                const response = await axios.get(`${process.env.BACKEND_SERVER}/events/all`);
                 const  data = await response.data;
                 console.log(data);
                 setEvents(data);
