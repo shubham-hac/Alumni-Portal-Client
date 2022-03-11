@@ -19,7 +19,7 @@ const Register = () => {
 
     useEffect(() => {
       const fetchCourses = async () => {
-            const response = await axios.get('http://localhost:5000/courses/all');
+            const response = await axios.get(`${process.env.BACKEND_SERVER}/courses/all`);
             // console.log(response.data);
             setCourses(response.data);
       }
@@ -29,7 +29,7 @@ const Register = () => {
     const updateCourse = async (e) => {
         try {
             setBranches([]);
-            const response = await axios.get(`http://localhost:5000/courses/${e.target.value}`);
+            const response = await axios.get(`${process.env.BACKEND_SERVER}/courses/${e.target.value}`);
             setSelectedCourse(response.data);
             setBranches(response.data.branches);
             setSelectedBranch(null);
@@ -67,7 +67,7 @@ const Register = () => {
             password: password.current.value
         }
         try {
-            const response = await axios.post('http://localhost:5000/auth/register', newUser);
+            const response = await axios.post(`${process.env.BACKEND_SERVER}/auth/register`, newUser);
             console.log(response);
             navigate("/login");
         } catch (error) {
