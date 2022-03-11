@@ -13,14 +13,15 @@
     transform:translateY(-10%); 
 }
 
-.story-image-container{
+.story-detail-image-container{
     width: 100%;
-    min-height: 35vh;
+    background: var(--primary-grey-100);
 }
-.story-image{
+.story-detail-image{
     width: 100%;
     display: block;
     object-fit: contain;
+    max-height: 35vh;
 }
 .story-details .story-title{
 padding: 0.5em 1em;

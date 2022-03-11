@@ -23,10 +23,17 @@
 .events-container{
     flex: 3;
 }
+.add-event-btn{
+    padding: 0.8em 1.7em;
+    margin: auto;
+    font-size: 0.9rem !important;
+    align-items: center;
+
+}
 .post-event{
-    height: 20vh;
+    /* height: 20vh;
     border: 1px solid #ddd;
-    width: 100%;
+    width: 100%; */
 }
 
 @media (max-width: 840px) {

@@ -5,12 +5,12 @@ import './Stories.css'
 import Categories from '../../components/Categories/Categories'
 const Stories = () => {
     return (
-        <div className='events'>
+        <div className='stories'>
 
             <div className="story-categories-container">
                 <Categories />
             </div>
-            <div className="events-container">
+            <div className="stories-container">
                 {/* <div className="post-story">
                     Post an Event
                 </div> */}

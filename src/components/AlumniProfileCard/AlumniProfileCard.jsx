@@ -11,7 +11,7 @@ const AlumniProfileCard = ({ name, desc, profilePicture }) => {
     return (
         <div className="alumni-profile">
             <div className="alumni-profile-image">
-                <img src={`${PF}images/people/${profilePicture || 'no-avatar.png'}`} alt="" />
+                <img src={`${PF}people/${profilePicture || 'no-avatar.png'}`} alt="" />
             </div>
             <div className="alumni-profile-text">
                 <div className="alumni-name">

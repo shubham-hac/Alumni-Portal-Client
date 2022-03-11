@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { Users } from '../../dummyData';
 
 const Job = ({id,jobProfile, company,userId, location, deadline, salary, linkClicks}) => {
-    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER_CLIENT;
     const [user, setUser] = useState(Users[userId]);
 
     return (

@@ -18,13 +18,13 @@ const Profile = () => {
     return (
         <div className="profile">
             <div className="profile-cover">
-                <img src={`${PF}images/people/cover3.png`} alt="" className="cover-image" />
+                <img src={`${PF}people/cover3.png`} alt="" className="cover-image" />
             </div>
             <div className="profile-info">
                 <div className="profile-info-left">
                     <div className="basic-info">
                         <div className="profile-image-container">
-                            <img src={`${PF}images/people/person2.jpg`} alt="" className="profile-image" />
+                            <img src={`${PF}people/person2.jpg`} alt="" className="profile-image" />
                             <button className='btn profile-edit-btn'><EditIcon /></button>
                         </div>
                         <h3>YASH PATIL</h3>

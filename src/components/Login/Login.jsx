@@ -43,9 +43,10 @@ const Login = () => {
 
     return (
         <div className="login">
+            <h5>Login to access all the features</h5>
             <div className="sign-in">
                 <div className="side-img">
-                    <img src={`${PF}/images/register.svg`} alt="" className='image1' />
+                    <img src={`${PF}register.svg`} alt="" className='image1' />
                     <p>Don't have an account ? 
                         <Link to="/register">
                             Signup

@@ -79,7 +79,7 @@ const Register = () => {
         <div className="register">
             <div className="sign-up">
                 <div className="side-img">
-                    <img src={`${PF}/images/register.svg`} alt="" className='image1' />
+                    <img src={`${PF}register.svg`} alt="" className='image1' />
                     <p>Already signed up?
                         <Link to="/login">
                             Login

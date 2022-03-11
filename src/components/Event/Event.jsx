@@ -28,7 +28,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
             <div className="event-top">
                 <div className="event-top-left">
                     <Link to='/profile/xyz'>
-                        <img src={`assets/images/people/${user.profilePicture}`} alt="" className='event-profile-image' />
+                        <img src={`${PF}people/${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
                     <Link to='/profile/xyz'>
                         <span className='event-username'>{user.firstName} {user.lastName}</span>
@@ -42,7 +42,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
             <div className="event-bottom">
                 {eventImage
                     ? <div className="event-image-container">
-                        <img src={`${PF}images/posts/${eventImage}`} alt="" className="event-image" />
+                        <img src={`${PF}${eventImage}`} alt="" className="event-image" />
                     </div>
                     : ''}
                 <div className="event-info">

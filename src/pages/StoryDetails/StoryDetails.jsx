@@ -8,8 +8,8 @@ const StoryDetails = () => {
 
             </div>
             <div className="story-details-bottom">
-                <div className="story-image-container">
-                    <img className='story-image' src={`${PF}images/posts/post1.jpg`} alt="" />
+                <div className="story-detail-image-container">
+                    <img className='story-detail-image' src={`${PF}images/posts/post1.jpg`} alt="" />
                 </div>
                 <h2 className="story-title">Friends for Life: 2 Stories of True Friendship from IITI Campus!</h2>
                 <p className="story-description">

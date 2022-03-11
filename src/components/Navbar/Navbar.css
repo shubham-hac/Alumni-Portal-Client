@@ -89,26 +89,50 @@
     object-fit: cover;
     position: relative;
     cursor: pointer;
+    user-select: none;
+    transition: outline 100ms ease;
+}
+.navbar-profile-img:hover{
+    
+    outline: 2px solid var(--primary-blue);
 }
 .profile-options{
-    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
-    background: var(--primary-grey-100);
-    height: 10vh;
-    width: 200%;
-    position: absolute;
-    right: 50%;
-    top: 100%;
-    display: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background: var(--primary-bg);
+    font-size: 0.9rem;
+    
+    /* height: 10vh; */
+    /* min-width: 100px; */
+    /* position: absolute; */
+    /* right: 5%; */
+    /* top: 100%; */
+    /* display: none; */
     z-index: 100000;
-    animation: appear 200ms ease;
+    /* animation: appear 200ms ease; */
+    border-radius: 5px;
+    border: 0.5px solid #ddd;
 }
 .profile-options > ul{
     padding: 0;
     margin: 0;
     list-style: none;
 }
-.profile-options > ul >  li  {
-    
+.profile-options a{
+    text-decoration: none;
+}
+.profile-options > ul >  li > a {
+    display: flex;
+    align-items: center;
+    padding-right: 5em;
+    padding-left: 0.5em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    color: #555 !important;
+}
+.profile-options > ul >  li > a:hover {
+    transition: background 200ms ease;
+    background: var(--primary-grey-200);
+    color: var(--primary-clr) !important;
 }
 .show-options{
     display: block;

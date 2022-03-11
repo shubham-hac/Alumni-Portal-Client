@@ -9,12 +9,27 @@ import { Autoplay, Scrollbar, Pagination, Parallax, Navigation } from 'swiper';
 
 const Home = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-
+    const [slides, setSlides] = useState(3);
+    const [space, setSpace] = useState(50)
+    window.onload = () => {
+        if(window.innerWidth < 400){
+            setSlides(1.3);
+            setSpace(20);
+        }
+        else if(window.innerWidth < 765){
+            setSlides(2);
+            setSpace(30);
+        }  
+        else{
+            setSlides(3)
+            setSpace(30);
+        }
+    }
     return (
         <div className='home'>
             <Swiper
                 modules={[Autoplay, Scrollbar, Pagination, Parallax, Navigation]}
-                spaceBetween={50}
+                spaceBetween={0}
                 slidesPerView={1}
                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                 scrollbar={{ draggable: true }}
@@ -26,7 +41,7 @@ const Home = () => {
             >
                 {carouselData.map((item) => (
                     <SwiperSlide key={item.id} className="slide">
-                        <img src={`${PF}images/posts/${item.image}`} alt="" className="image" />
+                        <img src={`${PF}posts/${item.image}`} alt="" className="image" />
                     </SwiperSlide>
                 ))}
             </Swiper>
@@ -47,8 +62,8 @@ const Home = () => {
                 </div>
                 <Swiper
                     modules={[Scrollbar, Pagination, Navigation]}
-                    spaceBetween={50}
-                    slidesPerView={3}
+                    spaceBetween={space}
+                    slidesPerView={slides}
                     // scrollbar={{ draggable: true }}
                     pagination={{ clickable: true }}
                     onSlideChange={() => console.log('slide change')}
@@ -57,7 +72,7 @@ const Home = () => {
                 >
                     {events.map((item, index) => (
                         <SwiperSlide key={item.id} className="latest-event">
-                            <img src={`${PF}images/posts/${item.eventImg}`} alt="" className="image" />
+                            <img src={`${PF}posts/${item.eventImg}`} alt="" className="image" />
                             <span className='event-date'>{item.scheduleDate}</span>
                             <h4 className='latest-event-title'>{item.title}</h4>
                             <Link to="events/61f2901acc2f8d4765d73b64">Read More</Link>
