@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './Profile.css';
 import InfoIcon from '@mui/icons-material/Info';
 import MailIcon from '@mui/icons-material/Mail';
@@ -11,10 +11,33 @@ import WorkIcon from '@mui/icons-material/Work';
 import EditIcon from '@mui/icons-material/Edit';
 import CakeIcon from '@mui/icons-material/Cake';
 import FemaleIcon from '@mui/icons-material/Female';
+import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
+import { useParams } from 'react-router';
 
 const Profile = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
+    const [userDetails, setUserDetails] = useState({
+        courseJoinYear: '2019'
+    });
+
+    // const {user} = useContext(AuthContext);
+    const {userId} = useParams()
+    
+    useEffect(() => {
+      getUserDetails();
+    }, [])
+    
+
+    const getUserDetails = async () => {
+        try {
+            const res = await axios.get(`http://localhost:5000/users?userId=${userId}`)
+            setUserDetails(res.data);
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
         <div className="profile">
             <div className="profile-cover">
@@ -27,10 +50,10 @@ const Profile = () => {
                             <img src={`${PF}people/person2.jpg`} alt="" className="profile-image" />
                             <button className='btn profile-edit-btn'><EditIcon /></button>
                         </div>
-                        <h3>YASH PATIL</h3>
+                        <h3>{userDetails.firstName} {userDetails.lastName}</h3>
                         <div className="course-info">
-                            <span className="batch">Class of 2018</span>
-                            <span className="department">B. Tech., Mechanical Engineering</span>
+                            <span className="batch">Class of {userDetails.courseJoinYear.slice(0,4)}</span>
+                            <span className="department">{userDetails.course}, {userDetails.branch}</span>
                         </div>
                     </div>
                     <div className="contact-info">
@@ -47,11 +70,11 @@ const Profile = () => {
                         <div className="contact-info-bottom">
                             <div className='card-info'>
                                 <MailIcon className="icon" />
-                                <span className="email value">yashpatil04@gmail.com</span>
+                                <span className="email value">{userDetails.email}</span>
                             </div>
                             <div className='card-info'>
                                 <LocalPhoneIcon className="icon" />
-                                <span className="phone value">8007847008</span>
+                                <span className="phone value">{userDetails.mobile}</span>
                             </div>
                             <div className='card-info'>
                                 <LinkIcon className="icon" />

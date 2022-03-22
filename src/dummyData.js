@@ -424,7 +424,7 @@ export const carouselData = [
         image: "post3.jpg"
     },
     {
-        id: 12,
+        id: 14,
         title: "Harry Potter and the cursed Child",
         image: "post2.jpg"
     },

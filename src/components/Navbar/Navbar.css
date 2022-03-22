@@ -138,6 +138,10 @@
     display: block;
 }
 
+.profile-options .profile-image{
+    width: 10vw;
+}
+
 @media (max-width: 600px) {
     
     .navbar-links{

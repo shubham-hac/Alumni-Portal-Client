@@ -2,8 +2,9 @@ import React, { useState, useRef, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { Navigate, useNavigate } from 'react-router';
+import "./AddEvent.css"
 
-const AddEvent = () => {
+const AddEvent = ({setOpen}) => {
     const title = useRef();
     const description = useRef();
     const scheduleDate = useRef();
@@ -19,7 +20,6 @@ const AddEvent = () => {
             setSelected(true)
             console.log(e.target.files[0]); 
     }
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -43,13 +43,17 @@ const AddEvent = () => {
             } catch (error) {
                 console.log(error)
             }   
+            
         }
         try {
             const response = await axios.post('http://localhost:5000/events/new', newEvent);
+            setOpen(false);
             console.log(response);
-            navigate("/events");
+            window.location.reload();
+            // navigate("/events");
+            
         } catch (error) {
-            console.log(error.response.data);
+            // error.response.data  && console.log(error.response.data);
             setErrorMsg("error");
         }
     }
@@ -57,13 +61,13 @@ const AddEvent = () => {
         <div>
             <form action="" onSubmit={handleSubmit}>
                 <label htmlFor="title">Title</label>
-                <input type="text" name='title' ref={title} />
+                <input type="text" name='title' ref={title} required />
                 <br />
                 <label htmlFor="description">Description</label>
                 <textarea name="description" ref={description}></textarea>
                 <br />
                 <label htmlFor="scheduleDate">Schedule Date</label>
-                <input type="date" name="scheduleDate" ref={scheduleDate} />
+                <input type="date" name="scheduleDate" ref={scheduleDate} required />
                 
                 <br />
                 <label htmlFor="address">Address</label>
@@ -72,6 +76,12 @@ const AddEvent = () => {
                 <input type="file"
                     id="file" name="file"
                     onChange={handleFileChange} />
+                {file && (
+                    <div className="shareImageContainer">
+                        <img src={URL.createObjectURL(file)} alt="" className="shareImage" />
+                        <button className="shareCancelImage" onClick={() => setFile(null)}>X</button>
+                    </div>
+                )}
                 <button type='submit' className='btn btn-primary'>Add</button>
             </form>
         </div>
