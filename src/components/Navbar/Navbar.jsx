@@ -8,15 +8,19 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 import SettingsIcon from '@mui/icons-material/Settings';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import { logoutCall } from '../../apiCalls';
+import { useNavigate } from 'react-router';
+
 
 const Navbar = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, dispatch } = useContext(AuthContext);
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
+    const navigate = useNavigate();
     window.onscroll = () => {
         if (window.scrollY > 120)
             setNavActive(true);
@@ -32,6 +36,12 @@ const Navbar = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const logout = () => {
+        logoutCall(dispatch);
+        setAnchorEl(null);
+        navigate('/');
+    }
 
     const open = Boolean(anchorEl);
     const id = open ? 'simple-popover' : undefined;
@@ -78,34 +88,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbarRight">
-                {/* <div className={`profile-options ${showOptions ? 'show-options' : ''}`}>
-                    <ul>
-                        <li>
-                            <Link to='/profile/xyz' onClick={() => setShowOptions(false)}>
-                                <PersonIcon className='icon' />
-                                My Profile
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/profile/xyz' onClick={() => setShowOptions(false)}>
-                                <NotificationsIcon className='icon' />
-                                Notifications
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/profile/xyz' onClick={() => setShowOptions(false)}>
-                                <SettingsIcon className='icon' />
-                                Settings
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to='/login' className=''>
-                                <LogoutIcon className='icon' />
-                                Logout
-                            </Link>
-                        </li>
-                    </ul>
-                </div> */}
+
                 {user
                     ? (
                         <div >
@@ -124,10 +107,16 @@ const Navbar = () => {
                                     horizontal: 'left',
                                 }}
                             >
-                                <Typography className='profile-options'>
+                                <div className='profile-options'>
+                                    {/* <div>
+                                        <img src={user ? `${PF}people/${user.profilePicture}` : `${PF}images/people/no-avatar.png`}
+                                            alt=""
+                                            className='profile-image'
+                                        />
+                                    </div> */}
                                     <ul>
                                         <li>
-                                            <Link to='/profile/xyz' onClick={handleClose}>
+                                            <Link to={`/profile/${user._id}`} onClick={handleClose}>
                                                 <PersonIcon className='icon' />
                                                 My Profile
                                             </Link>
@@ -145,13 +134,13 @@ const Navbar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to='/login' className='' onClick={handleClose}>
+                                            <Link to='/login' className='' onClick={logout}>
                                                 <LogoutIcon className='icon' />
                                                 Logout
                                             </Link>
                                         </li>
                                     </ul>
-                                </Typography>
+                                </div>
                             </Popover>
                         </div>
                     )

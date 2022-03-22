@@ -11,7 +11,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
     useEffect(() => {
       const fetchUser = async () => {
             try {
-                const response = await axios.get(`${process.env.BACKEND_SERVER}/users?userId=${userId}`);
+                const response = await axios.get(`http://localhost:5000/users?userId=${userId}`);
                 const data = await response.data;
                 console.log(data);
                 setUser(data);
@@ -30,7 +30,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
                     <Link to='/profile/xyz'>
                         <img src={`${PF}people/${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
-                    <Link to='/profile/xyz'>
+                    <Link to={`/profile/${user._id}`}>
                         <span className='event-username'>{user.firstName} {user.lastName}</span>
                         <span className='user-type'>| {user.userType === 2 ? "Alumni" : "Admin"}</span>
                     </Link>

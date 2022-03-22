@@ -61,7 +61,7 @@ const Events = () => {
                         aria-describedby="modal-modal-description"
                     >
                         <Box sx={style}>
-                            <AddEvent />
+                            <AddEvent setOpen={setOpen} />
                         </Box>
                     </Modal>
                     {/* <AddEvent /> */}
