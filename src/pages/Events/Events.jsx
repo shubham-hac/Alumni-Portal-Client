@@ -33,7 +33,7 @@ const Events = () => {
             try {
                 const response = await axios.get('http://localhost:5000/events/all');
                 const data = await response.data;
-                // const response = await axios.get(`${process.env.BACKEND_SERVER}/events/all`);
+                // const response = await axios.get('http://127.0.0.1:5000/events/all');
                 // const  data = await response.data;
                 console.log(data);
                 setEvents(data);
