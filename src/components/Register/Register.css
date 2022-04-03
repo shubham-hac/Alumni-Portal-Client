@@ -48,6 +48,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 1em 0em;
     /* border: 2px solid green; */
 }
 .image1{
@@ -59,8 +60,8 @@
 /**************FORM****************/
 
 .form {
-    /* border: 2px solid green; */
-    min-height: 70%;
+    /* border: 2px solid green; 
+    min-height: 70%;*/
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -111,6 +112,11 @@
     margin-right: 0.8em;
 }
 
+#verifyPIDCheckBox{
+    display: inline;
+    width:5%;
+}
+
 #error{
     color: red;
     width: 90%;
@@ -127,7 +133,37 @@
     text-align: center;
     padding: 1em;
 }
-
+.verification-option{
+    text-align: center;
+    min-height: 3em;
+    margin:1em;
+    margin-top:2em;
+    border:1px solid var(--primary-grey);
+    padding:0.2em;
+    transition: all 0.3s;
+    border-radius:10px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.verification-option:hover{
+    border-color:var(--primary-gray-200);
+}
+.verification-option:active{
+    border-color:var(--primary-gray-200);
+}
+#uniqueID{
+    color:var(--primary-green);
+    font-weight: bold;
+    font-size: 1em;
+}
+#success-icon{
+    text-align: center;
+}
+#success-icon svg{
+    height: 5rem;
+    max-height: 5rem;
+    max-width: 5rem;
+    width: 5rem;
+}
 
 /************************************/
 /***********MEDIA QUERIES************/
