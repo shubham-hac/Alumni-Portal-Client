@@ -1,6 +1,8 @@
 :root{
     --primary-bg: #fff;
     --primary-clr: #293745;
+    --primary-clr-200: hsl(210, 25%, 29%);
+    --primary-clr-100: hsl(210, 25%, 40%);
 
     --primary-blue: #192f59;
     --primary-green: #3db166;

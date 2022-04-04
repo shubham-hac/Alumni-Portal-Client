@@ -14,8 +14,11 @@ import FemaleIcon from '@mui/icons-material/Female';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useParams } from 'react-router';
+// import {useSearchParams} from 'react-router-dom'
 
 const Profile = () => {
+    // const [searchParams, setSearchParams] = useSearchParams;
+    // searchParams.get()
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
 
     const [userDetails, setUserDetails] = useState({
@@ -47,7 +50,7 @@ const Profile = () => {
                 <div className="profile-info-left">
                     <div className="basic-info">
                         <div className="profile-image-container">
-                            <img src={`${PF}people/person2.jpg`} alt="" className="profile-image" />
+                            <img src={`${PF}people/${userDetails.profilePicture}`} alt="" className="profile-image" />
                             <button className='btn profile-edit-btn'><EditIcon /></button>
                         </div>
                         <h3>{userDetails.firstName} {userDetails.lastName}</h3>

@@ -6,7 +6,8 @@
     justify-content: space-between;
     padding: 0 1em;
     border-bottom: 1px solid #ddd;
-    /* background: var(--primary-blue-light); */
+    background: var(--primary-bg);
+    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
 }
 .navbar-active{
     /* margin: auto;
@@ -25,7 +26,7 @@
 .navbar a{
     display: block;
     text-decoration: none;
-    color: var(--primary-clr);
+    color: var(--primary-clr-100);
     padding: 0.2em 0.5em;
 }
 .navbar a:hover{
@@ -66,11 +67,11 @@
 }
 
 .active{
-    /* color: #3db166 !important;
-    border-bottom: 4px solid #3db166;
-    padding-bottom: 0.4em;
-    font-weight: 700; */
-    color: #555 !important;
+    /* color: #3db166 !important; */
+    /* border-bottom: 4px solid #3db166; */
+    /* padding-bottom: 0.4em; */
+    font-weight: 600; 
+    color: var(--primary-blue) !important;
 }
 .pactive{
     border: 2px solid var(--primary-green);

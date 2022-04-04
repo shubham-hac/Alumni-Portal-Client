@@ -15,7 +15,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
                 const data = await response.data;
                 console.log(data);
                 setUser(data);
-                
+
             } catch (error) {
                 console.log(error);
             }
@@ -27,7 +27,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
         <div className="event">
             <div className="event-top">
                 <div className="event-top-left">
-                    <Link to='/profile/xyz'>
+                    <Link to={`/profile/${user._id}`}>
                         <img src={`${PF}people/${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
                     <Link to={`/profile/${user._id}`}>
