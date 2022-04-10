@@ -9,6 +9,8 @@ import { Users } from '../../dummyData';
 const Story = ({ id, title, desc, storyImg, postDate, userId }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [user, setUser] = useState(Users[userId]);
+    const defaultSrc = 'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649517324/AlumniPortal/post1_qvb5wq.jpg';
+
     return (
         <div className="story">
             <div className="story-top">
@@ -25,7 +27,7 @@ const Story = ({ id, title, desc, storyImg, postDate, userId }) => {
             <div className="story-bottom">
                 {storyImg
                     ? <div className="story-image-container">
-                        <img src={`${PF}images/posts/${storyImg}`} alt="" className="story-image" />
+                        <img src={`${PF}posts/${storyImg}` || defaultSrc} alt="" className="story-image" />
                     </div>
                     : ''}
                 <div className="story-info">

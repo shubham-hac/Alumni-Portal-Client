@@ -8,6 +8,7 @@ import axios from 'axios';
 import SkeletonLoading from '../../components/SkeletonLoading/SkeletonLoading';
 import AddEvent from '../../components/AddEvent/AddEvent';
 import { Box, Button, Modal } from '@mui/material';
+import PageTitle from '../../components/PageTitle/PageTitle';
 
 const Events = () => {
     const [loading, setLoading] = useState(false);
@@ -25,7 +26,7 @@ const Events = () => {
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
-        p: 4,
+        p: 1,
       };
 
     useEffect(() => {
@@ -46,14 +47,16 @@ const Events = () => {
     }, []);
 
     return (
+        <>
+        {/* <PageTitle /> */}
         <div className='events'>
-
+            
             <div className="event-categories-container">
                 <Categories />
             </div>
             <div className="events-container">
                 <div className="post-event">
-                    <button className='btn btn-primary add-event-btn' onClick={handleOpen}>Add Event +</button>
+                    <button className='btn btn-primary add-event-btn' onClick={handleOpen}>+ Add Event</button>
                     <Modal
                         open={open}
                         onClose={handleClose}
@@ -77,7 +80,8 @@ const Events = () => {
                             eventImage={event.eventImage}
                             postDate={event.postDate}
                             scheduleDate={event.scheduleDate}
-                            userId={event.userId} />
+                            userId={event.userId}
+                            venue={event.address} />
                     ))
                     : (
                         <>
@@ -88,6 +92,7 @@ const Events = () => {
                     )}
             </div>
         </div>
+        </>
     )
 }
 

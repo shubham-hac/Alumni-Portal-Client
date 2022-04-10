@@ -23,6 +23,8 @@ import Login from './components/Login/Login';
 
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
+import ProjectShowcase from './pages/ProjectShowcase/ProjectShowcase';
+import Settings from './pages/Settings/Settings';
 
 const AnimatedRoutes = () => {
     const { user } = useContext(AuthContext);
@@ -37,6 +39,7 @@ const AnimatedRoutes = () => {
             <Route path="/events/:eventId" element={<EventDetails />} />
             <Route path="/stories" element={<Stories />} />
             <Route path="/stories/:storyId" element={<StoryDetails />} />
+            <Route path="/projects" element={<ProjectShowcase />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="jobs/:jobId" element={<JobDetails />} />
             <Route path="/alumnis" element={<AlumniDirectory />} />
@@ -45,6 +48,7 @@ const AnimatedRoutes = () => {
             <Route path="/admin-dash/applications/:appnID" element={<ApplicantDetails />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+            <Route path="/settings" element={<Settings />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
         </Routes>
     )

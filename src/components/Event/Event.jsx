@@ -5,8 +5,9 @@ import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
 
-const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) => {
+const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId, venue }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [loading, setLoading] = useState(false);
     const [user, setUser] = useState({});
     useEffect(() => {
       const fetchUser = async () => {
@@ -28,7 +29,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
             <div className="event-top">
                 <div className="event-top-left">
                     <Link to={`/profile/${user._id}`}>
-                        <img src={`${PF}people/${user.profilePicture}`} alt="" className='event-profile-image' />
+                        <img src={`${user.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
                     <Link to={`/profile/${user._id}`}>
                         <span className='event-username'>{user.firstName} {user.lastName}</span>
@@ -42,7 +43,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
             <div className="event-bottom">
                 {eventImage
                     ? <div className="event-image-container">
-                        <img src={`${PF}${eventImage}`} alt="" className="event-image" />
+                        <img src={`${eventImage}`} alt="" className="event-image" />
                     </div>
                     : ''}
                 <div className="event-info">
@@ -58,7 +59,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId }) 
                     </span>
                     <span className="event-location">
                         <LocationOnIcon className='icon' />
-                        <span>Indian Institute of Technology Indore, Khandwa Road, Simrol.-453552. , Indore</span>
+                        <span>{venue || 'Indian Institute of Technology Indore, Khandwa Road, Simrol.-453552. , Indore'}</span>
                     </span>
                     {/* <button className='btn register-btn'>Register</button> */}
                 </div>

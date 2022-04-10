@@ -21,6 +21,9 @@
     flex: 1.5;
 }
 .stories-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
     flex: 3;
 }
 .post-story{
@@ -41,5 +44,9 @@
     } */
     .stories{
         width: 95%;
+    }
+    .stories-container{
+        grid-template-columns: 1fr;
+        gap: 0em;
     }
 }

@@ -1,25 +1,17 @@
-import React, { useState, useRef, useContext } from 'react'
-import { AuthContext } from '../../context/AuthContext';
-import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router';
-import "./AddEvent.css"
+import React, { useContext, useState } from 'react'
+import './ChangeProfilePicture.css';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
+import { AuthContext } from '../../context/AuthContext';
+import axios from 'axios';
 
-const AddEvent = ({ setOpen }) => {
-    const title = useRef();
-    const description = useRef();
-    const scheduleDate = useRef();
-    const address = useRef();
-    const [errorMsg, setErrorMsg] = useState("");
+const ChangeProfilePicture = ({setOpen}) => {
+    const {user} = useContext(AuthContext);
     const [fileInputState, setFileInputState] = useState('');
     const [selectedFile, setSelectedFile] = useState('');
     const [previewSource, setPreviewSource] = useState();
+    const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
-
-    const { user } = useContext(AuthContext)
-    const navigate = useNavigate();
-
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -35,32 +27,25 @@ const AddEvent = ({ setOpen }) => {
         }
     }
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMsg("");
-        const newEvent = {
+        const newProfilePicture = {
             userId: user._id,
-            title: title.current.value,
-            desc: description.current.value,
-            scheduleDate: new Date(scheduleDate.current.value),
-            address: address.current.value,
-            eventImage: '',
         }
         if (previewSource) {
             setLoading(true);
-            const res = await uploadImage(previewSource, newEvent)
-            // const data = new FormData();
-            // const fileName = file.name;
-            // data.append('file', file);
-            // data.append('name', fileName);
-            newEvent.eventImage = await res.data.url;
+            const res = await uploadImage(previewSource)
+            newProfilePicture.profilePicture = await res.data.url;
         }
         try {
-            const response = await axios.post('http://localhost:5000/events/new', newEvent);
+            const res = await axios.put(`http://localhost:5000/users/${user._id}`, newProfilePicture);
             setLoading(false);
             setOpen(false);
-            console.log(response);
+            console.log(res);
             window.location.reload();
+            // localStorage.setItem('user_profilePicture', res.data.profilePicture);
             // navigate("/events");
 
         } catch (error) {
@@ -68,7 +53,6 @@ const AddEvent = ({ setOpen }) => {
             setErrorMsg("error");
         }
     }
-
     const uploadImage = async (base64EncodedImage, newEvent) => {
         console.log(base64EncodedImage);
         try {
@@ -79,29 +63,15 @@ const AddEvent = ({ setOpen }) => {
         }
     }
 
+
     return (
         <div>
-            <form action="" onSubmit={handleSubmit} className='addEvent'>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input type="text" name='title' ref={title} required />
-                </div>
-                <div>
-                    <label htmlFor="description">Description</label>
-                    <textarea name="description" ref={description} required></textarea>
-                </div>
-                <div>
-                    <label htmlFor="scheduleDate">Schedule Date</label>
-                    <input type="date" name="scheduleDate" ref={scheduleDate} required />
-                </div>
-                <div>
-                    <label htmlFor="address">Venue</label>
-                    <input type="text" name="address" ref={address} />
-                </div>
+            Update Profile Picture
+            <form action="" onSubmit={handleSubmit}>
                 <div className='file-container'>
                     <label htmlFor="file" className='file'>
-                        <AddAPhotoIcon className='icon' />
-                        <span>Image</span>
+                        {/* <AddAPhotoIcon className='icon' /> */}
+                        <span > + Upload Image</span>
                         <input type="file"
                             value={fileInputState}
                             id="file" name="file"
@@ -117,12 +87,14 @@ const AddEvent = ({ setOpen }) => {
                         </button>
                     </div>
                 )}
-                <button type='submit' className='btn btn-primary post-btn'>{
-                    loading ? 'Posting...' : 'Post'
-                }</button>
+                <div className='btn-container'>
+                    <button className='btn btn-primary'>{
+                        loading ? 'Saving..' : 'Save'
+                    }</button>
+                </div>
             </form>
         </div>
     )
 }
 
-export default AddEvent
+export default ChangeProfilePicture

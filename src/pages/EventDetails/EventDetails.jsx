@@ -57,7 +57,7 @@ const EventDetails = () => {
             <div className="event-detail-bottom">
                 <div className="event-detail-bottom-left">
                     <div className="event-detail-image-container">
-                        <img src={`${PF}${event.eventImage}`} alt="" className='event-detail-image' />
+                        <img src={`${event.eventImage}`} alt="" className='event-detail-image' />
                     </div>
                     <div className="event-detail-text-container">
                         <div className="scheduled-date">

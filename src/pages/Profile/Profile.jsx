@@ -14,33 +14,53 @@ import FemaleIcon from '@mui/icons-material/Female';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useParams } from 'react-router';
+import { Box, Button, Modal } from '@mui/material';
+import ChangeProfilePicture from '../../components/ChangeProfilePicture/ChangeProfilePicture';
 // import {useSearchParams} from 'react-router-dom'
 
 const Profile = () => {
     // const [searchParams, setSearchParams] = useSearchParams;
     // searchParams.get()
+    const {user} = useContext(AuthContext);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const [open, setOpen] = useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
+    const style = {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: 400,
+        bgcolor: 'background.paper',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+      };
 
     const [userDetails, setUserDetails] = useState({
-        courseJoinYear: '2019'
+        courseJoinYear: '2019',
+        followers: [],
     });
 
     // const {user} = useContext(AuthContext);
-    const {userId} = useParams()
-    
-    useEffect(() => {
-      getUserDetails();
-    }, [])
-    
+    const { userId } = useParams()
 
-    const getUserDetails = async () => {
-        try {
-            const res = await axios.get(`http://localhost:5000/users?userId=${userId}`)
-            setUserDetails(res.data);
-        } catch (error) {
-            console.log(error)
+    useEffect(() => {
+        const getUserDetails = async () => {
+            try {
+                const res = await axios.get(`http://localhost:5000/users?userId=${userId}`)
+                setUserDetails(res.data);
+            } catch (error) {
+                console.log(error)
+            }
         }
-    }
+        getUserDetails();
+    }, [])
+
+    
+    
     return (
         <div className="profile">
             <div className="profile-cover">
@@ -50,12 +70,24 @@ const Profile = () => {
                 <div className="profile-info-left">
                     <div className="basic-info">
                         <div className="profile-image-container">
-                            <img src={`${PF}people/${userDetails.profilePicture}`} alt="" className="profile-image" />
-                            <button className='btn profile-edit-btn'><EditIcon /></button>
+                            <img src={`${userDetails.profilePicture || user.profilePicture}`} alt="" className="profile-image" />
+                            <button className='btn profile-edit-btn' onClick={handleOpen}><EditIcon /></button>
+                            <Modal
+                                open={open}
+                                onClose={handleClose}
+                                aria-labelledby="modal-modal-title"
+                                aria-describedby="modal-modal-description"
+                            >
+                                <Box sx={style}>
+                                    <ChangeProfilePicture setOpen={setOpen} />
+                                </Box>
+                            </Modal>
                         </div>
-                        <h3>{userDetails.firstName} {userDetails.lastName}</h3>
+                        <h3 className='name'>{userDetails.firstName} {userDetails.lastName}</h3>
+                        <span className='connections'>{userDetails.followers.length} connections</span>
                         <div className="course-info">
-                            <span className="batch">Class of {userDetails.courseJoinYear.slice(0,4)}</span>
+                            
+                            <span className="batch">Class of {userDetails.courseJoinYear.slice(0, 4)}</span>
                             <span className="department">{userDetails.course}, {userDetails.branch}</span>
                         </div>
                     </div>

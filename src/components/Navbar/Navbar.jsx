@@ -20,7 +20,9 @@ const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
+    const defaultSrc = 'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649520852/AlumniPortal/no-avatar_xadk4e.png';
     const navigate = useNavigate();
+    
     window.onscroll = () => {
         if (window.scrollY > 120)
             setNavActive(true);
@@ -76,6 +78,11 @@ const Navbar = () => {
                         </NavLink>
                     </li>
                     <li className='navbar-link'>
+                        <NavLink to='/projects' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
+                            Project Showcase
+                        </NavLink>
+                    </li>
+                    <li className='navbar-link'>
                         <NavLink to='/jobs' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Jobs
                         </NavLink>
@@ -92,7 +99,7 @@ const Navbar = () => {
                 {user
                     ? (
                         <div >
-                            <img src={user ? `${PF}people/${user.profilePicture}` : `${PF}images/people/no-avatar.png`}
+                            <img src={user ? `${user.profilePicture}` : defaultSrc}
                                 alt=""
                                 className='navbar-profile-img'
                                 onClick={handleClick}
@@ -116,10 +123,10 @@ const Navbar = () => {
                                     </div> */}
                                     <ul>
                                         <li>
-                                            <Link to={`/profile/${user._id}`} onClick={handleClose}>
+                                            <NavLink to={`/profile/${user._id}`} onClick={handleClose}>
                                                 <PersonIcon className='icon' />
                                                 My Profile
-                                            </Link>
+                                            </NavLink>
                                         </li>
                                         <li>
                                             <Link to='/profile/xyz' onClick={handleClose}>
@@ -128,7 +135,7 @@ const Navbar = () => {
                                             </Link>
                                         </li>
                                         <li>
-                                            <Link to='/profile/xyz' onClick={handleClose}>
+                                            <Link to='/settings' onClick={handleClose}>
                                                 <SettingsIcon className='icon' />
                                                 Settings
                                             </Link>

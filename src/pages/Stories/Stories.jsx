@@ -7,9 +7,9 @@ const Stories = () => {
     return (
         <div className='stories'>
 
-            <div className="story-categories-container">
+            {/* <div className="story-categories-container">
                 <Categories />
-            </div>
+            </div> */}
             <div className="stories-container">
                 {/* <div className="post-story">
                     Post an Event

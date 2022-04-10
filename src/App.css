@@ -4,6 +4,7 @@
     --primary-clr-200: hsl(210, 25%, 29%);
     --primary-clr-100: hsl(210, 25%, 40%);
 
+    --primary-btn-blue: #1A6ED8;
     --primary-blue: #192f59;
     --primary-green: #3db166;
     --primary-grey: #8f8f8f;
@@ -16,9 +17,11 @@
     --primary-blue-100: #d1e9ff;
     --primary-green-100: #d2ffe1;
     --primary-grey-100: #f0f0f0;
+
+    --primary-blue-50: #e0f0ff;
     
-    --primary-btn-bg: #2b4d8a;
-    --primary-btn-bg-hover: #192f59;
+    --primary-btn-bg: #1A6ED8;
+    --primary-btn-bg-hover: #1761ba;
     --secondary-btn-bg: #8d8d8d;
     --secondary-btn-bg-hover: #5c5c5c;
     --danger-btn-bg:#d9534f;
