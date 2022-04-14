@@ -21,7 +21,7 @@ import ChangeProfilePicture from '../../components/ChangeProfilePicture/ChangePr
 const Profile = () => {
     // const [searchParams, setSearchParams] = useSearchParams;
     // searchParams.get()
-    const {user} = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -37,7 +37,7 @@ const Profile = () => {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
-      };
+    };
 
     const [userDetails, setUserDetails] = useState({
         courseJoinYear: '2019',
@@ -57,10 +57,10 @@ const Profile = () => {
             }
         }
         getUserDetails();
-    }, [])
+    }, [open])
 
-    
-    
+
+
     return (
         <div className="profile">
             <div className="profile-cover">
@@ -70,8 +70,14 @@ const Profile = () => {
                 <div className="profile-info-left">
                     <div className="basic-info">
                         <div className="profile-image-container">
-                            <img src={`${userDetails.profilePicture || user.profilePicture}`} alt="" className="profile-image" />
-                            <button className='btn profile-edit-btn' onClick={handleOpen}><EditIcon /></button>
+                            <img src={`${userDetails.profilePicture}`} alt="" className="profile-image" />
+                            {userDetails._id === user._id
+                                ? (
+                                    <button className='btn profile-edit-btn' onClick={handleOpen}><EditIcon /></button>
+                                )
+                                : (
+                                    ''
+                                )}
                             <Modal
                                 open={open}
                                 onClose={handleClose}
@@ -86,7 +92,7 @@ const Profile = () => {
                         <h3 className='name'>{userDetails.firstName} {userDetails.lastName}</h3>
                         <span className='connections'>{userDetails.followers.length} connections</span>
                         <div className="course-info">
-                            
+
                             <span className="batch">Class of {userDetails.courseJoinYear.slice(0, 4)}</span>
                             <span className="department">{userDetails.course}, {userDetails.branch}</span>
                         </div>
@@ -97,10 +103,16 @@ const Profile = () => {
                                 <InfoIcon className='icon' />
                                 <span>Contact Information</span>
                             </span>
-                            <button className='btn btn-green-light'>
-                                <EditIcon className='icon' />
-                                Edit
-                            </button>
+                            {
+                                userDetails._id == user._id ? (
+                                    <button className='btn btn-green-light'>
+                                        <EditIcon className='icon' />
+                                        Edit
+                                    </button>
+                                ) : (
+                                    ''
+                                )
+                            }
                         </div>
                         <div className="contact-info-bottom">
                             <div className='card-info'>
@@ -129,10 +141,16 @@ const Profile = () => {
                                 <InfoIcon className='icon' />
                                 <span>Other Information</span>
                             </span>
-                            <button className='btn btn-green-light'>
-                                <EditIcon className='icon' />
-                                Edit
-                            </button>
+                            {
+                                userDetails._id == user._id ? (
+                                    <button className='btn btn-green-light'>
+                                        <EditIcon className='icon' />
+                                        Edit
+                                    </button>
+                                ) : (
+                                    ''
+                                )
+                            }
                         </div>
                         <div className="other-info-bottom">
                             <div>
@@ -154,9 +172,18 @@ const Profile = () => {
                         <div className="summary-top">
                             <span className='card-title'>
                                 <SummarizeIcon className='icon' />
+                                
                                 <span>Summary</span>
                             </span>
-                            <button className='btn btn-green-light'>+ Add</button>
+                            {
+                                userDetails._id == user._id
+                                    ? (
+                                        <button className='btn btn-green-light'>+ Add</button>
+                                    )
+                                    : (
+                                        ''
+                                    )
+                            }
                         </div>
                         <div className="summary-bottom">
                             <span>+Use summary to share what you do, your achievements or the opportunities you're looking for</span>
@@ -168,7 +195,16 @@ const Profile = () => {
                                 <SchoolIcon className='icon' />
                                 <span>Education</span>
                             </span>
-                            <button className='btn btn-green-light'>+ Add Education</button>
+                            {
+                                userDetails._id == user._id
+                                    ? (
+                                        <button className='btn btn-green-light'>+ Add Education</button>
+                                    )
+                                    : (
+                                        ''
+                                    )
+                            }
+
                         </div>
                         <div className="edu-bottom">
                             <h4>St. John college of engineering and management</h4>
@@ -183,7 +219,18 @@ const Profile = () => {
                                 <WorkIcon className='icon' />
                                 <span>Work Experience</span>
                             </span>
-                            <span><button className='btn btn-green-light'>+ Add Experience</button></span>
+
+                            <span>
+                                {
+                                    userDetails._id == user._id
+                                        ? (
+                                            <button className='btn btn-green-light'>+ Add Experience</button>
+                                        )
+                                        : (
+                                            ''
+                                        )
+                                }
+                            </span>
                         </div>
                         <div className="work-exp-bottom">
                             <span> +Share your work history to enhance your networking potential</span>

@@ -25,6 +25,7 @@ import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
 import ProjectShowcase from './pages/ProjectShowcase/ProjectShowcase';
 import Settings from './pages/Settings/Settings';
+import AddEvent from './components/AddEvent/AddEvent';
 
 const AnimatedRoutes = () => {
     const { user } = useContext(AuthContext);
@@ -50,6 +51,7 @@ const AnimatedRoutes = () => {
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
+            <Route path='/addEvent' element={<AddEvent />} />
         </Routes>
     )
 }

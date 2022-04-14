@@ -13,6 +13,7 @@
 .alumni-profile-image{
     margin-bottom: 0.5em;
     aspect-ratio: 1.5;
+    position: relative;
 }
 .alumni-profile-image img{
     width: 100%;
@@ -29,15 +30,44 @@
 .alumni-name{
     display: flex;
     justify-content: space-between;
-    font-size: 0.9em;
+   
+    flex-wrap: wrap;
+    /* font-size: 1rem; */
+    /* border: 2px solid blue; */
+    
+    padding-left: 0.4em;
+}
+.alumni-name a{
+    padding: 0 0.4em;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--primary-clr-200);
+    /* border: 2px solid red; */
+    height: max-content;
+    margin: 0 !important;
+    text-decoration: none;
+}
+.alumni-name > span, .alumni-name > a{
+    /* border: 2px solid red; */
+    padding: 0 !important;
+}
+.alumni-course{
+    display: block;
+    /* border: 2px solid red; */
+    font-size: 0.85rem;
+    color: var(--primary-clr-100);
+    margin: 0 !important;
+    width: 100%;
+    margin-left: 0.2em;
 }
 .msg-button{
-    /* position: absolute;
-    top: 50%;
-    right: 1%; */
+    position: absolute;
+    top: 100%;
+    right: 1%;
     background-color: rgb(255, 255, 255);
     border-radius: 50%;
-    padding:0.3em;
+    padding: 0.3em;
+    /* padding: 0; */
     border: 2px solid var(--primary-green) !important;
     aspect-ratio: 1;
     transform: translateY(-80%);

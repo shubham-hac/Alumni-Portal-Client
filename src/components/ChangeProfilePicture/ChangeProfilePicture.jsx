@@ -4,6 +4,7 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
+import Success from './Success';
 
 const ChangeProfilePicture = ({setOpen}) => {
     const {user} = useContext(AuthContext);
@@ -12,6 +13,7 @@ const ChangeProfilePicture = ({setOpen}) => {
     const [previewSource, setPreviewSource] = useState();
     const [errorMsg, setErrorMsg] = useState("");
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess]  =useState(false);
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -42,9 +44,10 @@ const ChangeProfilePicture = ({setOpen}) => {
         try {
             const res = await axios.put(`http://localhost:5000/users/${user._id}`, newProfilePicture);
             setLoading(false);
-            setOpen(false);
+            // setOpen(false);
             console.log(res);
-            window.location.reload();
+            setSuccess(true);
+            // window.location.reload();
             // localStorage.setItem('user_profilePicture', res.data.profilePicture);
             // navigate("/events");
 
@@ -63,7 +66,11 @@ const ChangeProfilePicture = ({setOpen}) => {
         }
     }
 
-
+    if(success){
+        return(
+            <Success setOpen={setOpen} />
+        )
+    }
     return (
         <div>
             Update Profile Picture

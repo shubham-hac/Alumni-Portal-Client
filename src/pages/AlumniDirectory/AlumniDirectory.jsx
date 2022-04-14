@@ -6,11 +6,23 @@ import { Link } from 'react-router-dom';
 import { courses } from '../../dummyData';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import PersonIcon from '@mui/icons-material/Person';
+import axios from 'axios';
 
 const AlumniDirectory = () => {
     const [selectedCourse, setSelectedCourse] = useState({});
     const [branches, setBranches] = useState([]);
     const [filterDisabled, setFilterDisabled] = useState(true);
+    const [alumnis, setAlumnis] = useState([]);
+
+    useEffect(() => {
+        const fetchAlumnis = async () => {
+            const res = await axios.get(`http://localhost:5000/users/alumnis`);
+            console.log(res.data);
+            setAlumnis(res.data);
+        }
+        fetchAlumnis();
+    }, [])
+
 
     const updateCourse = (e) => {
         setSelectedCourse(courses[e.target.value - 1]);
@@ -22,6 +34,9 @@ const AlumniDirectory = () => {
         e.preventDefault();
         console.log(selectedCourse);
     }
+
+
+
     return (
         <div className='alumni-directory'>
             <div className="alumni-categories">
@@ -57,16 +72,16 @@ const AlumniDirectory = () => {
                             ))}
                         </select>
 
-                        {branches 
-                        ? (
-                            <select className="filter-option">
-                            {branches.map(branch => (
-                                <option key={branch} value={branch}>{branch}</option>
-                            ))}
-                        </select>
-                        ) : ''}
+                        {branches
+                            ? (
+                                <select className="filter-option">
+                                    {branches.map(branch => (
+                                        <option key={branch} value={branch}>{branch}</option>
+                                    ))}
+                                </select>
+                            ) : ''}
                     </div>
-                    <button className={`btn btn-secondary ${filterDisabled ? 'btn-disabled': ''}`} type='submit' disabled={filterDisabled}>
+                    <button className={`btn btn-secondary ${filterDisabled ? 'btn-disabled' : ''}`} type='submit' disabled={filterDisabled}>
                         <FilterAltIcon />
                         Filter
                     </button>
@@ -79,12 +94,14 @@ const AlumniDirectory = () => {
                     <span>1728 Members in Community</span>
                 </div>
                 <div className="alumni-profiles">
-                    {Users.filter((user) => {
-                        return user.alumni;
-                    }).map(alumni => (
+                    {alumnis.map(alumni => (
                         <AlumniProfileCard
-                            key={alumni.id}
-                            name={alumni.name}
+                            key={alumni._id}
+                            id={alumni._id}
+                            firstName={alumni.firstName}
+                            lastName={alumni.lastName}
+                            course={alumni.course}
+                            branch={alumni.branch}
                             desc={alumni.desc}
                             profilePicture={alumni.profilePicture} />
                     ))}
