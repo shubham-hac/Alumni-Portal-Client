@@ -92,6 +92,17 @@ const Navbar = () => {
                             Alumnis
                         </NavLink>
                     </li>
+                    {user
+                        ?((() => { //Only show the admin-dash link if the user is an admin:
+                            if(user.userType === 3) {
+                                return <li className='navbar-link'>
+                                    <NavLink to='/admin-dash' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
+                                        Admin Dash
+                                    </NavLink>
+                                </li>
+                            }
+                            })()
+                        ):''}
                 </ul>
             </div>
             <div className="navbarRight">
