@@ -1,5 +1,5 @@
 
-.pending-appn-details{
+.all-user-details{
     animation: appear 300ms ease-in-out;
     display:flex;
     width: 90%;
@@ -9,7 +9,7 @@
     min-height: 100vh;
     max-height: max-content;
 }
-.application-details{
+.user-details{
     animation: appear 300ms ease-in-out;
     flex:3 1;
 }
@@ -118,7 +118,7 @@
 }
 }
 @media(max-width:950px){
-    .pending-appn-details{
+    .all-user-details{
         flex-direction: column;
     }
 }
