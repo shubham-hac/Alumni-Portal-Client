@@ -3,14 +3,25 @@ import Navbar from './components/Navbar/Navbar';
 import {
   BrowserRouter as Router,
 } from "react-router-dom";
-import {useState} from 'react'
+import {useContext, useState, useEffect,} from 'react'
 
 import AnimatedRoutes from './AnimatedRoutes';
+import ScrollToTop from './utils/ScrollToTop';
+import { AuthContext } from './context/AuthContext';
+import { loginCall } from './apiCalls';
 
 function App() {
+  const {user, isFetching, error, dispatch} = useContext(AuthContext);
+  useEffect(async () => {
+      if(localStorage.getItem('login')){
+        await loginCall({email: localStorage.getItem('user_email'), password: localStorage.getItem('user_passwd')}, dispatch);
+      }
+  }, [])
+  
   return (
     <Router>
       <div className="App">
+        <ScrollToTop />
         <Navbar />
         <AnimatedRoutes />
       </div>

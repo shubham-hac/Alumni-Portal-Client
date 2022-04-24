@@ -47,8 +47,10 @@ const ChangeProfilePicture = ({setOpen}) => {
             // setOpen(false);
             console.log(res);
             setSuccess(true);
+            
             // window.location.reload();
-            // localStorage.setItem('user_profilePicture', res.data.profilePicture);
+            localStorage.setItem('user_profilePicture', res.data.profilePicture);
+            user.profilePicture = res.data.profilePicture;
             // navigate("/events");
 
         } catch (error) {

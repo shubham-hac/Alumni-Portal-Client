@@ -10,6 +10,7 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 // import { events } from '../../dummyData';
 import { useParams } from 'react-router';
 import axios from 'axios';
+import MDEditor from '@uiw/react-md-editor';
 
 const EventDetails = () => {
     const {eventId} = useParams();
@@ -96,12 +97,7 @@ const EventDetails = () => {
                             <h4>DESCRIPTION</h4>
                         </span>
                         <p className="event-description-value">
-                            The Third Alumni Meet of IIT Indore- MAGNUM OPUS 2020 is
-                            scheduled on 8th February 2020.
-
-                            The detailed schedule will be updated soon.
-
-                            Register Today!
+                        <MDEditor.Markdown source={event.desc} />
                         </p>
                     </div>
 

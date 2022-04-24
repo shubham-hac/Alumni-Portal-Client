@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import AlumniProfileCard from '../../components/AlumniProfileCard/AlumniProfileCard';
 import './AlumniDirectory.css';
-import { Users } from '../../dummyData';
+import { userApplications, Users } from '../../dummyData';
 import { Link } from 'react-router-dom';
 import { courses } from '../../dummyData';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import PersonIcon from '@mui/icons-material/Person';
 import axios from 'axios';
+import { AuthContext } from '../../context/AuthContext';
 
 const AlumniDirectory = () => {
     const [selectedCourse, setSelectedCourse] = useState({});
@@ -14,15 +15,16 @@ const AlumniDirectory = () => {
     const [filterDisabled, setFilterDisabled] = useState(true);
     const [alumnis, setAlumnis] = useState([]);
 
+    const {user} = useContext(AuthContext);
+
     useEffect(() => {
         const fetchAlumnis = async () => {
-            const res = await axios.get(`http://localhost:5000/users/alumnis`);
+            const res = await axios.get(`http://localhost:5000/users/alumnis?course=B.E`);
             console.log(res.data);
             setAlumnis(res.data);
         }
         fetchAlumnis();
     }, [])
-
 
     const updateCourse = (e) => {
         setSelectedCourse(courses[e.target.value - 1]);
@@ -94,7 +96,9 @@ const AlumniDirectory = () => {
                     <span>1728 Members in Community</span>
                 </div>
                 <div className="alumni-profiles">
-                    {alumnis.map(alumni => (
+                    {alumnis.filter((alumni) => {
+                        return alumni._id !== user._id
+                    }).map(alumni => (
                         <AlumniProfileCard
                             key={alumni._id}
                             id={alumni._id}

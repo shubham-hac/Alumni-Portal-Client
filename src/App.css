@@ -126,6 +126,13 @@ button > *{
     /* filter: brightness(80%); */
     outline: 1.5px solid var(--primary-green);
 }
+.btn-secondary-light{
+    background: var(--primary-grey-100);
+    color: var(--primary-clr-100);
+}
+.btn-secondary-light:hover {
+    background: var(--primary-grey-200);
+}
 
 .icon{
     margin-right: 0.3em;

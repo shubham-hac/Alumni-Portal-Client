@@ -28,7 +28,8 @@
     margin: auto;
     font-size: 0.9rem !important;
     align-items: center;
-
+    justify-content: center;
+    width: 40%;
 }
 .post-event{
     /* height: 20vh;

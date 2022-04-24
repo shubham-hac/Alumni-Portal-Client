@@ -11,7 +11,7 @@ export const loginCall = async (userCredentials, dispatch) => {
         localStorage.setItem('user_lastName', res.data.lastName);
         localStorage.setItem('user_username', res.data.username);
         localStorage.setItem('user_profilePicture', res.data.profilePicture);
-        
+        localStorage.setItem('login', true);
         dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
 
     } catch (error) {

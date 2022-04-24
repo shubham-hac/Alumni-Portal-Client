@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Events.css'
 // import { events } from '../../dummyData';
 import Event from '../../components/Event/Event';
@@ -9,6 +9,9 @@ import SkeletonLoading from '../../components/SkeletonLoading/SkeletonLoading';
 import AddEvent from '../../components/AddEvent/AddEvent';
 import { Box, Button, Modal } from '@mui/material';
 import PageTitle from '../../components/PageTitle/PageTitle';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthContext';
+
 
 const Events = () => {
     const [loading, setLoading] = useState(false);
@@ -16,6 +19,8 @@ const Events = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const {user} = useContext(AuthContext);
   
     const style = {
         position: 'absolute',
@@ -30,21 +35,34 @@ const Events = () => {
       };
 
     useEffect(() => {
-        const fetchEvents = async () => {
-            try {
-                const response = await axios.get('http://localhost:5000/events/all');
-                const data = await response.data;
-                // const response = await axios.get('http://127.0.0.1:5000/events/all');
-                // const  data = await response.data;
-                console.log(data);
-                setEvents(data);
-                setLoading(true);
-            } catch (error) {
-                console.log(error);
-            }
-        }
+        
         fetchEvents();
     }, []);
+
+    const fetchEvents = async () => {
+        try {
+            const response = await axios.get('http://localhost:5000/events/all');
+            const data = await response.data;
+            // const response = await axios.get('http://127.0.0.1:5000/events/all');
+            // const  data = await response.data;
+            console.log(data);
+            setEvents(data);
+            setLoading(true);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    const handleDelete = async (eventId) => {
+        // console.log(eventId);
+        console.log(user._id)
+        try {
+            await axios.delete(`http://localhost:5000/events/${eventId}`, {data: {userId: user._id}})
+            await fetchEvents();
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
 
     return (
         <>
@@ -56,32 +74,24 @@ const Events = () => {
             </div>
             <div className="events-container">
                 <div className="post-event">
-                    <button className='btn btn-primary add-event-btn' onClick={handleOpen}>+ Add Event</button>
-                    <Modal
-                        open={open}
-                        onClose={handleClose}
-                        aria-labelledby="modal-modal-title"
-                        aria-describedby="modal-modal-description"
-                    >
-                        <Box sx={style}>
-                            <AddEvent setOpen={setOpen} />
-                        </Box>
-                    </Modal>
-                    {/* <AddEvent /> */}
+                    <Link to="/addEvent">
+                        <button className='btn btn-primary add-event-btn'>+ Add Event</button>
+                    </Link>
                 </div>
                 {loading
 
                     ? events.map(event => (
                         <Event
                             key={event._id}
-                            id={event._id}
+                            eventId={event._id}
                             title={event.title}
                             desc={event.desc}
                             eventImage={event.eventImage}
-                            postDate={event.postDate}
+                            postDate={event.createdAt}
                             scheduleDate={event.scheduleDate}
                             userId={event.userId}
-                            venue={event.address} />
+                            venue={event.address}
+                            handleDelete={handleDelete} />
                     ))
                     : (
                         <>

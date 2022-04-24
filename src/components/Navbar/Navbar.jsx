@@ -41,6 +41,7 @@ const Navbar = () => {
 
     const logout = () => {
         logoutCall(dispatch);
+        localStorage.setItem('login', false)
         setAnchorEl(null);
         navigate('/');
     }

@@ -1,43 +1,98 @@
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import './Event.css';
 import { Link } from 'react-router-dom';
 import EventIcon from '@mui/icons-material/Event';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import axios from 'axios';
+import { format, render, cancel, register } from 'timeago.js';
+import moment from 'moment';
+import { AuthContext } from '../../context/AuthContext';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Popover from '@mui/material/Popover';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 
-const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId, venue }) => {
+const Event = ({ eventId, title, desc, eventImage, postDate, scheduleDate, userId, venue, handleDelete }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
-    const [loading, setLoading] = useState(false);
-    const [user, setUser] = useState({});
+    const { user } = useContext(AuthContext);
+
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+    const [userDetails, setUserDetails] = useState({});
     useEffect(() => {
-      const fetchUser = async () => {
+        const fetchUser = async () => {
             try {
                 const response = await axios.get(`http://localhost:5000/users?userId=${userId}`);
                 const data = await response.data;
-                console.log(data);
-                setUser(data);
+                // console.log(data);
+                setUserDetails(data);
 
             } catch (error) {
                 console.log(error);
             }
-      }
-      fetchUser();
+        }
+        fetchUser();
     }, []);
-    
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
     return (
         <div className="event">
             <div className="event-top">
                 <div className="event-top-left">
-                    <Link to={`/profile/${user._id}`}>
-                        <img src={`${user.profilePicture}`} alt="" className='event-profile-image' />
+                    <Link to={`/profile/${userDetails._id}`}>
+                        <img src={`${userDetails.profilePicture}`} alt="" className='event-profile-image' />
                     </Link>
                     <Link to={`/profile/${user._id}`}>
-                        <span className='event-username'>{user.firstName} {user.lastName}</span>
-                        <span className='user-type'>| {user.userType === 2 ? "Alumni" : "Admin"}</span>
+                        <span className='event-username'>{userDetails.firstName} {userDetails.lastName}</span>
+                        <span className='user-type'>| {userDetails.userType === 2 ? "Alumni" : "Admin"}</span>
                     </Link>
                 </div>
                 <div className="event-top-right">
-                    <span className="post-date">{postDate}</span>
+                    <span className="post-date">{format(postDate)}</span>
+                    <button aria-describedby={id} onClick={handleClick}>
+                        <MoreVertIcon />
+                    </button>
+                    <Popover
+                        id={id}
+                        open={open}
+                        anchorEl={anchorEl}
+                        onClose={handleClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                            vertical: 'center',
+                            horizontal: 'right',
+                        }}
+                        className='event-popover'
+                    >
+                        <ul>
+                            <li>
+                                {/* <RemoveRedEyeIcon className='icon' /> */}
+                                view
+                            </li>
+                            {
+                                user._id === userId
+                                    ? (
+                                        <li  onClick={() => handleDelete(eventId)}>
+                                            {/* <DeleteIcon className='icon' /> */}
+                                            delete
+                                        </li>
+                                    )
+                                    : ('')
+                            }
+                        </ul>
+                    </Popover>
                 </div>
             </div>
             <div className="event-bottom">
@@ -47,7 +102,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId, ve
                     </div>
                     : ''}
                 <div className="event-info">
-                    <Link to={`/events/${id}`} className="event-title">
+                    <Link to={`/events/${eventId}`} className="event-title">
                         {title}
                     </Link>
                     <p className='event-description'>
@@ -55,7 +110,7 @@ const Event = ({ id, title, desc, eventImage, postDate, scheduleDate, userId, ve
                     </p>
                     <span className='event-date'>
                         <EventIcon className='icon' />
-                        <span>{scheduleDate}</span>
+                        <span>{scheduleDate.slice(0,10)}</span>
                     </span>
                     <span className="event-location">
                         <LocationOnIcon className='icon' />

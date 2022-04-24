@@ -1,10 +1,11 @@
 import React, { useState, useRef, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import "./AddEvent.css"
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
+
 
 const AddEvent = ({ setOpen }) => {
     const title = useRef();
@@ -60,8 +61,8 @@ const AddEvent = ({ setOpen }) => {
             setLoading(false);
             setOpen(false);
             console.log(response);
-            window.location.reload();
-            // navigate("/events");
+            // window.location.reload();
+            navigate("/events");
 
         } catch (error) {
             // error.response.data  && console.log(error.response.data);
@@ -80,23 +81,23 @@ const AddEvent = ({ setOpen }) => {
     }
 
     return (
-        <div>
+        <div className='add-event-container'>
             <form action="" onSubmit={handleSubmit} className='addEvent'>
                 <div>
                     <label htmlFor="title">Title</label>
-                    <input type="text" name='title' ref={title} required />
+                    <input type="text" name='title' ref={title} placeholder="add a title" required />
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
-                    <textarea name="description" ref={description} required></textarea>
+                    <textarea name="description" ref={description} placeholder="markdown is supported" required></textarea>
                 </div>
                 <div>
                     <label htmlFor="scheduleDate">Schedule Date</label>
-                    <input type="date" name="scheduleDate" ref={scheduleDate} required />
+                    <input type="date" name="scheduleDate" ref={scheduleDate} onChange={(e) => {console.log(new Date(e.target.value))}} required />
                 </div>
                 <div>
                     <label htmlFor="address">Venue</label>
-                    <input type="text" name="address" ref={address} />
+                    <input type="text" name="address" placeholder='add a venue' ref={address} />
                 </div>
                 <div className='file-container'>
                     <label htmlFor="file" className='file'>

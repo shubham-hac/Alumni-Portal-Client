@@ -25,6 +25,7 @@ const Email =({ page,setPage,formData,setFormData })=>{
         }
         
     },[retrySend])
+    
     const handleSubmit=async(e)=>{
         e.preventDefault()
         const otpregexp = /^[0-9]{6}$/

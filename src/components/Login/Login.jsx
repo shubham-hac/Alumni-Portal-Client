@@ -20,7 +20,11 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            localStorage.setItem('user_passwd', password.current.value);
+            localStorage.setItem('user_email', email.current.value);
             await loginCall({email: email.current.value, password: password.current.value}, dispatch);
+            
+            localStorage.setItem('login', false)
         } catch (err) {
             console.log(error)
         }

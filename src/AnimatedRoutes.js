@@ -26,6 +26,7 @@ import { AuthContext } from './context/AuthContext';
 import ProjectShowcase from './pages/ProjectShowcase/ProjectShowcase';
 import Settings from './pages/Settings/Settings';
 import AddEvent from './components/AddEvent/AddEvent';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 const AnimatedRoutes = () => {
     const { user } = useContext(AuthContext);
@@ -43,7 +44,7 @@ const AnimatedRoutes = () => {
             <Route path="/projects" element={<ProjectShowcase />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="jobs/:jobId" element={<JobDetails />} />
-            <Route path="/alumnis" element={<AlumniDirectory />} />
+            <Route path="/alumnis" element={user ? <AlumniDirectory /> : <Login />} />
             <Route path="/admin-dash" element={<AdminDash />} />
             <Route path="/admin-dash/pending" element={<PendingApplications />} />
             <Route path="/admin-dash/applications/:appnID" element={<ApplicantDetails />} />
@@ -52,6 +53,7 @@ const AnimatedRoutes = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
             <Route path='/addEvent' element={<AddEvent />} />
+            <Route path='*' element={<ErrorPage />} />
         </Routes>
     )
 }
