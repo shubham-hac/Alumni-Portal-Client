@@ -1,8 +1,8 @@
 import React from 'react'
-import {useState} from 'react'
+import {useState , useEffect} from 'react'
 import {useParams} from 'react-router-dom'
 import AdminDashNavbar from '../../components/AdminDashNavbar/AdminDashNavbar'
-import './ApplicantDetails.css'
+import './UserDetails.css'
 import { userApplications } from '../../dummyData'
 import DoneIcon from '@mui/icons-material/Done'
 import ClearIcon from '@mui/icons-material/Clear'
@@ -24,14 +24,15 @@ import SummarizeIcon from '@mui/icons-material/Summarize'
 import ContactsIcon from '@mui/icons-material/Contacts';
 import InfoIcon from '@mui/icons-material/Info';
 
-const ApplicantDetails=()=>{
+const UserDetails=()=>{
     const PF=process.env.REACT_APP_PUBLIC_FOLDER
-    const {appnID}=useParams()
-    const [application,setApplication]=useState(userApplications[appnID-1])
+    const {userID}=useParams()
+    const [application,setApplication]=useState(userApplications[userID-1])
+    
     return(
-        <div className="pending-appn-details">
+        <div className="all-user-details">
             <AdminDashNavbar />
-            <div className="application-details">
+            <div className="user-details">
                 <div className="main-content">
                     <div className="left-pane">
                         <div className="academic-card">
@@ -92,4 +93,4 @@ const ApplicantDetails=()=>{
         </div>
     )
 }
-export default ApplicantDetails
+export default UserDetails

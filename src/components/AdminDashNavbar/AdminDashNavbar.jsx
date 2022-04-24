@@ -9,20 +9,18 @@ const AdminDashNavbar=()=>{
             <ul className='categories'>
                 <Link to='/admin-dash/'>
                         <li className='category category-active'>
-                            <span>Recent Activity</span>
-                            <span>(15)</span>
-                        </li>
-                </Link>
-                <Link to='/admin-dash/pending'>
-                        <li className='category'>
-                            <span>Pending Applications</span>
-                            <span>(23)</span>
+                            <span>Moderation Log</span>
                         </li>
                 </Link>
                 <Link to='/admin-dash/users'>
                         <li className='category'>
                             <span>Manage Users</span>
-                            <span>(18)</span>
+                            
+                        </li>
+                </Link>
+                <Link to='/admin-dash/admins'>
+                        <li className='category'>
+                            <span>Manage Admins</span>
                         </li>
                 </Link>
             </ul>
