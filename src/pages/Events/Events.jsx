@@ -57,7 +57,7 @@ const Events = () => {
         // console.log(eventId);
         console.log(user._id)
         try {
-            await axios.delete(`http://localhost:5000/events/${eventId}`, {data: {userId: user._id}})
+            await axios.delete(`http://localhost:5000/events/${eventId}`, {data: {userId: user._id, userType: user.userType}})
             await fetchEvents();
         } catch (error) {
             console.log(error.response.data);

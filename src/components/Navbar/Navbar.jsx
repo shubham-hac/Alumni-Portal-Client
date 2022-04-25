@@ -40,8 +40,10 @@ const Navbar = () => {
     };
 
     const logout = () => {
-        logoutCall(dispatch);
         localStorage.setItem('login', false)
+        localStorage.removeItem('user_passwd');
+        localStorage.removeItem('user_email');
+        logoutCall(dispatch);
         setAnchorEl(null);
         navigate('/');
     }

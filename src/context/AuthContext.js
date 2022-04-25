@@ -3,15 +3,14 @@ import { createContext, useReducer } from "react";
 import AuthReducer from "./AuthReducer";
 
 let initial_user = {
-    _id : localStorage.getItem('user_id'),
-    profilePicture : localStorage.getItem('user_profilePicture'),
+    
 }
 
 if(initial_user._id == null)
     initial_user = null
 
 const INITIAL_STATE = {
-    user: initial_user,
+    user: null,
     isFetching: false,
     error: false
 };

@@ -410,8 +410,7 @@ export const userApplications=[
 export const carouselData = [
     {
         id: 11,
-        title: "Zero to One",
-        image: "event1.jpg"
+        image: "SJCEM.jpg"
     },
     {
         id: 12,

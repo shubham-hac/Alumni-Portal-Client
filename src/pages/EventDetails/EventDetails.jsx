@@ -11,11 +11,14 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useParams } from 'react-router';
 import axios from 'axios';
 import MDEditor from '@uiw/react-md-editor';
+import { useNavigate } from 'react-router';
 
 const EventDetails = () => {
     const {eventId} = useParams();
     const [event, setEvent] = useState({});
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    let navigate = useNavigate();
+
 
     useEffect(() => {
       const fetchEvent = async () => {
@@ -25,6 +28,7 @@ const EventDetails = () => {
                 console.log(data);
                 setEvent(data);
             } catch (error) {
+                navigate('/pageNotFound')
                 console.log(error)
             }
       }

@@ -1,7 +1,8 @@
 import React, { useState, useRef, useContext } from 'react'
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
+
 import "./AddEvent.css"
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
@@ -19,8 +20,7 @@ const AddEvent = ({ setOpen }) => {
     const [loading, setLoading] = useState(false);
 
     const { user } = useContext(AuthContext)
-    const navigate = useNavigate();
-
+    let navigate = useNavigate();
 
     const handleFileChange = (e) => {
         const file = e.target.files[0];
@@ -59,10 +59,10 @@ const AddEvent = ({ setOpen }) => {
         try {
             const response = await axios.post('http://localhost:5000/events/new', newEvent);
             setLoading(false);
-            setOpen(false);
+            // setOpen(false);
             console.log(response);
             // window.location.reload();
-            navigate("/events");
+            navigate('/events')
 
         } catch (error) {
             // error.response.data  && console.log(error.response.data);

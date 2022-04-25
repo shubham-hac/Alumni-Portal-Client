@@ -11,36 +11,22 @@ import { CircularProgress } from '@mui/material';
 const Login = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [selectedRole, setSelectedRole] = useState(1);
-    const [errorMsg,setErrorMsg] = useState(null);
-    const email  = useRef();
+    const [errorMsg, setErrorMsg] = useState(null);
+    const email = useRef();
     const username = useRef();
     const password = useRef();
-    const {user, isFetching, error, dispatch} = useContext(AuthContext);
+    const { user, isFetching, error, dispatch } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             localStorage.setItem('user_passwd', password.current.value);
             localStorage.setItem('user_email', email.current.value);
-            await loginCall({email: email.current.value, password: password.current.value}, dispatch);
+            await loginCall({ email: email.current.value, password: password.current.value }, dispatch);
             
-            localStorage.setItem('login', false)
         } catch (err) {
             console.log(error)
         }
-        
-        // const user = {
-        //     email: email.current.value,
-        //     password: password.current.value
-        // }
-        // try {
-        //     const response = await axios.post(`http://127.0.0.1/auth/login`, user);
-        //     console.log(response.data);
-            // setErrorMsg(user);
-        // } catch (error) {
-        //     console.log(error.response.data)
-        //     setErrorMsg(error.response.data);
-        // }
     }
 
     console.log(user)
@@ -51,10 +37,10 @@ const Login = () => {
             <div className="sign-in">
                 <div className="side-img">
                     <img src={`${PF}register.svg`} alt="" className='image1' />
-                    <p>Don't have an account ? 
+                    <p>Don't have an account ?
                         <Link to="/register">
                             Signup
-                        </Link> 
+                        </Link>
                     </p>
                 </div>
 
@@ -80,9 +66,9 @@ const Login = () => {
                             <label htmlFor="password">Password</label>
                             <input type="password" name="password" id="password" ref={password} required />
                         </div>
-                        {error 
-                        ? <label htmlFor="form" id="error">{error}</label>
-                        : ""}
+                        {error
+                            ? <label htmlFor="form" id="error">{error}</label>
+                            : ""}
                         <div className="button-container">
                             <button className="btn btn-primary" disabled={isFetching} id="submit">
                                 {isFetching ? <CircularProgress /> : "Login"}

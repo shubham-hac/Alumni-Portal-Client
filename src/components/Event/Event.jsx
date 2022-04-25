@@ -82,7 +82,7 @@ const Event = ({ eventId, title, desc, eventImage, postDate, scheduleDate, userI
                                 view
                             </li>
                             {
-                                user._id === userId
+                                user._id === userId || user.userType === 3
                                     ? (
                                         <li  onClick={() => handleDelete(eventId)}>
                                             {/* <DeleteIcon className='icon' /> */}

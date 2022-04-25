@@ -13,7 +13,8 @@ import { loginCall } from './apiCalls';
 function App() {
   const {user, isFetching, error, dispatch} = useContext(AuthContext);
   useEffect(async () => {
-      if(localStorage.getItem('login')){
+    // console.log(localStorage.getItem('login'));
+      if(localStorage.getItem('login') === 'true'){
         await loginCall({email: localStorage.getItem('user_email'), password: localStorage.getItem('user_passwd')}, dispatch);
       }
   }, [])

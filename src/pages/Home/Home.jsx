@@ -65,6 +65,7 @@ const Home = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
+            
             {/* About */}
             <div className='about'>
                 <div className="about-left">
@@ -74,6 +75,7 @@ const Home = () => {
                     St. John College of Engineering and Management (SJCEM) is Established in 2008. It is located in Palghar. It provides facilities for professional education in the rural and tribal area of Palghar District near Mumbai by offering four year Degree Courses in Civil Engineering, Computer Engineering, Electronics and Telecommunications Engineering, IT Engineering and Mechanical Engineering and three year Diploma courses in Civil Engineering, Electronics and Telecommunications Engineering and Mechanical Engineering. SJCEM also offers two year Post Graduate Degree Course – Masters of Management Studies.
                 </div>
             </div>
+
             {/* Events */}
             <div className="events-section">
                 <div className="events-section-top">
@@ -104,6 +106,10 @@ const Home = () => {
                     ))}
 
                 </Swiper>
+            </div>
+
+            <div className="engagement">
+                
             </div>
         </div>
     )
