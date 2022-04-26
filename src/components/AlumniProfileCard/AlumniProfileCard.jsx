@@ -14,6 +14,8 @@ const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, prof
     const [loading, setLoading] = useState(false);
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
+    const defaultSrc = 'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649517324/AlumniPortal/post1_qvb5wq.jpg';
+
 
     const handleFollow = async () => {
         try {
@@ -38,7 +40,11 @@ const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, prof
     return (
         <div className="alumni-profile">
             <div className="alumni-profile-image">
-                <img src={`${profilePicture || 'no-avatar.png'}`} alt="" />
+                {profilePicture === '' ?(
+                            <img src={`${defaultSrc}`} alt="" className="story-image" />
+                        ) : (
+                            <img src={`${profilePicture}`} alt="" className="story-image" />
+                        )}
                 <Tooltip title="message-alumni">
                     <button className="msg-button" >
                         <EmailIcon />

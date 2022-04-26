@@ -2,9 +2,10 @@
     width: 90%;
     max-width: 1240px;
     margin: 2em auto;
-    display: flex;
+    /* display: flex; */
     gap: 0 1em;
     animation: appear 300ms ease-in-out;
+    /* border: 2px solid red; */
 }
 .stories a{
     text-decoration: none;
@@ -24,11 +25,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2em;
-    flex: 3;
+    /* flex: 3; */
+    /* border: 2px solid blue; */
 }
 .post-story{
-    height: 20vh;
-    border: 1px solid #ddd;
+    /* height: 20vh; */
+    margin: 1em auto;
+    /* border: 1px solid #ddd; */
     width: 100%;
 }
 

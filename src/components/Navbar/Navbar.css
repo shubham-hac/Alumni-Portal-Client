@@ -55,7 +55,7 @@
     padding: 0.3em;
 }
 .hamburgurBtn:hover{
-    background: #eee;
+    background: var(--primary-clr-100);
 }
 .navbarCenter{
     flex: 2;
@@ -175,6 +175,8 @@
     }
     .hamburgurBtn{
         display: flex;
+        /* background-color: var(--primary-clr); */
+        color: var(--primary-bg);
     }
     #hidden{
         position: absolute;
@@ -187,11 +189,13 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        animation: slide-down 150ms ease-in-out;
+        animation: slide-down 350ms ease-in-out;
         /* box-shadow: 0 4px 2px -2px rgba(0,0,0,.2); */
         border-bottom: 2px solid #cdcdcd;
         border-top: 1px solid #ddd;
         z-index: 998;
+        background-color: var(--primary-clr);
+        color: var(--primary-bg);
     }
     .navbar-link{
         margin: 0.4em 0;
@@ -203,5 +207,5 @@
 
 @keyframes slide-down {
     0% {transform: translateY(-100%); opacity: 0;}
-    100% {transform: translate(0); opacity: 1;}
+    100% {transform: translateY(0); opacity: 1;}
 }

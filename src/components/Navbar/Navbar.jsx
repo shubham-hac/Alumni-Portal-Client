@@ -40,9 +40,7 @@ const Navbar = () => {
     };
 
     const logout = () => {
-        localStorage.setItem('login', false)
-        localStorage.removeItem('user_passwd');
-        localStorage.removeItem('user_email');
+        
         logoutCall(dispatch);
         setAnchorEl(null);
         navigate('/');
@@ -80,11 +78,11 @@ const Navbar = () => {
                             Stories
                         </NavLink>
                     </li>
-                    <li className='navbar-link'>
+                    {/* <li className='navbar-link'>
                         <NavLink to='/projects' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Project Showcase
                         </NavLink>
-                    </li>
+                    </li> */}
                     <li className='navbar-link'>
                         <NavLink to='/jobs' activeclassname='active' onClick={() => setShowLinks(!showLinks)}>
                             Jobs

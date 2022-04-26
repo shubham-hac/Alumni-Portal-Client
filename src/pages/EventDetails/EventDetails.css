@@ -52,6 +52,8 @@
     border: 1px solid #bfc7cc;
     height: fit-content;
     border-radius: 5px;
+    background-color: var(--primary-clr);
+    color: var(--primary-bg);
 }
 .bottom-left-card{
     width: 85%;
@@ -101,9 +103,11 @@
     border-radius: 100vw;
     padding: 0.5em 0.1em;
     padding-left: 0.6em;
+    background-color: var(--primary-clr);
+    color: var(--primary-bg);
 }
 .share-btn:hover{
-    background: #dedede;
+    /* background: #dedede; */
 }
 .event-register{
     margin-top: 2em;

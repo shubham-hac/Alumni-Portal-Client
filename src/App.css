@@ -31,9 +31,10 @@
 
 }
 .App {
-    background: var(--primary-bg);
+    background: #F6F8FA;
     width: 100%;
     color: var(--primary-clr);
+    min-height: 100vh;
 }
 h1,h2,h3,h4{
     font-weight: bold;

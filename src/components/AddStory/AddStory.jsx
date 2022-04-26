@@ -3,12 +3,12 @@ import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router';
 
-import "./AddEvent.css"
+import "./AddStory.css"
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
 
 
-const AddEvent = ({ setOpen }) => {
+const AddStory = ({ setOpen }) => {
     const title = useRef();
     const description = useRef();
     const scheduleDate = useRef();
@@ -85,7 +85,7 @@ const AddEvent = ({ setOpen }) => {
             <form action="" onSubmit={handleSubmit} className='addEvent'>
                 <div>
                     <label htmlFor="title">Title</label>
-                    <input type="text" name='title' ref={title} placeholder="add event title" required />
+                    <input type="text" name='title' ref={title} placeholder="add a title" required />
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
@@ -126,4 +126,4 @@ const AddEvent = ({ setOpen }) => {
     )
 }
 
-export default AddEvent
+export default AddStory

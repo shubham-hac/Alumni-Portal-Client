@@ -26,6 +26,8 @@ import { AuthContext } from './context/AuthContext';
 import ProjectShowcase from './pages/ProjectShowcase/ProjectShowcase';
 import Settings from './pages/Settings/Settings';
 import AddEvent from './components/AddEvent/AddEvent';
+import AddStory from './components/AddStory/AddStory';
+
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import Spinner from './components/Spinner/Spinner';
 
@@ -40,8 +42,8 @@ const AnimatedRoutes = () => {
             <Route path="/profile/:userId" element={user ? <Profile /> : <Login />} />
             <Route path="/events" element={user ? <Events /> : <Login />} />
             <Route path="/events/:eventId" element={<EventDetails />} />
-            <Route path="/stories" element={<Stories />} />
-            <Route path="/stories/:storyId" element={<StoryDetails />} />
+            <Route path="/stories" element={user ? <Stories /> : <Login />} />
+            <Route path="/storyDetails/:storyId" element={<StoryDetails />} />
             <Route path="/projects" element={<ProjectShowcase />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="jobs/:jobId" element={<JobDetails />} />
@@ -54,6 +56,8 @@ const AnimatedRoutes = () => {
             <Route path="/settings" element={<Settings />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
             <Route path='/addEvent' element={<AddEvent />} />
+            <Route path='/addStory' element={<AddStory />} />
+
             <Route path='*' element={<ErrorPage />} />
             <Route path='/pageNotFound' element={<ErrorPage />} />
         </Routes>

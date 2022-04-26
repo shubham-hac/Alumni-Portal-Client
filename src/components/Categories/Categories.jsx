@@ -8,7 +8,7 @@ const JobCategories = () => {
         <h3>Job Categories</h3>
         <ul className='categories'>
             <Link to='/jobs'>
-                <li className='category category-active' >
+                <li className='category' >
                     <span>All Opportunities</span>
                     <span>(20)</span>
                 </li>
@@ -36,7 +36,7 @@ const Eventcategories = () => {
             <h3>Event Categories</h3>
             <ul className='categories'>
                 <Link to='/events'>
-                    <li className='category category-active'>
+                    <li className='category'>
                         <span>All Events</span>
                         <span>(200)</span>
                     </li>

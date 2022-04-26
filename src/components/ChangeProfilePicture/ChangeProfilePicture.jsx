@@ -4,7 +4,8 @@ import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import CloseIcon from '@mui/icons-material/Close';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
-import Success from './Success';
+import Success from '../Success/Success';
+
 
 const ChangeProfilePicture = ({setOpen}) => {
     const {user} = useContext(AuthContext);

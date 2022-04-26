@@ -16,6 +16,7 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import { Box, Button, Modal } from '@mui/material';
 import ChangeProfilePicture from '../../components/ChangeProfilePicture/ChangeProfilePicture';
+import AddSummary from '../../components/AddSummary/AddSummary';
 // import {useSearchParams} from 'react-router-dom'
 
 const Profile = () => {
@@ -26,7 +27,21 @@ const Profile = () => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [component, setComponent] = useState('');
 
+    
+    function componentType(component){
+        switch(component){
+            case 'summary': return <AddSummary setOpen={setOpen}/>
+            case 'changeProfilePicture': return <ChangeProfilePicture setOpen={setOpen} />
+            default:;
+        }
+    }
+
+    function changeComponent(component) {
+        setComponent(component)
+        handleOpen()
+    }
     const style = {
         position: 'absolute',
         top: '50%',
@@ -57,7 +72,7 @@ const Profile = () => {
             }
         }
         getUserDetails();
-    }, [open])
+    }, [open, component])
 
 
 
@@ -73,7 +88,7 @@ const Profile = () => {
                             <img src={`${userDetails.profilePicture}`} alt="" className="profile-image" />
                             {userDetails._id === user._id
                                 ? (
-                                    <button className='btn profile-edit-btn' onClick={handleOpen}><EditIcon /></button>
+                                    <button className='btn profile-edit-btn' onClick={() => {changeComponent('changeProfilePicture')}}><EditIcon /></button>
                                 )
                                 : (
                                     ''
@@ -85,7 +100,8 @@ const Profile = () => {
                                 aria-describedby="modal-modal-description"
                             >
                                 <Box sx={style}>
-                                    <ChangeProfilePicture setOpen={setOpen} />
+                                    {componentType(component)}
+                                    {/* <ChangeProfilePicture setOpen={setOpen} /> */}
                                 </Box>
                             </Modal>
                         </div>
@@ -105,8 +121,8 @@ const Profile = () => {
                             </span>
                             {
                                 userDetails._id == user._id ? (
-                                    <button className='btn btn-green-light'>
-                                        <EditIcon className='icon' />
+                                    <button className='btn btn-green-light' >
+                                        <EditIcon className='icon'  />
                                         Edit
                                     </button>
                                 ) : (
@@ -172,13 +188,12 @@ const Profile = () => {
                         <div className="summary-top">
                             <span className='card-title'>
                                 <SummarizeIcon className='icon' />
-                                
                                 <span>Summary</span>
                             </span>
                             {
                                 userDetails._id == user._id
                                     ? (
-                                        <button className='btn btn-green-light'>+ Add</button>
+                                        <button className='btn btn-green-light' onClick={() =>changeComponent('summary')}>+ Add</button>
                                     )
                                     : (
                                         ''
@@ -186,7 +201,15 @@ const Profile = () => {
                             }
                         </div>
                         <div className="summary-bottom">
-                            <span>+Use summary to share what you do, your achievements or the opportunities you're looking for</span>
+                            {
+                                userDetails.desc 
+                                ? (
+                                    <span className='summary-value'>{userDetails.desc}</span>
+                                )
+                                : (
+                                    <span className='summary-value'>+Use summary to share what you do, your achievements or the opportunities you're looking for</span>
+                                )
+                            }
                         </div>
                     </div>
                     <div className="education">
