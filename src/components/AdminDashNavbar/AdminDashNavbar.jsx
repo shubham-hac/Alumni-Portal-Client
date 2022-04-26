@@ -8,7 +8,7 @@ const AdminDashNavbar=()=>{
             <h3>Administrative Actions</h3>
             <ul className='categories'>
                 <Link to='/admin-dash/'>
-                        <li className='category category-active'>
+                        <li className='category'>
                             <span>Moderation Log</span>
                         </li>
                 </Link>

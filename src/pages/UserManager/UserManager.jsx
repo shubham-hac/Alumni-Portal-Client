@@ -8,7 +8,7 @@ import axios from 'axios'
 import { courses } from '../../dummyData'
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 const UserManager=()=>{
-    const [selectedCourse, setSelectedCourse] = useState({});
+    const [selectedCourse, setSelectedCourse] = useState();
     const [selectedBranch, setSelectedBranch] = useState('');
     const [branches, setBranches] = useState();
     const [selectedYear, setSelectedYear] = useState('');
@@ -42,7 +42,6 @@ const UserManager=()=>{
         e.preventDefault()
         const pid_regexp = /^[0-9]{7}$/
         const filters = {}
-        console.log(userType,selectedYear,selectedBranch,selectedCourse,searchPID.current.value)
         if(pid_regexp.test(searchPID.current.value))
             filters['pid'] = searchPID.current.value
         else{
@@ -58,12 +57,20 @@ const UserManager=()=>{
             }
         }
         try{
+            console.log(filters)
+            if(Object.keys(filters).length===0){
+                setSearchResults([])
+                setStatusMessage("Please select a filter or enter a PID")
+                return
+            }
             const response = await axios.post('http://localhost:5000/users/all',{filters:filters})
             setSearchResults(response.data)
         }catch(error){
             console.log(error)
             setSearchResults([])
-            setStatusMessage(error.response.data.error)
+            if(error.response)
+                setStatusMessage(error.response.data.error)
+            else setStatusMessage("Failed to communicate with server")
         }
     }
     return(
@@ -73,7 +80,7 @@ const UserManager=()=>{
             <form className='filter-users'>
                     <h3 className='filter-heading'>Filter Users</h3>
                     <div className='filter-options'>
-                        <select className="filter-option" value={selectedCourse.courseId} onChange={updateCourse} >
+                        <select className="filter-option" onChange={updateCourse} >
                             <option value="none" selected disabled hidden>Select Course</option>
                             {courses.map(course => (
                                 <option key={course.courseId} value={course.courseId}>{course.courseName}</option>
@@ -89,7 +96,7 @@ const UserManager=()=>{
                                 </select>
                             ) : ''}
                         <select className='filter-option' onChange={updateUserType}>
-                            <option value="none" default disabled hidden> User Type</option>
+                            <option value="none" selected default disabled hidden> User Type</option>
                             <option key="1" value="1">Student</option>
                             <option key="2" value="2">Alumni</option>
                         </select>
@@ -105,6 +112,7 @@ const UserManager=()=>{
                         <FilterAltIcon />
                         Filter
                     </button>
+                
             </form>
             <div className="user-cards">
             {searchResults.length>0?searchResults.map((matchedUser)=>(

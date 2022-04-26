@@ -96,6 +96,10 @@
     flex-grow: 1;
     justify-content: center;
 }
+.errorMsg{
+    color: red;
+    font-size: 0.8em;
+}
 @media (max-width:1250px){
     .main-content{
         gap: 0.5em;
