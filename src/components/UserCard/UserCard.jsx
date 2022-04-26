@@ -23,7 +23,7 @@ const UserCard=({userId,pid,firstName,lastName,course,branch,role,joinYear,endYe
                         <li><TagIcon/> PID: {pid}</li>
                         <li><SchoolIcon /> Course: {course}</li>
                         <li><ClassIcon /> Branch: {branch}</li>
-                        <li><BadgeIcon /> Role: {role===1?'Alumni':'Student'}</li>
+                        <li><BadgeIcon /> Role: {role===1?'Student':'Alumni'}</li>
                         <li><TimelineIcon /> {endYear?`Duration: ${new Date(joinYear).getFullYear()}-${new Date(endYear).getFullYear()}`:`Joined: ${new Date(joinYear).getFullYear()}`}</li>
                     </ul>
                 </p>
