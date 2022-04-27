@@ -1,11 +1,12 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import './Job.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Users } from '../../dummyData';
 
-const Job = ({id,jobProfile, company,userId, location, deadline, salary, linkClicks}) => {
+const Job = ({ id, jobProfile, company, userId, location, deadline, salary, linkClicks }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER_CLIENT;
     const [user, setUser] = useState(Users[userId]);
+    const [applied, setApplied] = useState(false);
 
     return (
         <div className="job">
@@ -45,11 +46,20 @@ const Job = ({id,jobProfile, company,userId, location, deadline, salary, linkCli
                     <span>{Users[userId].name}</span>
                 </div>
                 <div className="job-bottom-right">
-                    <Link to={`/jobs/${id}`}>
-                        <button className="btn btn-primary-light">
-                            View
-                        </button>
-                    </Link>
+
+                    {
+                        applied
+                            ? (
+                                <button className="btn btn-green" onClick={()=> setApplied(false)}>
+                                    Applied
+                                </button>
+                            )
+                            : (
+                                <button className="btn btn-primary-light" onClick={()=> setApplied(true)}>
+                                    Apply
+                                </button>
+                            )
+                    }
                 </div>
             </div>
         </div>

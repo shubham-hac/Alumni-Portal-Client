@@ -65,6 +65,7 @@ const AddEvent = ({ setOpen }) => {
             navigate('/events')
 
         } catch (error) {
+            setLoading(false)
             // error.response.data  && console.log(error.response.data);
             setErrorMsg("error");
         }

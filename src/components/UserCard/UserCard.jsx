@@ -12,7 +12,7 @@ const UserCard=({userId,pid,firstName,lastName,course,branch,role,joinYear,endYe
     return(
         <div className="applicant-card">
             <div className="applicant-profile-image">
-                <img src={`${profilePicture}`} alt="" />
+                <img src={profilePicture ? `${profilePicture}` : 'http://localhost:3000/assets/images/alt-no-avatar.svg'} alt="" />
             </div>
             <div className="applicant-details">
                 <div className="applicant-name">

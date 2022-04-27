@@ -18,11 +18,11 @@ const AdminDashNavbar=()=>{
                             
                         </li>
                 </Link>
-                <Link to='/admin-dash/admins'>
+                {/*<Link to='/admin-dash/admins'>
                         <li className='category'>
                             <span>Manage Admins</span>
                         </li>
-                </Link>
+                </Link>*/}
             </ul>
         </div>
     )

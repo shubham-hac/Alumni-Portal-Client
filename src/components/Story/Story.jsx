@@ -6,8 +6,9 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import { Users } from '../../dummyData';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
+import { format } from 'timeago.js';
 
-const Story = ({ id, title, desc, storyImage, postDate, userId }) => {
+const Story = ({ id, title, desc, storyImage, createdAt, userId }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const { user } = useContext(AuthContext);
     const defaultSrc = 'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649517324/AlumniPortal/post1_qvb5wq.jpg';
@@ -38,7 +39,7 @@ const Story = ({ id, title, desc, storyImage, postDate, userId }) => {
                     <span className='story-username'>{userDetails.firstName} {userDetails.lastName}<span className='user-type'>| Alumni</span></span>
                 </div>
                 <div className="story-top-right">
-                    <span className="post-date">{postDate}</span>
+                    <span className="post-date">{format(createdAt)}</span>
                 </div>
             </div>
             <div className="story-bottom">
@@ -56,6 +57,7 @@ const Story = ({ id, title, desc, storyImage, postDate, userId }) => {
                         {title}
                     </Link>
                     <p className='story-description'>
+                        
                         {desc}
                     </p>
                     

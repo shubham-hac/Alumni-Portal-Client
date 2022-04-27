@@ -4,7 +4,7 @@
     padding: 1em;
     /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
     border: 1px solid #bfc7cc;
-    margin: 1.5em auto;
+    /* margin: 1.5em auto; */
     background: var(--primary-bg);
     border-radius: 5px;
     animation: appear 300ms ease;
@@ -89,6 +89,12 @@
 }
 .story-description{
     font-size: 0.85rem;
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4; 
+   -webkit-box-orient: vertical;
 }
 .story-date,.story-location{
     display: flex;

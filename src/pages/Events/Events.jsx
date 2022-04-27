@@ -20,8 +20,8 @@ const Events = () => {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    const {user} = useContext(AuthContext);
-  
+    const { user } = useContext(AuthContext);
+
     const style = {
         position: 'absolute',
         top: '50%',
@@ -32,10 +32,10 @@ const Events = () => {
         border: '2px solid #000',
         boxShadow: 24,
         p: 1,
-      };
+    };
 
     useEffect(() => {
-        
+
         fetchEvents();
     }, []);
 
@@ -57,7 +57,7 @@ const Events = () => {
         // console.log(eventId);
         console.log(user._id)
         try {
-            await axios.delete(`http://localhost:5000/events/${eventId}`, {data: {userId: user._id, userType: user.userType}})
+            await axios.delete(`http://localhost:5000/events/${eventId}`, { data: { userId: user._id, userType: user.userType } })
             await fetchEvents();
         } catch (error) {
             console.log(error.response.data);
@@ -66,42 +66,48 @@ const Events = () => {
 
     return (
         <>
-        {/* <PageTitle /> */}
-        <div className='events'>
-            
-            <div className="event-categories-container">
-                <Categories />
-            </div>
-            <div className="events-container">
-                <div className="post-event">
-                    <Link to="/addEvent">
-                        <button className='btn btn-primary add-event-btn'>+ Add Event</button>
-                    </Link>
-                </div>
-                {loading
+            {/* <PageTitle /> */}
+            <div className='events'>
 
-                    ? events.map(event => (
-                        <Event
-                            key={event._id}
-                            eventId={event._id}
-                            title={event.title}
-                            desc={event.desc}
-                            eventImage={event.eventImage}
-                            postDate={event.createdAt}
-                            scheduleDate={event.scheduleDate}
-                            userId={event.userId}
-                            venue={event.address}
-                            handleDelete={handleDelete} />
-                    ))
-                    : (
-                        <>
-                            <SkeletonLoading />
-                            <SkeletonLoading />
-                            <SkeletonLoading />
-                        </>
-                    )}
+                <div className="event-categories-container">
+                    <Categories />
+                </div>
+                <div className="events-container">
+                    {
+                        user.userType === 2 || user.userType === 3
+                            ? (
+                                <div className="post-event">
+                                    <Link to="/addEvent">
+                                        <button className='btn btn-primary add-event-btn'>+ Add Event</button>
+                                    </Link>
+                                </div>
+                            )
+                            : ''
+                }
+                    {loading
+
+                        ? events.map(event => (
+                            <Event
+                                key={event._id}
+                                eventId={event._id}
+                                title={event.title}
+                                desc={event.desc}
+                                eventImage={event.eventImage}
+                                postDate={event.createdAt}
+                                scheduleDate={event.scheduleDate}
+                                userId={event.userId}
+                                venue={event.address}
+                                handleDelete={handleDelete} />
+                        ))
+                        : (
+                            <>
+                                <SkeletonLoading />
+                                <SkeletonLoading />
+                                <SkeletonLoading />
+                            </>
+                        )}
+                </div>
             </div>
-        </div>
         </>
     )
 }

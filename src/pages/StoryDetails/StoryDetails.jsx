@@ -36,7 +36,7 @@ const StoryDetails = () => {
                 </div>
                 <h2 className="story-title">{story.title}</h2>
                 <p className="story-description">
-                    <MDEditor.Markdown source={''} />
+                    <MDEditor.Markdown source={story.desc} />
                     {/* Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro aliquam impedit consequatur sint praesentium cumque reprehenderit facere, minima obcaecati libero nihil recusandae sit sequi quaerat rerum a perspiciatis maxime in! Fuga, nostrum! Fugiat quis error quos labore eius recusandae laudantium explicabo voluptate libero architecto nam sequi, expedita harum asperiores totam. Numquam qui nihil odio sunt, fugit aspernatur assumenda ducimus quis, impedit repellendus, aperiam libero unde dolore? */}
                 </p>
             </div>

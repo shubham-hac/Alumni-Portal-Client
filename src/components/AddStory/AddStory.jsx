@@ -39,38 +39,37 @@ const AddStory = ({ setOpen }) => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setErrorMsg("");
-        const newEvent = {
+        const newStory = {
             userId: user._id,
             title: title.current.value,
             desc: description.current.value,
-            scheduleDate: new Date(scheduleDate.current.value),
-            address: address.current.value,
             eventImage: '',
         }
         if (previewSource) {
             setLoading(true);
-            const res = await uploadImage(previewSource, newEvent)
+            const res = await uploadImage(previewSource, newStory)
             // const data = new FormData();
             // const fileName = file.name;
             // data.append('file', file);
             // data.append('name', fileName);
-            newEvent.eventImage = await res.data.url;
+            newStory.storyImage = await res.data.url;
         }
         try {
-            const response = await axios.post('http://localhost:5000/events/new', newEvent);
+            const response = await axios.post('http://localhost:5000/stories/new', newStory);
             setLoading(false);
             // setOpen(false);
             console.log(response);
             // window.location.reload();
-            navigate('/events')
+            navigate('/stories')
 
         } catch (error) {
+            setLoading(false)
             // error.response.data  && console.log(error.response.data);
             setErrorMsg("error");
         }
     }
 
-    const uploadImage = async (base64EncodedImage, newEvent) => {
+    const uploadImage = async (base64EncodedImage, newStory) => {
         console.log(base64EncodedImage);
         try {
             const res = await axios.post('http://localhost:5000/upload', {data: base64EncodedImage});
@@ -85,19 +84,11 @@ const AddStory = ({ setOpen }) => {
             <form action="" onSubmit={handleSubmit} className='addEvent'>
                 <div>
                     <label htmlFor="title">Title</label>
-                    <input type="text" name='title' ref={title} placeholder="add a title" required />
+                    <input type="text" name='title' ref={title} placeholder="add story title" required />
                 </div>
                 <div>
                     <label htmlFor="description">Description</label>
                     <textarea name="description" ref={description} placeholder="markdown is supported" required></textarea>
-                </div>
-                <div>
-                    <label htmlFor="scheduleDate">Schedule Date</label>
-                    <input type="date" name="scheduleDate" ref={scheduleDate} onChange={(e) => {console.log(new Date(e.target.value))}} required />
-                </div>
-                <div>
-                    <label htmlFor="address">Venue</label>
-                    <input type="text" name="address" placeholder='add a venue' ref={address} />
                 </div>
                 <div className='file-container'>
                     <label htmlFor="file" className='file'>

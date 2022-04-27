@@ -9,6 +9,7 @@ import AnimatedRoutes from './AnimatedRoutes';
 import ScrollToTop from './utils/ScrollToTop';
 import { AuthContext } from './context/AuthContext';
 import { loginCall } from './apiCalls';
+import Spinner from './components/Spinner/Spinner';
 
 function App() {
   const {user, isFetching, error, dispatch} = useContext(AuthContext);
@@ -18,7 +19,11 @@ function App() {
         await loginCall({email: localStorage.getItem('user_email'), password: localStorage.getItem('user_passwd')}, dispatch);
       }
   }, [])
-  
+  if(isFetching){
+    return (
+      <Spinner />
+    )
+  }
   return (
     <Router>
       <div className="App">

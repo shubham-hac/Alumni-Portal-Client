@@ -16,6 +16,8 @@
     border-radius: 5px;
     margin: 1em auto;
     padding: 0.8em;
+    background: var(--primary-clr-200);
+    color: var(--primary-bg);
 }
 .category-active{
     /* border-left: 6px solid #3db166; */

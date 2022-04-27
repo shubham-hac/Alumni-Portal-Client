@@ -52,7 +52,7 @@ const Stories = () => {
                         title={story.title}
                         desc={story.desc}
                         storyImage={story.storyImage}
-                        postDate={story.postDate}
+                        createdAt={story.createdAt}
                         userId={story.userId} />
                 ))}
             </div>
