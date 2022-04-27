@@ -47,8 +47,8 @@ const AnimatedRoutes = () => {
             <Route path="jobs/:jobId" element={<JobDetails />} />
             <Route path="/alumnis" element={user ? <AlumniDirectory /> : <Spinner />} />
             <Route path="/admin-dash" element={user ? (user.userType === 3 ? <AdminDash /> : <Home />) : <Login />} />
-            <Route path="/admin-dash/users" element={user ? <UserManager /> : <Login />} />
-            <Route path="/admin-dash/users/:userId" element={<UserDetails />} />
+            <Route path="/admin-dash/users" element={user ? (user.userType === 3 ? <UserManager /> : <Home />) : <Login />} />
+            <Route path="/admin-dash/users/:userId" element={user ? (user.userType === 3 ? <UserDetails /> : <Home />) : <Login />} />
             <Route path="/register" element={user ? <Navigate to="/" /> : <Register />} />
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/settings" element={<Settings />} />

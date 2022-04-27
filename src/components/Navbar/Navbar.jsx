@@ -20,7 +20,7 @@ const Navbar = () => {
     const [showLinks, setShowLinks] = useState(false);
     const [navActive, setNavActive] = useState(false);
     const [showOptions, setShowOptions] = useState(false);
-    const defaultSrc = 'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649520852/AlumniPortal/no-avatar_xadk4e.png';
+    const defaultSrc = 'http://localhost:3000/assets/images/alt-no-avatar.svg';//'https://res.cloudinary.com/dyyw5veqq/image/upload/v1649520852/AlumniPortal/no-avatar_xadk4e.png';
     const navigate = useNavigate();
     
     window.onscroll = () => {
@@ -113,7 +113,7 @@ const Navbar = () => {
                 {user
                     ? (
                         <div >
-                            <img src={user ? `${user.profilePicture}` : defaultSrc}
+                            <img src={user.profilePicture?`${user.profilePicture}` : 'http://localhost:3000/assets/images/no-avatar.png'}
                                 alt=""
                                 className='navbar-profile-img'
                                 onClick={handleClick}

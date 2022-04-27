@@ -101,7 +101,7 @@ const UserDetailsComponent = ({userDetails})=>{
                     </div>
                     <div className="profile-pane">
                         <div className="profile-img">
-                            <img src={`${userDetails.profilePicture}`} />
+                            <img src={userDetails.profilePicture ? `${userDetails.profilePicture}` : 'http://localhost:3000/assets/images/alt-no-avatar.svg'} />
                         </div>
                         <div className="profile-pane-text">
                             <div className="applicant-name">
