@@ -2,6 +2,7 @@
     width: 95%;
     max-width: 600px;
     margin-top: 2em;
+    margin-bottom: 2em;
     margin-inline: auto;
     border: 1px solid #ccc;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
@@ -60,7 +61,7 @@
 .shareImageContainer{
     position: relative;
     max-width: 300px;
-    max-height: 200px;
+    max-height: none;
     margin: auto;
 }
 .shareImage{

@@ -5,10 +5,10 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1em;
-    /* border-bottom: 1px solid #ddd; */
-    background: var(--primary-clr);
-    color: var(--primary-bg);
-    box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+    border-bottom: 1px solid #ddd;
+    /* background: var(--primary-clr); */
+    /* color: var(--primary-bg); */
+    /* box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28); */
 }
 .navbar-active{
     /* margin: auto;
@@ -33,7 +33,7 @@
     padding: 0.2em 0.5em;
     /* border: 2px solid red; */
     text-align: center;
-    color: var(--primary-bg) !important;
+    /* color: var(--primary-bg) !important; */
 
 }
 .navbar a:hover{

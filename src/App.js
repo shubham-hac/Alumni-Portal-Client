@@ -21,7 +21,11 @@ function App() {
   }, [])
   if(isFetching){
     return (
+      <Router>
+      <Navbar />
       <Spinner />
+      </Router>
+      
     )
   }
   return (

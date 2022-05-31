@@ -31,7 +31,7 @@
 
 }
 .App {
-    background: #F6F8FA;
+    /* background: #F6F8FA; */
     width: 100%;
     color: var(--primary-clr);
     min-height: 100vh;

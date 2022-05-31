@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import axios from 'axios';
 
-const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, profilePicture, joinYear, endYear }) => {
+const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, profilePicture }) => {
     const { user } = useContext(AuthContext);
 
     const [following, setFollowing] = useState(user.followings.includes(id));
@@ -40,15 +40,11 @@ const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, prof
     return (
         <div className="alumni-profile">
             <div className="alumni-profile-image">
-<<<<<<< HEAD
                 {profilePicture === '' ?(
                             <img src={`${defaultSrc}`} alt="" className="story-image" />
                         ) : (
                             <img src={`${profilePicture}`} alt="" className="story-image" />
                         )}
-=======
-                <img src={`${profilePicture || 'http://localhost:3000/assets/images/alt-no-avatar.svg'}`} alt="" />
->>>>>>> 633b0c15c01badf614c4236947cee74aa239dfa0
                 <Tooltip title="message-alumni">
                     <button className="msg-button" >
                         <EmailIcon />
@@ -63,7 +59,6 @@ const AlumniProfileCard = ({ id, firstName, lastName, course, branch, desc, prof
 
 
                     <span className='alumni-course'>{course}, {branch}</span>
-                    <span className='alumni-course'>{endYear?`Class of: ${new Date(joinYear).getFullYear()}-${new Date(endYear).getFullYear()}`:`Joined: ${new Date(joinYear).getFullYear()}`}</span>
                 </div>
 
                 <p className='alumni-description'>{desc || `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus possimus inventore quidem 

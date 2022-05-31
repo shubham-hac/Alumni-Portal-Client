@@ -31,15 +31,15 @@ const Home = () => {
     }, []);
 
     window.onload = () => {
-        if(window.innerWidth < 400){
+        if (window.innerWidth < 400) {
             setSlides(1.3);
             setSpace(20);
         }
-        else if(window.innerWidth < 765){
+        else if (window.innerWidth < 765) {
             setSlides(2);
             setSpace(30);
-        }  
-        else{
+        }
+        else {
             setSlides(3)
             setSpace(30);
         }
@@ -47,11 +47,20 @@ const Home = () => {
     return (
         <div className='home'>
             {/* Carousel */}
-            <Swiper
+            <div className='intro'>
+                <div className='intro-text'>
+                    <h2>Welcome to SJCEM Alumni Portal</h2>
+                    <button className='btn btn-primary explore-btn'>Start Exploring</button>
+                </div>
+                <div className='intro-image'>
+                    <img src="/assets/images/connect.svg" alt="" />
+                </div>
+            </div>
+            {/* <Swiper
                 modules={[Autoplay, Scrollbar, Pagination, Parallax, Navigation]}
                 spaceBetween={0}
                 slidesPerView={1}
-                autoplay={{ delay: 3000, disableOnInteraction: false }}
+                autoplay={{ delay: 4000, disableOnInteraction: false }}
                 scrollbar={{ draggable: true }}
                 pagination={{ clickable: true }}
                 navigation
@@ -64,8 +73,10 @@ const Home = () => {
                         <img src={`${PF}posts/${item.image}`} alt="" className="image" />
                     </SwiperSlide>
                 ))}
-            </Swiper>
-            
+                
+            </Swiper> */}
+
+
             {/* About */}
             <div className='about'>
                 <div className="about-left">
@@ -99,7 +110,7 @@ const Home = () => {
                     }).map((event, index) => (
                         <SwiperSlide key={event._id} className="latest-event">
                             <img src={`${event.eventImage}`} alt="" className="image" />
-                            <span className='event-date'>{event.scheduleDate}</span>
+                            <span className='event-date'>{event.scheduleDate.slice(0, 10)}</span>
                             <h4 className='latest-event-title'>{event.title}</h4>
                             <Link to={`events/${event._id}`}>Read More</Link>
                         </SwiperSlide>
@@ -109,7 +120,7 @@ const Home = () => {
             </div>
 
             <div className="engagement">
-                
+
             </div>
         </div>
     )

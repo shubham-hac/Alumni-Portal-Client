@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Job.css';
 import { Link } from 'react-router-dom';
-import { Users } from '../../dummyData';
+// import { Users } from '../../dummyData';
+import axios from 'axios';
 
 const Job = ({ id, jobProfile, company, userId, location, deadline, salary, linkClicks }) => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER_CLIENT;
-    const [user, setUser] = useState(Users[userId]);
+    // const [user, setUser] = useState(Users[userId]);
     const [applied, setApplied] = useState(false);
+
+    const [userDetails, setUserDetails] = useState({});
+    useEffect(() => {
+        const fetchUser = async () => {
+            try {
+                const response = await axios.get(`http://localhost:5000/users?userId=${userId}`);
+                const data = await response.data;
+                // console.log(data);
+                setUserDetails(data);
+
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchUser();
+    }, []);
 
     return (
         <div className="job">
@@ -33,7 +50,7 @@ const Job = ({ id, jobProfile, company, userId, location, deadline, salary, link
                 </div>
                 <div className="salary">
                     <span className="job-info">Salary</span>
-                    <span className="job-info-value">{salary}</span>
+                    <span className="job-info-value">{salary ? salary : `--`}</span>
                 </div>
                 <div className="link-clicks">
                     <span className="job-info">Link Clicks</span>
@@ -42,8 +59,8 @@ const Job = ({ id, jobProfile, company, userId, location, deadline, salary, link
             </div>
             <div className="job-bottom">
                 <div className="job-bottom-left">
-                    <img src={`${PF}images/people/${user.profilePicture}`} alt="" className='job-profile-image' />
-                    <span>{Users[userId].name}</span>
+                    <img src={`${userDetails.profilePicture}`} alt="" className='job-profile-image' />
+                    <span>{userDetails.firstName}{userDetails.lastName}</span>
                 </div>
                 <div className="job-bottom-right">
 

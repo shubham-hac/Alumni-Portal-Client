@@ -415,16 +415,12 @@ export const carouselData = [
     {
         id: 12,
         title: "Harry Potter and the cursed Child",
-        image: "post2.jpg"
+        image: "EDCellE2.jpeg"
     },
     {
         id: 13,
         title: "Will you still love me by Ravinder singh",
-        image: "post3.jpg"
+        image: "EDCellE3.jpeg"
     },
-    {
-        id: 14,
-        title: "Harry Potter and the cursed Child",
-        image: "post2.jpg"
-    },
+
 ]

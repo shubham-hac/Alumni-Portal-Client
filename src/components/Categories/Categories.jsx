@@ -10,19 +10,19 @@ const JobCategories = () => {
             <Link to='/jobs'>
                 <li className='category' >
                     <span>All Opportunities</span>
-                    <span>(20)</span>
+                    <span>(3)</span>
                 </li>
             </Link>
             <Link to='/jobs/past'>
                 <li className='category'>
                     <span>Posted By Me</span>
-                    <span>(0)</span>
+                    <span>(3)</span>
                 </li>
             </Link>
             <Link to='/jobs/upcoming'>
                 <li className='category'>
                     <span>Applied By Me</span>
-                    <span>(0)</span>
+                    <span>(1)</span>
                 </li>
             </Link>
         </ul>
@@ -38,19 +38,19 @@ const Eventcategories = () => {
                 <Link to='/events'>
                     <li className='category'>
                         <span>All Events</span>
-                        <span>(200)</span>
+                        <span>(3)</span>
                     </li>
                 </Link>
                 <Link to='/events/past'>
                     <li className='category'>
                         <span>Past Events</span>
-                        <span>(196)</span>
+                        <span>(0)</span>
                     </li>
                 </Link>
                 <Link to='/events/upcoming'>
                     <li className='category'>
                         <span>Upcoming Events</span>
-                        <span>(4)</span>
+                        <span>(0)</span>
                     </li>
                 </Link>
             </ul>

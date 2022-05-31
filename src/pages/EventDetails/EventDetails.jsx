@@ -19,6 +19,8 @@ const EventDetails = () => {
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     let navigate = useNavigate();
 
+    const [userId, setuserId] = useState('');
+    const [userDetails, setUserDetails] = useState([]);
 
     useEffect(() => {
       const fetchEvent = async () => {
@@ -27,13 +29,27 @@ const EventDetails = () => {
                 const data = await response.data;
                 console.log(data);
                 setEvent(data);
+                setuserId(event.userId)
             } catch (error) {
                 navigate('/pageNotFound')
                 console.log(error)
             }
       }
       fetchEvent();
+      fetchuserDetails();
     }, []);
+
+    const fetchuserDetails = async () => {
+        try {
+            // console.log(userId)
+            const res = await axios.get(`http://localhost:5000/users?userId=${userId}`)
+            const data = res.data;
+            console.log(data)
+            setUserDetails(data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
     
     return (
         <div className="event-details">
@@ -47,7 +63,7 @@ const EventDetails = () => {
                         </div>
                         <div>
                             <PersonIcon className='icon' />
-                            <span>Yash Patil</span>
+                            <span>Dishant Tare</span>
                         </div>
                         <div>
                             <VisibilityIcon className='icon' />
