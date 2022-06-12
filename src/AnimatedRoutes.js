@@ -34,7 +34,7 @@ import Spinner from './components/Spinner/Spinner';
 const AnimatedRoutes = () => {
     const { user } = useContext(AuthContext);
     const location = useLocation();
-    console.log(location)
+
     return (
         <Routes location={location} key={location.pathname}>
             {/* <Route path="/" element={user ? <Home /> : <Login />} /> */}
@@ -55,7 +55,7 @@ const AnimatedRoutes = () => {
             <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/skeleton" element={<SkeletonLoading />} />
-            <Route path='/addEvent' element={<AddEvent />} />
+            <Route path='/addEvent' element={user ? (user.userType != 1 ? <AddEvent /> : <Home />) : <Login />} />
             <Route path='/addStory' element={<AddStory />} />
 
             <Route path='*' element={<ErrorPage />} />

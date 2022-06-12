@@ -19,7 +19,6 @@ const AddEvent = ({ setOpen }) => {
     const [previewSource, setPreviewSource] = useState();
     const [loading, setLoading] = useState(false);
 
-    const { user } = useContext(AuthContext)
     let navigate = useNavigate();
 
     const handleFileChange = (e) => {
@@ -40,13 +39,13 @@ const AddEvent = ({ setOpen }) => {
         e.preventDefault();
         setErrorMsg("");
         const newEvent = {
-            userId: user._id,
             title: title.current.value,
             desc: description.current.value,
             scheduleDate: new Date(scheduleDate.current.value),
             address: address.current.value,
             eventImage: '',
         }
+        try {
         if (previewSource) {
             setLoading(true);
             const res = await uploadImage(previewSource, newEvent)
@@ -56,8 +55,8 @@ const AddEvent = ({ setOpen }) => {
             // data.append('name', fileName);
             newEvent.eventImage = await res.data.url;
         }
-        try {
-            const response = await axios.post('http://localhost:5000/events/new', newEvent);
+            const config = { headers:{Authorization:localStorage.getItem('accessToken')?'Bearer '+localStorage.getItem('accessToken'):null}}
+            const response = await axios.post('http://localhost:5000/events/new', {newEvent: newEvent},config);
             setLoading(false);
             // setOpen(false);
             console.log(response);
@@ -67,18 +66,18 @@ const AddEvent = ({ setOpen }) => {
         } catch (error) {
             setLoading(false)
             // error.response.data  && console.log(error.response.data);
-            setErrorMsg("error");
+            if(error.response)
+                setErrorMsg(error.response.data.error);
+            else setErrorMsg("Failed to communicate with the server")
         }
     }
 
-    const uploadImage = async (base64EncodedImage, newEvent) => {
+    const uploadImage = async (base64EncodedImage) => {
         console.log(base64EncodedImage);
-        try {
-            const res = await axios.post('http://localhost:5000/upload', {data: base64EncodedImage});
-            return res;
-        } catch (error) {
-            console.log(error)
-        }
+        const config = { headers:{Authorization:localStorage.getItem('accessToken')?'Bearer '+localStorage.getItem('accessToken'):null}}
+        const res = await axios.post('http://localhost:5000/upload', {data: base64EncodedImage},config);
+        return res;
+        
     }
 
     return (

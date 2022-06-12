@@ -19,12 +19,9 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            localStorage.setItem('user_passwd', password.current.value);
-            localStorage.setItem('user_email', email.current.value);
+        try{
             await loginCall({ email: email.current.value, password: password.current.value }, dispatch);
-            
-        } catch (err) {
+        } catch (error) {
             console.log(error)
         }
     }
@@ -51,13 +48,6 @@ const Login = () => {
                             <label htmlFor="email">Email</label>
                             <input type="email" name="email" id="email" ref={email} placeholder="eg. xyz@gmail.com" required />
                         </div>
-                        {/* <div className="role">
-                            <label htmlFor="role">Role</label>
-                            <select name="role" id="role" value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)}>
-                                <option value="alumni">Alumni</option>
-                                <option value="student">Student</option>
-                            </select>
-                        </div> */}
                         {/* <div className='username'>
                             <label htmlFor="username">Username</label>
                             <input type="text" name="username" id="username" ref={username} required />

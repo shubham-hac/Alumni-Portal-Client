@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router';
 
 const Navbar = () => {
 
-    const { user, dispatch } = useContext(AuthContext);
+    const { user,dispatch } = useContext(AuthContext);
 
     const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [showLinks, setShowLinks] = useState(false);
@@ -40,7 +40,6 @@ const Navbar = () => {
     };
 
     const logout = () => {
-        
         logoutCall(dispatch);
         setAnchorEl(null);
         navigate('/');
