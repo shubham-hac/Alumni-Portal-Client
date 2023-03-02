@@ -29,7 +29,7 @@ const Profile = () => {
     const handleClose = () => setOpen(false);
     const [component, setComponent] = useState('');
 
-    
+
     function componentType(component){
         switch(component){
             case 'summary': return <AddSummary setOpen={setOpen}/>
@@ -109,8 +109,8 @@ const Profile = () => {
                         <span className='connections'>{userDetails.followers.length} connections</span>
                         <div className="course-info">
 
-                            <span className="batch">Class of {userDetails.courseJoinYear.slice(0, 4)}</span>
-                            <span className="department">{userDetails.course}, {userDetails.branch}</span>
+                           {userDetails.courseJoinYear &&  <span className="batch">Class of {userDetails.courseJoinYear.slice(0, 4)}</span>}
+                           {userDetails.course && <span className="department">{userDetails.course}, {userDetails.branch}</span>}
                         </div>
                     </div>
                     <div className="contact-info">
@@ -202,7 +202,7 @@ const Profile = () => {
                         </div>
                         <div className="summary-bottom">
                             {
-                                userDetails.desc 
+                                userDetails.desc
                                 ? (
                                     <span className='summary-value'>{userDetails.desc}</span>
                                 )
